@@ -1,0 +1,60 @@
+package io.capman.proto.internal;
+
+import "com/google/protobuf/descriptor.proto";
+
+option java_package="io.capman.proto.internal";
+message InternalRequest{
+    required int64 uin = 1;
+    required bytes reqData = 2;
+}
+
+enum EnumInternalRet{
+    SERIALIZATION_EXCEPTION = -3;
+    TIMEOUT_EXCEPTION = -2;
+    NETWORK_EXCEPTION = -1;
+    OK = 200;
+    INTERNAL_ERROR = 500;
+}
+
+message InternalResponse{
+    required int32 ret = 1;
+    required bytes respData = 2;
+    optional string msg = 3;
+}
+
+//extension
+
+
+//extend google.
+//文件扩展
+
+//服务类型
+enum EServiceType{
+    EServiceType_Any = 0;//任意
+    EServiceType_Logic = 1;//逻辑服务,默认不会保存状态,例如业务逻辑服务
+    EServiceType_Storage = 2;//存储服务,用于保存状态,例如各种存储服务,队列服务
+}
+extend com.google.protobuf.ServiceOptions{
+    optional EServiceType serviceType = 1000[default = EServiceType_Any];
+    optional string defaultServiceUriParams = 1001[default = ""];//
+    optional string defaultClientUriParams = 1002[default = ""];//
+}
+
+//方法扩展
+enum EClusterStrategy{
+    EClusterStrategy_FailOver = 1;//失败自动切换，当出现失败，重试其它服务器，通常用于读操作（推荐使用）
+    EClusterStrategy_FailFast = 2;//快速失败，只发起一次调用，失败立即报错,通常用于非幂等性的写操作
+    EClusterStrategy_FailRetry = 3;//失败重试，出现网络异常时，直接重试
+    EClusterStrategy_Custom = 4;//自定义
+}
+enum ELoadbalanceStrategy{
+    ELoadbalanceStrategy_ConsistentHash = 1;//一致性hash
+    ELoadbalanceStrategy_Random = 2;//随机
+    ELoadbalanceStrategy_RoundRobin = 3;//轮训
+    ELoadbalanceStrategy_Custom = 4;//自定义
+}
+
+extend com.google.protobuf.MethodOptions{
+    optional EClusterStrategy defaultClusterStrategy = 1000 [default = EClusterStrategy_FailOver];
+    optional ELoadbalanceStrategy defaultLoadBalanceStrategy = 1001 [default = ELoadbalanceStrategy_ConsistentHash];
+}
