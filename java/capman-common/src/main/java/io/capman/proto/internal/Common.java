@@ -7,9 +7,9 @@ public final class Common {
   private Common() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
+    registry.add(io.capman.proto.internal.Common.serviceName);
     registry.add(io.capman.proto.internal.Common.serviceType);
     registry.add(io.capman.proto.internal.Common.defaultServiceUriParams);
-    registry.add(io.capman.proto.internal.Common.defaultClientUriParams);
     registry.add(io.capman.proto.internal.Common.defaultClusterStrategy);
     registry.add(io.capman.proto.internal.Common.defaultLoadBalanceStrategy);
   }
@@ -507,6 +507,88 @@ public final class Common {
     }
 
     // @@protoc_insertion_point(enum_scope:io.capman.proto.internal.ELoadbalanceStrategy)
+  }
+
+  /**
+   * Protobuf enum {@code io.capman.proto.internal.ETest}
+   */
+  public enum ETest
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ETest_1 = 1;</code>
+     */
+    ETest_1(0, 1),
+    /**
+     * <code>ETest_2 = 2;</code>
+     */
+    ETest_2(1, 2),
+    ;
+
+    /**
+     * <code>ETest_1 = 1;</code>
+     */
+    public static final int ETest_1_VALUE = 1;
+    /**
+     * <code>ETest_2 = 2;</code>
+     */
+    public static final int ETest_2_VALUE = 2;
+
+
+    public final int getNumber() { return value; }
+
+    public static ETest valueOf(int value) {
+      switch (value) {
+        case 1: return ETest_1;
+        case 2: return ETest_2;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ETest>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<ETest>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ETest>() {
+            public ETest findValueByNumber(int number) {
+              return ETest.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.capman.proto.internal.Common.getDescriptor().getEnumTypes().get(4);
+    }
+
+    private static final ETest[] VALUES = values();
+
+    public static ETest valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private ETest(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:io.capman.proto.internal.ETest)
   }
 
   public interface InternalRequestOrBuilder extends
@@ -1654,18 +1736,2988 @@ public final class Common {
     // @@protoc_insertion_point(class_scope:io.capman.proto.internal.InternalResponse)
   }
 
-  public static final int SERVICETYPE_FIELD_NUMBER = 1000;
+  public interface TestMsg2OrBuilder extends
+      // @@protoc_insertion_point(interface_extends:io.capman.proto.internal.TestMsg2)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string e = 1;</code>
+     */
+    boolean hasE();
+    /**
+     * <code>required string e = 1;</code>
+     */
+    java.lang.String getE();
+    /**
+     * <code>required string e = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getEBytes();
+  }
+  /**
+   * Protobuf type {@code io.capman.proto.internal.TestMsg2}
+   */
+  public static final class TestMsg2 extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:io.capman.proto.internal.TestMsg2)
+      TestMsg2OrBuilder {
+    // Use TestMsg2.newBuilder() to construct.
+    private TestMsg2(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TestMsg2(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TestMsg2 defaultInstance;
+    public static TestMsg2 getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TestMsg2 getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TestMsg2(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              e_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.capman.proto.internal.Common.TestMsg2.class, io.capman.proto.internal.Common.TestMsg2.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TestMsg2> PARSER =
+        new com.google.protobuf.AbstractParser<TestMsg2>() {
+      public TestMsg2 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TestMsg2(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TestMsg2> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int E_FIELD_NUMBER = 1;
+    private java.lang.Object e_;
+    /**
+     * <code>required string e = 1;</code>
+     */
+    public boolean hasE() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string e = 1;</code>
+     */
+    public java.lang.String getE() {
+      java.lang.Object ref = e_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          e_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string e = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEBytes() {
+      java.lang.Object ref = e_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        e_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      e_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasE()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getEBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getEBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(io.capman.proto.internal.Common.TestMsg2 prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code io.capman.proto.internal.TestMsg2}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:io.capman.proto.internal.TestMsg2)
+        io.capman.proto.internal.Common.TestMsg2OrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.capman.proto.internal.Common.TestMsg2.class, io.capman.proto.internal.Common.TestMsg2.Builder.class);
+      }
+
+      // Construct using io.capman.proto.internal.Common.TestMsg2.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        e_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
+      }
+
+      public io.capman.proto.internal.Common.TestMsg2 getDefaultInstanceForType() {
+        return io.capman.proto.internal.Common.TestMsg2.getDefaultInstance();
+      }
+
+      public io.capman.proto.internal.Common.TestMsg2 build() {
+        io.capman.proto.internal.Common.TestMsg2 result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public io.capman.proto.internal.Common.TestMsg2 buildPartial() {
+        io.capman.proto.internal.Common.TestMsg2 result = new io.capman.proto.internal.Common.TestMsg2(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.e_ = e_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.capman.proto.internal.Common.TestMsg2) {
+          return mergeFrom((io.capman.proto.internal.Common.TestMsg2)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.capman.proto.internal.Common.TestMsg2 other) {
+        if (other == io.capman.proto.internal.Common.TestMsg2.getDefaultInstance()) return this;
+        if (other.hasE()) {
+          bitField0_ |= 0x00000001;
+          e_ = other.e_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasE()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.capman.proto.internal.Common.TestMsg2 parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.capman.proto.internal.Common.TestMsg2) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object e_ = "";
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public boolean hasE() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public java.lang.String getE() {
+        java.lang.Object ref = e_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            e_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEBytes() {
+        java.lang.Object ref = e_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          e_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public Builder setE(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        e_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public Builder clearE() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        e_ = getDefaultInstance().getE();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public Builder setEBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        e_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:io.capman.proto.internal.TestMsg2)
+    }
+
+    static {
+      defaultInstance = new TestMsg2(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:io.capman.proto.internal.TestMsg2)
+  }
+
+  public interface TestMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:io.capman.proto.internal.TestMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string e = 1;</code>
+     */
+    boolean hasE();
+    /**
+     * <code>required string e = 1;</code>
+     */
+    java.lang.String getE();
+    /**
+     * <code>required string e = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getEBytes();
+
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    java.util.List<io.capman.proto.internal.Common.TestMsg2> 
+        getRmList();
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    io.capman.proto.internal.Common.TestMsg2 getRm(int index);
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    int getRmCount();
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    java.util.List<? extends io.capman.proto.internal.Common.TestMsg2OrBuilder> 
+        getRmOrBuilderList();
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    io.capman.proto.internal.Common.TestMsg2OrBuilder getRmOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code io.capman.proto.internal.TestMsg}
+   */
+  public static final class TestMsg extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:io.capman.proto.internal.TestMsg)
+      TestMsgOrBuilder {
+    // Use TestMsg.newBuilder() to construct.
+    private TestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TestMsg defaultInstance;
+    public static TestMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TestMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TestMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              e_ = bs;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                rm_ = new java.util.ArrayList<io.capman.proto.internal.Common.TestMsg2>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              rm_.add(input.readMessage(io.capman.proto.internal.Common.TestMsg2.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          rm_ = java.util.Collections.unmodifiableList(rm_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.capman.proto.internal.Common.TestMsg.class, io.capman.proto.internal.Common.TestMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TestMsg> PARSER =
+        new com.google.protobuf.AbstractParser<TestMsg>() {
+      public TestMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TestMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TestMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int E_FIELD_NUMBER = 1;
+    private java.lang.Object e_;
+    /**
+     * <code>required string e = 1;</code>
+     */
+    public boolean hasE() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string e = 1;</code>
+     */
+    public java.lang.String getE() {
+      java.lang.Object ref = e_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          e_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string e = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEBytes() {
+      java.lang.Object ref = e_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        e_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RM_FIELD_NUMBER = 2;
+    private java.util.List<io.capman.proto.internal.Common.TestMsg2> rm_;
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    public java.util.List<io.capman.proto.internal.Common.TestMsg2> getRmList() {
+      return rm_;
+    }
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    public java.util.List<? extends io.capman.proto.internal.Common.TestMsg2OrBuilder> 
+        getRmOrBuilderList() {
+      return rm_;
+    }
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    public int getRmCount() {
+      return rm_.size();
+    }
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    public io.capman.proto.internal.Common.TestMsg2 getRm(int index) {
+      return rm_.get(index);
+    }
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+     */
+    public io.capman.proto.internal.Common.TestMsg2OrBuilder getRmOrBuilder(
+        int index) {
+      return rm_.get(index);
+    }
+
+    private void initFields() {
+      e_ = "";
+      rm_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasE()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getRmCount(); i++) {
+        if (!getRm(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getEBytes());
+      }
+      for (int i = 0; i < rm_.size(); i++) {
+        output.writeMessage(2, rm_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getEBytes());
+      }
+      for (int i = 0; i < rm_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, rm_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(io.capman.proto.internal.Common.TestMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code io.capman.proto.internal.TestMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:io.capman.proto.internal.TestMsg)
+        io.capman.proto.internal.Common.TestMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.capman.proto.internal.Common.TestMsg.class, io.capman.proto.internal.Common.TestMsg.Builder.class);
+      }
+
+      // Construct using io.capman.proto.internal.Common.TestMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getRmFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        e_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (rmBuilder_ == null) {
+          rm_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          rmBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_descriptor;
+      }
+
+      public io.capman.proto.internal.Common.TestMsg getDefaultInstanceForType() {
+        return io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+      }
+
+      public io.capman.proto.internal.Common.TestMsg build() {
+        io.capman.proto.internal.Common.TestMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public io.capman.proto.internal.Common.TestMsg buildPartial() {
+        io.capman.proto.internal.Common.TestMsg result = new io.capman.proto.internal.Common.TestMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.e_ = e_;
+        if (rmBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            rm_ = java.util.Collections.unmodifiableList(rm_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.rm_ = rm_;
+        } else {
+          result.rm_ = rmBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.capman.proto.internal.Common.TestMsg) {
+          return mergeFrom((io.capman.proto.internal.Common.TestMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.capman.proto.internal.Common.TestMsg other) {
+        if (other == io.capman.proto.internal.Common.TestMsg.getDefaultInstance()) return this;
+        if (other.hasE()) {
+          bitField0_ |= 0x00000001;
+          e_ = other.e_;
+          onChanged();
+        }
+        if (rmBuilder_ == null) {
+          if (!other.rm_.isEmpty()) {
+            if (rm_.isEmpty()) {
+              rm_ = other.rm_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureRmIsMutable();
+              rm_.addAll(other.rm_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rm_.isEmpty()) {
+            if (rmBuilder_.isEmpty()) {
+              rmBuilder_.dispose();
+              rmBuilder_ = null;
+              rm_ = other.rm_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              rmBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getRmFieldBuilder() : null;
+            } else {
+              rmBuilder_.addAllMessages(other.rm_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasE()) {
+          
+          return false;
+        }
+        for (int i = 0; i < getRmCount(); i++) {
+          if (!getRm(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.capman.proto.internal.Common.TestMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.capman.proto.internal.Common.TestMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object e_ = "";
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public boolean hasE() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public java.lang.String getE() {
+        java.lang.Object ref = e_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            e_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEBytes() {
+        java.lang.Object ref = e_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          e_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public Builder setE(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        e_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public Builder clearE() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        e_ = getDefaultInstance().getE();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string e = 1;</code>
+       */
+      public Builder setEBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        e_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.capman.proto.internal.Common.TestMsg2> rm_ =
+        java.util.Collections.emptyList();
+      private void ensureRmIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          rm_ = new java.util.ArrayList<io.capman.proto.internal.Common.TestMsg2>(rm_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          io.capman.proto.internal.Common.TestMsg2, io.capman.proto.internal.Common.TestMsg2.Builder, io.capman.proto.internal.Common.TestMsg2OrBuilder> rmBuilder_;
+
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public java.util.List<io.capman.proto.internal.Common.TestMsg2> getRmList() {
+        if (rmBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rm_);
+        } else {
+          return rmBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public int getRmCount() {
+        if (rmBuilder_ == null) {
+          return rm_.size();
+        } else {
+          return rmBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg2 getRm(int index) {
+        if (rmBuilder_ == null) {
+          return rm_.get(index);
+        } else {
+          return rmBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder setRm(
+          int index, io.capman.proto.internal.Common.TestMsg2 value) {
+        if (rmBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRmIsMutable();
+          rm_.set(index, value);
+          onChanged();
+        } else {
+          rmBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder setRm(
+          int index, io.capman.proto.internal.Common.TestMsg2.Builder builderForValue) {
+        if (rmBuilder_ == null) {
+          ensureRmIsMutable();
+          rm_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rmBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder addRm(io.capman.proto.internal.Common.TestMsg2 value) {
+        if (rmBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRmIsMutable();
+          rm_.add(value);
+          onChanged();
+        } else {
+          rmBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder addRm(
+          int index, io.capman.proto.internal.Common.TestMsg2 value) {
+        if (rmBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRmIsMutable();
+          rm_.add(index, value);
+          onChanged();
+        } else {
+          rmBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder addRm(
+          io.capman.proto.internal.Common.TestMsg2.Builder builderForValue) {
+        if (rmBuilder_ == null) {
+          ensureRmIsMutable();
+          rm_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rmBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder addRm(
+          int index, io.capman.proto.internal.Common.TestMsg2.Builder builderForValue) {
+        if (rmBuilder_ == null) {
+          ensureRmIsMutable();
+          rm_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rmBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder addAllRm(
+          java.lang.Iterable<? extends io.capman.proto.internal.Common.TestMsg2> values) {
+        if (rmBuilder_ == null) {
+          ensureRmIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rm_);
+          onChanged();
+        } else {
+          rmBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder clearRm() {
+        if (rmBuilder_ == null) {
+          rm_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          rmBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public Builder removeRm(int index) {
+        if (rmBuilder_ == null) {
+          ensureRmIsMutable();
+          rm_.remove(index);
+          onChanged();
+        } else {
+          rmBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg2.Builder getRmBuilder(
+          int index) {
+        return getRmFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg2OrBuilder getRmOrBuilder(
+          int index) {
+        if (rmBuilder_ == null) {
+          return rm_.get(index);  } else {
+          return rmBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public java.util.List<? extends io.capman.proto.internal.Common.TestMsg2OrBuilder> 
+           getRmOrBuilderList() {
+        if (rmBuilder_ != null) {
+          return rmBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rm_);
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg2.Builder addRmBuilder() {
+        return getRmFieldBuilder().addBuilder(
+            io.capman.proto.internal.Common.TestMsg2.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg2.Builder addRmBuilder(
+          int index) {
+        return getRmFieldBuilder().addBuilder(
+            index, io.capman.proto.internal.Common.TestMsg2.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
+       */
+      public java.util.List<io.capman.proto.internal.Common.TestMsg2.Builder> 
+           getRmBuilderList() {
+        return getRmFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          io.capman.proto.internal.Common.TestMsg2, io.capman.proto.internal.Common.TestMsg2.Builder, io.capman.proto.internal.Common.TestMsg2OrBuilder> 
+          getRmFieldBuilder() {
+        if (rmBuilder_ == null) {
+          rmBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              io.capman.proto.internal.Common.TestMsg2, io.capman.proto.internal.Common.TestMsg2.Builder, io.capman.proto.internal.Common.TestMsg2OrBuilder>(
+                  rm_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          rm_ = null;
+        }
+        return rmBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:io.capman.proto.internal.TestMsg)
+    }
+
+    static {
+      defaultInstance = new TestMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:io.capman.proto.internal.TestMsg)
+  }
+
+  public interface TestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:io.capman.proto.internal.Test)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 a = 1;</code>
+     */
+    boolean hasA();
+    /**
+     * <code>required int32 a = 1;</code>
+     */
+    int getA();
+
+    /**
+     * <code>required int32 b = 2;</code>
+     */
+    boolean hasB();
+    /**
+     * <code>required int32 b = 2;</code>
+     */
+    int getB();
+
+    /**
+     * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+     */
+    boolean hasC();
+    /**
+     * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+     */
+    io.capman.proto.internal.Common.TestMsg getC();
+    /**
+     * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+     */
+    io.capman.proto.internal.Common.TestMsgOrBuilder getCOrBuilder();
+
+    /**
+     * <code>required bytes array = 4;</code>
+     */
+    boolean hasArray();
+    /**
+     * <code>required bytes array = 4;</code>
+     */
+    com.google.protobuf.ByteString getArray();
+
+    /**
+     * <code>required bytes array2 = 5;</code>
+     */
+    boolean hasArray2();
+    /**
+     * <code>required bytes array2 = 5;</code>
+     */
+    com.google.protobuf.ByteString getArray2();
+
+    /**
+     * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
+     */
+    boolean hasE1();
+    /**
+     * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
+     */
+    io.capman.proto.internal.Common.ETest getE1();
+
+    /**
+     * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
+     */
+    boolean hasE2();
+    /**
+     * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
+     */
+    io.capman.proto.internal.Common.ETest getE2();
+
+    /**
+     * <code>repeated string ss = 8;</code>
+     */
+    com.google.protobuf.ProtocolStringList
+        getSsList();
+    /**
+     * <code>repeated string ss = 8;</code>
+     */
+    int getSsCount();
+    /**
+     * <code>repeated string ss = 8;</code>
+     */
+    java.lang.String getSs(int index);
+    /**
+     * <code>repeated string ss = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getSsBytes(int index);
+
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    java.util.List<io.capman.proto.internal.Common.TestMsg> 
+        getRtmList();
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    io.capman.proto.internal.Common.TestMsg getRtm(int index);
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    int getRtmCount();
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    java.util.List<? extends io.capman.proto.internal.Common.TestMsgOrBuilder> 
+        getRtmOrBuilderList();
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    io.capman.proto.internal.Common.TestMsgOrBuilder getRtmOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code io.capman.proto.internal.Test}
+   */
+  public static final class Test extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:io.capman.proto.internal.Test)
+      TestOrBuilder {
+    // Use Test.newBuilder() to construct.
+    private Test(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Test(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Test defaultInstance;
+    public static Test getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Test getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Test(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              a_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              b_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              io.capman.proto.internal.Common.TestMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = c_.toBuilder();
+              }
+              c_ = input.readMessage(io.capman.proto.internal.Common.TestMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(c_);
+                c_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              array_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              array2_ = input.readBytes();
+              break;
+            }
+            case 48: {
+              int rawValue = input.readEnum();
+              io.capman.proto.internal.Common.ETest value = io.capman.proto.internal.Common.ETest.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(6, rawValue);
+              } else {
+                bitField0_ |= 0x00000020;
+                e1_ = value;
+              }
+              break;
+            }
+            case 56: {
+              int rawValue = input.readEnum();
+              io.capman.proto.internal.Common.ETest value = io.capman.proto.internal.Common.ETest.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(7, rawValue);
+              } else {
+                bitField0_ |= 0x00000040;
+                e2_ = value;
+              }
+              break;
+            }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                ss_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              ss_.add(bs);
+              break;
+            }
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                rtm_ = new java.util.ArrayList<io.capman.proto.internal.Common.TestMsg>();
+                mutable_bitField0_ |= 0x00000100;
+              }
+              rtm_.add(input.readMessage(io.capman.proto.internal.Common.TestMsg.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          ss_ = ss_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+          rtm_ = java.util.Collections.unmodifiableList(rtm_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.capman.proto.internal.Common.Test.class, io.capman.proto.internal.Common.Test.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Test> PARSER =
+        new com.google.protobuf.AbstractParser<Test>() {
+      public Test parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Test(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Test> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int A_FIELD_NUMBER = 1;
+    private int a_;
+    /**
+     * <code>required int32 a = 1;</code>
+     */
+    public boolean hasA() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 a = 1;</code>
+     */
+    public int getA() {
+      return a_;
+    }
+
+    public static final int B_FIELD_NUMBER = 2;
+    private int b_;
+    /**
+     * <code>required int32 b = 2;</code>
+     */
+    public boolean hasB() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 b = 2;</code>
+     */
+    public int getB() {
+      return b_;
+    }
+
+    public static final int C_FIELD_NUMBER = 3;
+    private io.capman.proto.internal.Common.TestMsg c_;
+    /**
+     * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+     */
+    public boolean hasC() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+     */
+    public io.capman.proto.internal.Common.TestMsg getC() {
+      return c_;
+    }
+    /**
+     * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+     */
+    public io.capman.proto.internal.Common.TestMsgOrBuilder getCOrBuilder() {
+      return c_;
+    }
+
+    public static final int ARRAY_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString array_;
+    /**
+     * <code>required bytes array = 4;</code>
+     */
+    public boolean hasArray() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required bytes array = 4;</code>
+     */
+    public com.google.protobuf.ByteString getArray() {
+      return array_;
+    }
+
+    public static final int ARRAY2_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString array2_;
+    /**
+     * <code>required bytes array2 = 5;</code>
+     */
+    public boolean hasArray2() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required bytes array2 = 5;</code>
+     */
+    public com.google.protobuf.ByteString getArray2() {
+      return array2_;
+    }
+
+    public static final int E1_FIELD_NUMBER = 6;
+    private io.capman.proto.internal.Common.ETest e1_;
+    /**
+     * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
+     */
+    public boolean hasE1() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
+     */
+    public io.capman.proto.internal.Common.ETest getE1() {
+      return e1_;
+    }
+
+    public static final int E2_FIELD_NUMBER = 7;
+    private io.capman.proto.internal.Common.ETest e2_;
+    /**
+     * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
+     */
+    public boolean hasE2() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
+     */
+    public io.capman.proto.internal.Common.ETest getE2() {
+      return e2_;
+    }
+
+    public static final int SS_FIELD_NUMBER = 8;
+    private com.google.protobuf.LazyStringList ss_;
+    /**
+     * <code>repeated string ss = 8;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSsList() {
+      return ss_;
+    }
+    /**
+     * <code>repeated string ss = 8;</code>
+     */
+    public int getSsCount() {
+      return ss_.size();
+    }
+    /**
+     * <code>repeated string ss = 8;</code>
+     */
+    public java.lang.String getSs(int index) {
+      return ss_.get(index);
+    }
+    /**
+     * <code>repeated string ss = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSsBytes(int index) {
+      return ss_.getByteString(index);
+    }
+
+    public static final int RTM_FIELD_NUMBER = 9;
+    private java.util.List<io.capman.proto.internal.Common.TestMsg> rtm_;
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    public java.util.List<io.capman.proto.internal.Common.TestMsg> getRtmList() {
+      return rtm_;
+    }
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    public java.util.List<? extends io.capman.proto.internal.Common.TestMsgOrBuilder> 
+        getRtmOrBuilderList() {
+      return rtm_;
+    }
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    public int getRtmCount() {
+      return rtm_.size();
+    }
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    public io.capman.proto.internal.Common.TestMsg getRtm(int index) {
+      return rtm_.get(index);
+    }
+    /**
+     * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+     */
+    public io.capman.proto.internal.Common.TestMsgOrBuilder getRtmOrBuilder(
+        int index) {
+      return rtm_.get(index);
+    }
+
+    private void initFields() {
+      a_ = 0;
+      b_ = 0;
+      c_ = io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+      array_ = com.google.protobuf.ByteString.EMPTY;
+      array2_ = com.google.protobuf.ByteString.EMPTY;
+      e1_ = io.capman.proto.internal.Common.ETest.ETest_1;
+      e2_ = io.capman.proto.internal.Common.ETest.ETest_1;
+      ss_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      rtm_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasA()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasB()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasC()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasArray()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasArray2()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasE1()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasE2()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getC().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getRtmCount(); i++) {
+        if (!getRtm(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, a_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, b_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, c_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, array_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, array2_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeEnum(6, e1_.getNumber());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeEnum(7, e2_.getNumber());
+      }
+      for (int i = 0; i < ss_.size(); i++) {
+        output.writeBytes(8, ss_.getByteString(i));
+      }
+      for (int i = 0; i < rtm_.size(); i++) {
+        output.writeMessage(9, rtm_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, a_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, b_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, c_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, array_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, array2_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, e1_.getNumber());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(7, e2_.getNumber());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < ss_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(ss_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getSsList().size();
+      }
+      for (int i = 0; i < rtm_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, rtm_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static io.capman.proto.internal.Common.Test parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.proto.internal.Common.Test parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.Test parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.proto.internal.Common.Test parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.Test parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.proto.internal.Common.Test parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.Test parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static io.capman.proto.internal.Common.Test parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static io.capman.proto.internal.Common.Test parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.proto.internal.Common.Test parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(io.capman.proto.internal.Common.Test prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code io.capman.proto.internal.Test}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:io.capman.proto.internal.Test)
+        io.capman.proto.internal.Common.TestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.capman.proto.internal.Common.Test.class, io.capman.proto.internal.Common.Test.Builder.class);
+      }
+
+      // Construct using io.capman.proto.internal.Common.Test.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getCFieldBuilder();
+          getRtmFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        a_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        b_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (cBuilder_ == null) {
+          c_ = io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+        } else {
+          cBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        array_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        array2_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        e1_ = io.capman.proto.internal.Common.ETest.ETest_1;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        e2_ = io.capman.proto.internal.Common.ETest.ETest_1;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        ss_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        if (rtmBuilder_ == null) {
+          rtm_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000100);
+        } else {
+          rtmBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_descriptor;
+      }
+
+      public io.capman.proto.internal.Common.Test getDefaultInstanceForType() {
+        return io.capman.proto.internal.Common.Test.getDefaultInstance();
+      }
+
+      public io.capman.proto.internal.Common.Test build() {
+        io.capman.proto.internal.Common.Test result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public io.capman.proto.internal.Common.Test buildPartial() {
+        io.capman.proto.internal.Common.Test result = new io.capman.proto.internal.Common.Test(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.a_ = a_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.b_ = b_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (cBuilder_ == null) {
+          result.c_ = c_;
+        } else {
+          result.c_ = cBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.array_ = array_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.array2_ = array2_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.e1_ = e1_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.e2_ = e2_;
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          ss_ = ss_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.ss_ = ss_;
+        if (rtmBuilder_ == null) {
+          if (((bitField0_ & 0x00000100) == 0x00000100)) {
+            rtm_ = java.util.Collections.unmodifiableList(rtm_);
+            bitField0_ = (bitField0_ & ~0x00000100);
+          }
+          result.rtm_ = rtm_;
+        } else {
+          result.rtm_ = rtmBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.capman.proto.internal.Common.Test) {
+          return mergeFrom((io.capman.proto.internal.Common.Test)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.capman.proto.internal.Common.Test other) {
+        if (other == io.capman.proto.internal.Common.Test.getDefaultInstance()) return this;
+        if (other.hasA()) {
+          setA(other.getA());
+        }
+        if (other.hasB()) {
+          setB(other.getB());
+        }
+        if (other.hasC()) {
+          mergeC(other.getC());
+        }
+        if (other.hasArray()) {
+          setArray(other.getArray());
+        }
+        if (other.hasArray2()) {
+          setArray2(other.getArray2());
+        }
+        if (other.hasE1()) {
+          setE1(other.getE1());
+        }
+        if (other.hasE2()) {
+          setE2(other.getE2());
+        }
+        if (!other.ss_.isEmpty()) {
+          if (ss_.isEmpty()) {
+            ss_ = other.ss_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureSsIsMutable();
+            ss_.addAll(other.ss_);
+          }
+          onChanged();
+        }
+        if (rtmBuilder_ == null) {
+          if (!other.rtm_.isEmpty()) {
+            if (rtm_.isEmpty()) {
+              rtm_ = other.rtm_;
+              bitField0_ = (bitField0_ & ~0x00000100);
+            } else {
+              ensureRtmIsMutable();
+              rtm_.addAll(other.rtm_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rtm_.isEmpty()) {
+            if (rtmBuilder_.isEmpty()) {
+              rtmBuilder_.dispose();
+              rtmBuilder_ = null;
+              rtm_ = other.rtm_;
+              bitField0_ = (bitField0_ & ~0x00000100);
+              rtmBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getRtmFieldBuilder() : null;
+            } else {
+              rtmBuilder_.addAllMessages(other.rtm_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasA()) {
+          
+          return false;
+        }
+        if (!hasB()) {
+          
+          return false;
+        }
+        if (!hasC()) {
+          
+          return false;
+        }
+        if (!hasArray()) {
+          
+          return false;
+        }
+        if (!hasArray2()) {
+          
+          return false;
+        }
+        if (!hasE1()) {
+          
+          return false;
+        }
+        if (!hasE2()) {
+          
+          return false;
+        }
+        if (!getC().isInitialized()) {
+          
+          return false;
+        }
+        for (int i = 0; i < getRtmCount(); i++) {
+          if (!getRtm(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.capman.proto.internal.Common.Test parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.capman.proto.internal.Common.Test) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int a_ ;
+      /**
+       * <code>required int32 a = 1;</code>
+       */
+      public boolean hasA() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 a = 1;</code>
+       */
+      public int getA() {
+        return a_;
+      }
+      /**
+       * <code>required int32 a = 1;</code>
+       */
+      public Builder setA(int value) {
+        bitField0_ |= 0x00000001;
+        a_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 a = 1;</code>
+       */
+      public Builder clearA() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        a_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int b_ ;
+      /**
+       * <code>required int32 b = 2;</code>
+       */
+      public boolean hasB() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 b = 2;</code>
+       */
+      public int getB() {
+        return b_;
+      }
+      /**
+       * <code>required int32 b = 2;</code>
+       */
+      public Builder setB(int value) {
+        bitField0_ |= 0x00000002;
+        b_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 b = 2;</code>
+       */
+      public Builder clearB() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        b_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private io.capman.proto.internal.Common.TestMsg c_ = io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder> cBuilder_;
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      public boolean hasC() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg getC() {
+        if (cBuilder_ == null) {
+          return c_;
+        } else {
+          return cBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      public Builder setC(io.capman.proto.internal.Common.TestMsg value) {
+        if (cBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          c_ = value;
+          onChanged();
+        } else {
+          cBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      public Builder setC(
+          io.capman.proto.internal.Common.TestMsg.Builder builderForValue) {
+        if (cBuilder_ == null) {
+          c_ = builderForValue.build();
+          onChanged();
+        } else {
+          cBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      public Builder mergeC(io.capman.proto.internal.Common.TestMsg value) {
+        if (cBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              c_ != io.capman.proto.internal.Common.TestMsg.getDefaultInstance()) {
+            c_ =
+              io.capman.proto.internal.Common.TestMsg.newBuilder(c_).mergeFrom(value).buildPartial();
+          } else {
+            c_ = value;
+          }
+          onChanged();
+        } else {
+          cBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      public Builder clearC() {
+        if (cBuilder_ == null) {
+          c_ = io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+          onChanged();
+        } else {
+          cBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg.Builder getCBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getCFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsgOrBuilder getCOrBuilder() {
+        if (cBuilder_ != null) {
+          return cBuilder_.getMessageOrBuilder();
+        } else {
+          return c_;
+        }
+      }
+      /**
+       * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder> 
+          getCFieldBuilder() {
+        if (cBuilder_ == null) {
+          cBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder>(
+                  getC(),
+                  getParentForChildren(),
+                  isClean());
+          c_ = null;
+        }
+        return cBuilder_;
+      }
+
+      private com.google.protobuf.ByteString array_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes array = 4;</code>
+       */
+      public boolean hasArray() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required bytes array = 4;</code>
+       */
+      public com.google.protobuf.ByteString getArray() {
+        return array_;
+      }
+      /**
+       * <code>required bytes array = 4;</code>
+       */
+      public Builder setArray(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        array_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes array = 4;</code>
+       */
+      public Builder clearArray() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        array_ = getDefaultInstance().getArray();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString array2_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes array2 = 5;</code>
+       */
+      public boolean hasArray2() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required bytes array2 = 5;</code>
+       */
+      public com.google.protobuf.ByteString getArray2() {
+        return array2_;
+      }
+      /**
+       * <code>required bytes array2 = 5;</code>
+       */
+      public Builder setArray2(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        array2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes array2 = 5;</code>
+       */
+      public Builder clearArray2() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        array2_ = getDefaultInstance().getArray2();
+        onChanged();
+        return this;
+      }
+
+      private io.capman.proto.internal.Common.ETest e1_ = io.capman.proto.internal.Common.ETest.ETest_1;
+      /**
+       * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
+       */
+      public boolean hasE1() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
+       */
+      public io.capman.proto.internal.Common.ETest getE1() {
+        return e1_;
+      }
+      /**
+       * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
+       */
+      public Builder setE1(io.capman.proto.internal.Common.ETest value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
+        e1_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
+       */
+      public Builder clearE1() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        e1_ = io.capman.proto.internal.Common.ETest.ETest_1;
+        onChanged();
+        return this;
+      }
+
+      private io.capman.proto.internal.Common.ETest e2_ = io.capman.proto.internal.Common.ETest.ETest_1;
+      /**
+       * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
+       */
+      public boolean hasE2() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
+       */
+      public io.capman.proto.internal.Common.ETest getE2() {
+        return e2_;
+      }
+      /**
+       * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
+       */
+      public Builder setE2(io.capman.proto.internal.Common.ETest value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000040;
+        e2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
+       */
+      public Builder clearE2() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        e2_ = io.capman.proto.internal.Common.ETest.ETest_1;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList ss_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureSsIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          ss_ = new com.google.protobuf.LazyStringArrayList(ss_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getSsList() {
+        return ss_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public int getSsCount() {
+        return ss_.size();
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public java.lang.String getSs(int index) {
+        return ss_.get(index);
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSsBytes(int index) {
+        return ss_.getByteString(index);
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public Builder setSs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSsIsMutable();
+        ss_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public Builder addSs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSsIsMutable();
+        ss_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public Builder addAllSs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureSsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, ss_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public Builder clearSs() {
+        ss_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ss = 8;</code>
+       */
+      public Builder addSsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSsIsMutable();
+        ss_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.capman.proto.internal.Common.TestMsg> rtm_ =
+        java.util.Collections.emptyList();
+      private void ensureRtmIsMutable() {
+        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+          rtm_ = new java.util.ArrayList<io.capman.proto.internal.Common.TestMsg>(rtm_);
+          bitField0_ |= 0x00000100;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder> rtmBuilder_;
+
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public java.util.List<io.capman.proto.internal.Common.TestMsg> getRtmList() {
+        if (rtmBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rtm_);
+        } else {
+          return rtmBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public int getRtmCount() {
+        if (rtmBuilder_ == null) {
+          return rtm_.size();
+        } else {
+          return rtmBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg getRtm(int index) {
+        if (rtmBuilder_ == null) {
+          return rtm_.get(index);
+        } else {
+          return rtmBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder setRtm(
+          int index, io.capman.proto.internal.Common.TestMsg value) {
+        if (rtmBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRtmIsMutable();
+          rtm_.set(index, value);
+          onChanged();
+        } else {
+          rtmBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder setRtm(
+          int index, io.capman.proto.internal.Common.TestMsg.Builder builderForValue) {
+        if (rtmBuilder_ == null) {
+          ensureRtmIsMutable();
+          rtm_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rtmBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder addRtm(io.capman.proto.internal.Common.TestMsg value) {
+        if (rtmBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRtmIsMutable();
+          rtm_.add(value);
+          onChanged();
+        } else {
+          rtmBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder addRtm(
+          int index, io.capman.proto.internal.Common.TestMsg value) {
+        if (rtmBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRtmIsMutable();
+          rtm_.add(index, value);
+          onChanged();
+        } else {
+          rtmBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder addRtm(
+          io.capman.proto.internal.Common.TestMsg.Builder builderForValue) {
+        if (rtmBuilder_ == null) {
+          ensureRtmIsMutable();
+          rtm_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rtmBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder addRtm(
+          int index, io.capman.proto.internal.Common.TestMsg.Builder builderForValue) {
+        if (rtmBuilder_ == null) {
+          ensureRtmIsMutable();
+          rtm_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rtmBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder addAllRtm(
+          java.lang.Iterable<? extends io.capman.proto.internal.Common.TestMsg> values) {
+        if (rtmBuilder_ == null) {
+          ensureRtmIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rtm_);
+          onChanged();
+        } else {
+          rtmBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder clearRtm() {
+        if (rtmBuilder_ == null) {
+          rtm_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000100);
+          onChanged();
+        } else {
+          rtmBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public Builder removeRtm(int index) {
+        if (rtmBuilder_ == null) {
+          ensureRtmIsMutable();
+          rtm_.remove(index);
+          onChanged();
+        } else {
+          rtmBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg.Builder getRtmBuilder(
+          int index) {
+        return getRtmFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsgOrBuilder getRtmOrBuilder(
+          int index) {
+        if (rtmBuilder_ == null) {
+          return rtm_.get(index);  } else {
+          return rtmBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public java.util.List<? extends io.capman.proto.internal.Common.TestMsgOrBuilder> 
+           getRtmOrBuilderList() {
+        if (rtmBuilder_ != null) {
+          return rtmBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rtm_);
+        }
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg.Builder addRtmBuilder() {
+        return getRtmFieldBuilder().addBuilder(
+            io.capman.proto.internal.Common.TestMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public io.capman.proto.internal.Common.TestMsg.Builder addRtmBuilder(
+          int index) {
+        return getRtmFieldBuilder().addBuilder(
+            index, io.capman.proto.internal.Common.TestMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
+       */
+      public java.util.List<io.capman.proto.internal.Common.TestMsg.Builder> 
+           getRtmBuilderList() {
+        return getRtmFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder> 
+          getRtmFieldBuilder() {
+        if (rtmBuilder_ == null) {
+          rtmBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder>(
+                  rtm_,
+                  ((bitField0_ & 0x00000100) == 0x00000100),
+                  getParentForChildren(),
+                  isClean());
+          rtm_ = null;
+        }
+        return rtmBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:io.capman.proto.internal.Test)
+    }
+
+    static {
+      defaultInstance = new Test(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:io.capman.proto.internal.Test)
+  }
+
+  public static final int SERVICENAME_FIELD_NUMBER = 1000;
   /**
    * <code>extend .com.google.protobuf.ServiceOptions { ... }</code>
    */
   public static final
     com.google.protobuf.GeneratedMessage.GeneratedExtension<
       com.google.protobuf.DescriptorProtos.ServiceOptions,
-      io.capman.proto.internal.Common.EServiceType> serviceType = com.google.protobuf.GeneratedMessage
+      java.lang.String> serviceName = com.google.protobuf.GeneratedMessage
           .newFileScopedGeneratedExtension(
-        io.capman.proto.internal.Common.EServiceType.class,
+        java.lang.String.class,
         null);
-  public static final int DEFAULTSERVICEURIPARAMS_FIELD_NUMBER = 1001;
+  public static final int SERVICETYPE_FIELD_NUMBER = 1001;
+  /**
+   * <code>extend .com.google.protobuf.ServiceOptions { ... }</code>
+   */
+  public static final
+    com.google.protobuf.GeneratedMessage.GeneratedExtension<
+      com.google.protobuf.DescriptorProtos.ServiceOptions,
+      java.lang.Integer> serviceType = com.google.protobuf.GeneratedMessage
+          .newFileScopedGeneratedExtension(
+        java.lang.Integer.class,
+        null);
+  public static final int DEFAULTSERVICEURIPARAMS_FIELD_NUMBER = 1002;
   /**
    * <code>extend .com.google.protobuf.ServiceOptions { ... }</code>
    *
@@ -1676,20 +4728,6 @@ public final class Common {
     com.google.protobuf.GeneratedMessage.GeneratedExtension<
       com.google.protobuf.DescriptorProtos.ServiceOptions,
       java.lang.String> defaultServiceUriParams = com.google.protobuf.GeneratedMessage
-          .newFileScopedGeneratedExtension(
-        java.lang.String.class,
-        null);
-  public static final int DEFAULTCLIENTURIPARAMS_FIELD_NUMBER = 1002;
-  /**
-   * <code>extend .com.google.protobuf.ServiceOptions { ... }</code>
-   *
-   * <pre>
-   * </pre>
-   */
-  public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-      com.google.protobuf.DescriptorProtos.ServiceOptions,
-      java.lang.String> defaultClientUriParams = com.google.protobuf.GeneratedMessage
           .newFileScopedGeneratedExtension(
         java.lang.String.class,
         null);
@@ -1725,6 +4763,21 @@ public final class Common {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_io_capman_proto_internal_InternalResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_capman_proto_internal_TestMsg2_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_io_capman_proto_internal_TestMsg2_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_capman_proto_internal_TestMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_io_capman_proto_internal_TestMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_capman_proto_internal_Test_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_io_capman_proto_internal_Test_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1739,33 +4792,41 @@ public final class Common {
       "/descriptor.proto\"/\n\017InternalRequest\022\013\n\003" +
       "uin\030\001 \002(\003\022\017\n\007reqData\030\002 \002(\014\">\n\020InternalRe" +
       "sponse\022\013\n\003ret\030\001 \002(\005\022\020\n\010respData\030\002 \002(\014\022\013\n" +
-      "\003msg\030\003 \001(\t*\225\001\n\017EnumInternalRet\022$\n\027SERIAL" +
-      "IZATION_EXCEPTION\020\375\377\377\377\377\377\377\377\377\001\022\036\n\021TIMEOUT_" +
-      "EXCEPTION\020\376\377\377\377\377\377\377\377\377\001\022\036\n\021NETWORK_EXCEPTIO" +
-      "N\020\377\377\377\377\377\377\377\377\377\001\022\007\n\002OK\020\310\001\022\023\n\016INTERNAL_ERROR\020" +
-      "\364\003*V\n\014EServiceType\022\024\n\020EServiceType_Any\020\000",
-      "\022\026\n\022EServiceType_Logic\020\001\022\030\n\024EServiceType" +
-      "_Storage\020\002*\215\001\n\020EClusterStrategy\022\035\n\031EClus" +
-      "terStrategy_FailOver\020\001\022\035\n\031EClusterStrate" +
-      "gy_FailFast\020\002\022\036\n\032EClusterStrategy_FailRe" +
-      "try\020\003\022\033\n\027EClusterStrategy_Custom\020\004*\246\001\n\024E" +
-      "LoadbalanceStrategy\022\'\n#ELoadbalanceStrat" +
-      "egy_ConsistentHash\020\001\022\037\n\033ELoadbalanceStra" +
-      "tegy_Random\020\002\022#\n\037ELoadbalanceStrategy_Ro" +
-      "undRobin\020\003\022\037\n\033ELoadbalanceStrategy_Custo" +
-      "m\020\004:s\n\013serviceType\022#.com.google.protobuf",
-      ".ServiceOptions\030\350\007 \001(\0162&.io.capman.proto" +
-      ".internal.EServiceType:\020EServiceType_Any" +
-      ":G\n\027defaultServiceUriParams\022#.com.google" +
-      ".protobuf.ServiceOptions\030\351\007 \001(\t:\000:F\n\026def" +
-      "aultClientUriParams\022#.com.google.protobu" +
+      "\003msg\030\003 \001(\t\"\025\n\010TestMsg2\022\t\n\001e\030\001 \002(\t\"D\n\007Tes" +
+      "tMsg\022\t\n\001e\030\001 \002(\t\022.\n\002rm\030\002 \003(\0132\".io.capman." +
+      "proto.internal.TestMsg2\"\377\001\n\004Test\022\t\n\001a\030\001 " +
+      "\002(\005\022\t\n\001b\030\002 \002(\005\022,\n\001c\030\003 \002(\0132!.io.capman.pr" +
+      "oto.internal.TestMsg\022\r\n\005array\030\004 \002(\014\022\016\n\006a",
+      "rray2\030\005 \002(\014\022+\n\002e1\030\006 \002(\0162\037.io.capman.prot" +
+      "o.internal.ETest\022+\n\002e2\030\007 \002(\0162\037.io.capman" +
+      ".proto.internal.ETest\022\n\n\002ss\030\010 \003(\t\022.\n\003rtm" +
+      "\030\t \003(\0132!.io.capman.proto.internal.TestMs" +
+      "g*\225\001\n\017EnumInternalRet\022$\n\027SERIALIZATION_E" +
+      "XCEPTION\020\375\377\377\377\377\377\377\377\377\001\022\036\n\021TIMEOUT_EXCEPTION" +
+      "\020\376\377\377\377\377\377\377\377\377\001\022\036\n\021NETWORK_EXCEPTION\020\377\377\377\377\377\377\377" +
+      "\377\377\001\022\007\n\002OK\020\310\001\022\023\n\016INTERNAL_ERROR\020\364\003*V\n\014ESe" +
+      "rviceType\022\024\n\020EServiceType_Any\020\000\022\026\n\022EServ" +
+      "iceType_Logic\020\001\022\030\n\024EServiceType_Storage\020",
+      "\002*\215\001\n\020EClusterStrategy\022\035\n\031EClusterStrate" +
+      "gy_FailOver\020\001\022\035\n\031EClusterStrategy_FailFa" +
+      "st\020\002\022\036\n\032EClusterStrategy_FailRetry\020\003\022\033\n\027" +
+      "EClusterStrategy_Custom\020\004*\246\001\n\024ELoadbalan" +
+      "ceStrategy\022\'\n#ELoadbalanceStrategy_Consi" +
+      "stentHash\020\001\022\037\n\033ELoadbalanceStrategy_Rand" +
+      "om\020\002\022#\n\037ELoadbalanceStrategy_RoundRobin\020" +
+      "\003\022\037\n\033ELoadbalanceStrategy_Custom\020\004*!\n\005ET" +
+      "est\022\013\n\007ETest_1\020\001\022\013\n\007ETest_2\020\002:;\n\013service" +
+      "Name\022#.com.google.protobuf.ServiceOption",
+      "s\030\350\007 \001(\t:\000:<\n\013serviceType\022#.com.google.p" +
+      "rotobuf.ServiceOptions\030\351\007 \001(\005:\0010:G\n\027defa" +
+      "ultServiceUriParams\022#.com.google.protobu" +
       "f.ServiceOptions\030\352\007 \001(\t:\000:\212\001\n\026defaultClu" +
       "sterStrategy\022\".com.google.protobuf.Metho" +
       "dOptions\030\350\007 \001(\0162*.io.capman.proto.intern" +
       "al.EClusterStrategy:\031EClusterStrategy_Fa" +
-      "ilOver:\234\001\n\032defaultLoadBalanceStrategy\022\".",
+      "ilOver:\234\001\n\032defaultLoadBalanceStrategy\022\"." +
       "com.google.protobuf.MethodOptions\030\351\007 \001(\016" +
-      "2..io.capman.proto.internal.ELoadbalance" +
+      "2..io.capman.proto.internal.ELoadbalance",
       "Strategy:#ELoadbalanceStrategy_Consisten" +
       "tHashB\032\n\030io.capman.proto.internal"
     };
@@ -1794,9 +4855,27 @@ public final class Common {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_io_capman_proto_internal_InternalResponse_descriptor,
         new java.lang.String[] { "Ret", "RespData", "Msg", });
-    serviceType.internalInit(descriptor.getExtensions().get(0));
-    defaultServiceUriParams.internalInit(descriptor.getExtensions().get(1));
-    defaultClientUriParams.internalInit(descriptor.getExtensions().get(2));
+    internal_static_io_capman_proto_internal_TestMsg2_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_io_capman_proto_internal_TestMsg2_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_io_capman_proto_internal_TestMsg2_descriptor,
+        new java.lang.String[] { "E", });
+    internal_static_io_capman_proto_internal_TestMsg_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_io_capman_proto_internal_TestMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_io_capman_proto_internal_TestMsg_descriptor,
+        new java.lang.String[] { "E", "Rm", });
+    internal_static_io_capman_proto_internal_Test_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_io_capman_proto_internal_Test_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_io_capman_proto_internal_Test_descriptor,
+        new java.lang.String[] { "A", "B", "C", "Array", "Array2", "E1", "E2", "Ss", "Rtm", });
+    serviceName.internalInit(descriptor.getExtensions().get(0));
+    serviceType.internalInit(descriptor.getExtensions().get(1));
+    defaultServiceUriParams.internalInit(descriptor.getExtensions().get(2));
     defaultClusterStrategy.internalInit(descriptor.getExtensions().get(3));
     defaultLoadBalanceStrategy.internalInit(descriptor.getExtensions().get(4));
     com.google.protobuf.DescriptorProtos.getDescriptor();

@@ -10,8 +10,6 @@ import java.net.URISyntaxException;
  */
 public class ClientUriConfig extends URIConfig{
 
-    public final static String Connections = "connections" ;
-
     public ClientUriConfig(String u) throws UnsupportedEncodingException, URISyntaxException {
         super(u);
     }

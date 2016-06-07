@@ -13,15 +13,8 @@ import java.net.URISyntaxException;
 public class ServiceUriConfig extends URIConfig {
 
 
-    EventLoopGroup workerGroup;
-
-
     public ServiceUriConfig(String u) throws  URISyntaxException {
         super(u);
     }
 
-
-    public EventLoopGroup getWorkerGroup() {
-        return workerGroup;
-    }
 }

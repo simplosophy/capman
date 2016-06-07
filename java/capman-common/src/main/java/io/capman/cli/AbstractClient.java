@@ -1,6 +1,6 @@
 package io.capman.cli;
 
-import io.capman.srv.ServerContext;
+import io.capman.srv.AppContext;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
@@ -23,8 +23,8 @@ public abstract class AbstractClient implements  IClient{
     public void init(ClientUriConfig config) {
 
         bootstrap = new Bootstrap();
-        if(ServerContext.getServiceUriConfig() != null){
-            workerGroup = ServerContext.getServiceUriConfig().getWorkerGroup();//默认使用同一个EventLoopGroup
+        if(AppContext.getServiceUriConfig() != null){
+            workerGroup = AppContext.getInstance().getClientWorkerGroup();//默认使用同一个EventLoopGroup
         }else {
             workerGroup = new NioEventLoopGroup( );
         }

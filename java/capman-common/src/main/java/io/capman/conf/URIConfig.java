@@ -18,7 +18,7 @@ public class URIConfig {
 
     private Map<String, List<String>> params = new LinkedHashMap<String, List<String>>();
 
-    protected void splitQuery(String q) throws UnsupportedEncodingException {
+    public void mergeQuery(String q) throws UnsupportedEncodingException {
         final String[] pairs = q.split("&");
         for (String pair : pairs) {
             final int idx = pair.indexOf("=");
@@ -34,7 +34,7 @@ public class URIConfig {
     public URIConfig(String u) throws URISyntaxException {
         this.uri = new URI(u);
         try {
-            splitQuery(uri.getQuery());
+            mergeQuery(uri.getQuery());
         } catch (UnsupportedEncodingException e) {
             throw new  URISyntaxException("UnsupportedEncodingException",e.getMessage());
         }
