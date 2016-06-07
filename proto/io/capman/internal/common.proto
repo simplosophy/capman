@@ -3,6 +3,9 @@ package io.capman.proto.internal;
 import "com/google/protobuf/descriptor.proto";
 
 option java_package="io.capman.proto.internal";
+option optimize_for = SPEED;
+option java_outer_classname = "CommonProto";
+
 message InternalRequest{
     required int64 uin = 1;
     required bytes reqData = 2;
@@ -35,9 +38,9 @@ enum EServiceType{
     EServiceType_Storage = 2;//存储服务,用于保存状态,例如各种存储服务,队列服务
 }
 extend com.google.protobuf.ServiceOptions{
-    optional string serviceName = 1000[default = ""];
-    optional int32 serviceType = 1001[default = 0];
-    optional string defaultServiceUriParams = 1002[default = ""];//
+    optional string serviceName = 10000[default = ""];
+    optional int32 serviceType = 10001[default = 0];
+    optional string defaultServiceUriParams = 10002[default = ""];//
 }
 
 //方法扩展
@@ -55,8 +58,8 @@ enum ELoadbalanceStrategy{
 }
 
 extend com.google.protobuf.MethodOptions{
-    optional EClusterStrategy defaultClusterStrategy = 1000 [default = EClusterStrategy_FailOver];
-    optional ELoadbalanceStrategy defaultLoadBalanceStrategy = 1001 [default = ELoadbalanceStrategy_ConsistentHash];
+    optional EClusterStrategy defaultClusterStrategy = 10000 [default = EClusterStrategy_FailOver];
+    optional ELoadbalanceStrategy defaultLoadBalanceStrategy = 10001 [default = ELoadbalanceStrategy_ConsistentHash];
 }
 
 message TestMsg2{
@@ -77,7 +80,7 @@ message Test{
     required int32 b = 2;
     required TestMsg c = 3;
     required bytes array = 4;
-    required bytes array2 = 5;
+    repeated bytes array2 = 5;
     required ETest e1 = 6;
     required ETest e2 = 7;
     repeated string ss = 8;

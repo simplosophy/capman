@@ -3,15 +3,15 @@
 
 package io.capman.proto.internal;
 
-public final class Common {
-  private Common() {}
+public final class CommonProto {
+  private CommonProto() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
-    registry.add(io.capman.proto.internal.Common.serviceName);
-    registry.add(io.capman.proto.internal.Common.serviceType);
-    registry.add(io.capman.proto.internal.Common.defaultServiceUriParams);
-    registry.add(io.capman.proto.internal.Common.defaultClusterStrategy);
-    registry.add(io.capman.proto.internal.Common.defaultLoadBalanceStrategy);
+    registry.add(io.capman.proto.internal.CommonProto.serviceName);
+    registry.add(io.capman.proto.internal.CommonProto.serviceType);
+    registry.add(io.capman.proto.internal.CommonProto.defaultServiceUriParams);
+    registry.add(io.capman.proto.internal.CommonProto.defaultClusterStrategy);
+    registry.add(io.capman.proto.internal.CommonProto.defaultLoadBalanceStrategy);
   }
   /**
    * Protobuf enum {@code io.capman.proto.internal.EnumInternalRet}
@@ -97,7 +97,7 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.getDescriptor().getEnumTypes().get(0);
+      return io.capman.proto.internal.CommonProto.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final EnumInternalRet[] VALUES = values();
@@ -216,7 +216,7 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.getDescriptor().getEnumTypes().get(1);
+      return io.capman.proto.internal.CommonProto.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final EServiceType[] VALUES = values();
@@ -352,7 +352,7 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.getDescriptor().getEnumTypes().get(2);
+      return io.capman.proto.internal.CommonProto.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final EClusterStrategy[] VALUES = values();
@@ -484,7 +484,7 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.getDescriptor().getEnumTypes().get(3);
+      return io.capman.proto.internal.CommonProto.getDescriptor().getEnumTypes().get(3);
     }
 
     private static final ELoadbalanceStrategy[] VALUES = values();
@@ -566,7 +566,7 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.getDescriptor().getEnumTypes().get(4);
+      return io.capman.proto.internal.CommonProto.getDescriptor().getEnumTypes().get(4);
     }
 
     private static final ETest[] VALUES = values();
@@ -689,14 +689,14 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalRequest_descriptor;
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalRequest_fieldAccessorTable
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.capman.proto.internal.Common.InternalRequest.class, io.capman.proto.internal.Common.InternalRequest.Builder.class);
+              io.capman.proto.internal.CommonProto.InternalRequest.class, io.capman.proto.internal.CommonProto.InternalRequest.Builder.class);
     }
 
     public static com.google.protobuf.Parser<InternalRequest> PARSER =
@@ -805,53 +805,53 @@ public final class Common {
       return super.writeReplace();
     }
 
-    public static io.capman.proto.internal.Common.InternalRequest parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseFrom(byte[] data)
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseDelimitedFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseDelimitedFrom(
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.InternalRequest parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -860,7 +860,7 @@ public final class Common {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(io.capman.proto.internal.Common.InternalRequest prototype) {
+    public static Builder newBuilder(io.capman.proto.internal.CommonProto.InternalRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -877,20 +877,20 @@ public final class Common {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:io.capman.proto.internal.InternalRequest)
-        io.capman.proto.internal.Common.InternalRequestOrBuilder {
+        io.capman.proto.internal.CommonProto.InternalRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalRequest_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalRequest_fieldAccessorTable
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.capman.proto.internal.Common.InternalRequest.class, io.capman.proto.internal.Common.InternalRequest.Builder.class);
+                io.capman.proto.internal.CommonProto.InternalRequest.class, io.capman.proto.internal.CommonProto.InternalRequest.Builder.class);
       }
 
-      // Construct using io.capman.proto.internal.Common.InternalRequest.newBuilder()
+      // Construct using io.capman.proto.internal.CommonProto.InternalRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -923,23 +923,23 @@ public final class Common {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalRequest_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalRequest_descriptor;
       }
 
-      public io.capman.proto.internal.Common.InternalRequest getDefaultInstanceForType() {
-        return io.capman.proto.internal.Common.InternalRequest.getDefaultInstance();
+      public io.capman.proto.internal.CommonProto.InternalRequest getDefaultInstanceForType() {
+        return io.capman.proto.internal.CommonProto.InternalRequest.getDefaultInstance();
       }
 
-      public io.capman.proto.internal.Common.InternalRequest build() {
-        io.capman.proto.internal.Common.InternalRequest result = buildPartial();
+      public io.capman.proto.internal.CommonProto.InternalRequest build() {
+        io.capman.proto.internal.CommonProto.InternalRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public io.capman.proto.internal.Common.InternalRequest buildPartial() {
-        io.capman.proto.internal.Common.InternalRequest result = new io.capman.proto.internal.Common.InternalRequest(this);
+      public io.capman.proto.internal.CommonProto.InternalRequest buildPartial() {
+        io.capman.proto.internal.CommonProto.InternalRequest result = new io.capman.proto.internal.CommonProto.InternalRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -956,16 +956,16 @@ public final class Common {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.capman.proto.internal.Common.InternalRequest) {
-          return mergeFrom((io.capman.proto.internal.Common.InternalRequest)other);
+        if (other instanceof io.capman.proto.internal.CommonProto.InternalRequest) {
+          return mergeFrom((io.capman.proto.internal.CommonProto.InternalRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.capman.proto.internal.Common.InternalRequest other) {
-        if (other == io.capman.proto.internal.Common.InternalRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.capman.proto.internal.CommonProto.InternalRequest other) {
+        if (other == io.capman.proto.internal.CommonProto.InternalRequest.getDefaultInstance()) return this;
         if (other.hasUin()) {
           setUin(other.getUin());
         }
@@ -992,11 +992,11 @@ public final class Common {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.capman.proto.internal.Common.InternalRequest parsedMessage = null;
+        io.capman.proto.internal.CommonProto.InternalRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.capman.proto.internal.Common.InternalRequest) e.getUnfinishedMessage();
+          parsedMessage = (io.capman.proto.internal.CommonProto.InternalRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1203,14 +1203,14 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalResponse_descriptor;
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalResponse_fieldAccessorTable
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.capman.proto.internal.Common.InternalResponse.class, io.capman.proto.internal.Common.InternalResponse.Builder.class);
+              io.capman.proto.internal.CommonProto.InternalResponse.class, io.capman.proto.internal.CommonProto.InternalResponse.Builder.class);
     }
 
     public static com.google.protobuf.Parser<InternalResponse> PARSER =
@@ -1369,53 +1369,53 @@ public final class Common {
       return super.writeReplace();
     }
 
-    public static io.capman.proto.internal.Common.InternalResponse parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseFrom(byte[] data)
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseDelimitedFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseDelimitedFrom(
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.InternalResponse parseFrom(
+    public static io.capman.proto.internal.CommonProto.InternalResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1424,7 +1424,7 @@ public final class Common {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(io.capman.proto.internal.Common.InternalResponse prototype) {
+    public static Builder newBuilder(io.capman.proto.internal.CommonProto.InternalResponse prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1441,20 +1441,20 @@ public final class Common {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:io.capman.proto.internal.InternalResponse)
-        io.capman.proto.internal.Common.InternalResponseOrBuilder {
+        io.capman.proto.internal.CommonProto.InternalResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalResponse_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalResponse_fieldAccessorTable
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.capman.proto.internal.Common.InternalResponse.class, io.capman.proto.internal.Common.InternalResponse.Builder.class);
+                io.capman.proto.internal.CommonProto.InternalResponse.class, io.capman.proto.internal.CommonProto.InternalResponse.Builder.class);
       }
 
-      // Construct using io.capman.proto.internal.Common.InternalResponse.newBuilder()
+      // Construct using io.capman.proto.internal.CommonProto.InternalResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1489,23 +1489,23 @@ public final class Common {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_InternalResponse_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_InternalResponse_descriptor;
       }
 
-      public io.capman.proto.internal.Common.InternalResponse getDefaultInstanceForType() {
-        return io.capman.proto.internal.Common.InternalResponse.getDefaultInstance();
+      public io.capman.proto.internal.CommonProto.InternalResponse getDefaultInstanceForType() {
+        return io.capman.proto.internal.CommonProto.InternalResponse.getDefaultInstance();
       }
 
-      public io.capman.proto.internal.Common.InternalResponse build() {
-        io.capman.proto.internal.Common.InternalResponse result = buildPartial();
+      public io.capman.proto.internal.CommonProto.InternalResponse build() {
+        io.capman.proto.internal.CommonProto.InternalResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public io.capman.proto.internal.Common.InternalResponse buildPartial() {
-        io.capman.proto.internal.Common.InternalResponse result = new io.capman.proto.internal.Common.InternalResponse(this);
+      public io.capman.proto.internal.CommonProto.InternalResponse buildPartial() {
+        io.capman.proto.internal.CommonProto.InternalResponse result = new io.capman.proto.internal.CommonProto.InternalResponse(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1526,16 +1526,16 @@ public final class Common {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.capman.proto.internal.Common.InternalResponse) {
-          return mergeFrom((io.capman.proto.internal.Common.InternalResponse)other);
+        if (other instanceof io.capman.proto.internal.CommonProto.InternalResponse) {
+          return mergeFrom((io.capman.proto.internal.CommonProto.InternalResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.capman.proto.internal.Common.InternalResponse other) {
-        if (other == io.capman.proto.internal.Common.InternalResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.capman.proto.internal.CommonProto.InternalResponse other) {
+        if (other == io.capman.proto.internal.CommonProto.InternalResponse.getDefaultInstance()) return this;
         if (other.hasRet()) {
           setRet(other.getRet());
         }
@@ -1567,11 +1567,11 @@ public final class Common {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.capman.proto.internal.Common.InternalResponse parsedMessage = null;
+        io.capman.proto.internal.CommonProto.InternalResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.capman.proto.internal.Common.InternalResponse) e.getUnfinishedMessage();
+          parsedMessage = (io.capman.proto.internal.CommonProto.InternalResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1826,14 +1826,14 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_fieldAccessorTable
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg2_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.capman.proto.internal.Common.TestMsg2.class, io.capman.proto.internal.Common.TestMsg2.Builder.class);
+              io.capman.proto.internal.CommonProto.TestMsg2.class, io.capman.proto.internal.CommonProto.TestMsg2.Builder.class);
     }
 
     public static com.google.protobuf.Parser<TestMsg2> PARSER =
@@ -1942,53 +1942,53 @@ public final class Common {
       return super.writeReplace();
     }
 
-    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(byte[] data)
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseDelimitedFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseDelimitedFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.TestMsg2 parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg2 parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1997,7 +1997,7 @@ public final class Common {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(io.capman.proto.internal.Common.TestMsg2 prototype) {
+    public static Builder newBuilder(io.capman.proto.internal.CommonProto.TestMsg2 prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -2014,20 +2014,20 @@ public final class Common {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:io.capman.proto.internal.TestMsg2)
-        io.capman.proto.internal.Common.TestMsg2OrBuilder {
+        io.capman.proto.internal.CommonProto.TestMsg2OrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_fieldAccessorTable
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg2_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.capman.proto.internal.Common.TestMsg2.class, io.capman.proto.internal.Common.TestMsg2.Builder.class);
+                io.capman.proto.internal.CommonProto.TestMsg2.class, io.capman.proto.internal.CommonProto.TestMsg2.Builder.class);
       }
 
-      // Construct using io.capman.proto.internal.Common.TestMsg2.newBuilder()
+      // Construct using io.capman.proto.internal.CommonProto.TestMsg2.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2058,23 +2058,23 @@ public final class Common {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg2_descriptor;
       }
 
-      public io.capman.proto.internal.Common.TestMsg2 getDefaultInstanceForType() {
-        return io.capman.proto.internal.Common.TestMsg2.getDefaultInstance();
+      public io.capman.proto.internal.CommonProto.TestMsg2 getDefaultInstanceForType() {
+        return io.capman.proto.internal.CommonProto.TestMsg2.getDefaultInstance();
       }
 
-      public io.capman.proto.internal.Common.TestMsg2 build() {
-        io.capman.proto.internal.Common.TestMsg2 result = buildPartial();
+      public io.capman.proto.internal.CommonProto.TestMsg2 build() {
+        io.capman.proto.internal.CommonProto.TestMsg2 result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public io.capman.proto.internal.Common.TestMsg2 buildPartial() {
-        io.capman.proto.internal.Common.TestMsg2 result = new io.capman.proto.internal.Common.TestMsg2(this);
+      public io.capman.proto.internal.CommonProto.TestMsg2 buildPartial() {
+        io.capman.proto.internal.CommonProto.TestMsg2 result = new io.capman.proto.internal.CommonProto.TestMsg2(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2087,16 +2087,16 @@ public final class Common {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.capman.proto.internal.Common.TestMsg2) {
-          return mergeFrom((io.capman.proto.internal.Common.TestMsg2)other);
+        if (other instanceof io.capman.proto.internal.CommonProto.TestMsg2) {
+          return mergeFrom((io.capman.proto.internal.CommonProto.TestMsg2)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.capman.proto.internal.Common.TestMsg2 other) {
-        if (other == io.capman.proto.internal.Common.TestMsg2.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.capman.proto.internal.CommonProto.TestMsg2 other) {
+        if (other == io.capman.proto.internal.CommonProto.TestMsg2.getDefaultInstance()) return this;
         if (other.hasE()) {
           bitField0_ |= 0x00000001;
           e_ = other.e_;
@@ -2118,11 +2118,11 @@ public final class Common {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.capman.proto.internal.Common.TestMsg2 parsedMessage = null;
+        io.capman.proto.internal.CommonProto.TestMsg2 parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.capman.proto.internal.Common.TestMsg2) e.getUnfinishedMessage();
+          parsedMessage = (io.capman.proto.internal.CommonProto.TestMsg2) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2241,12 +2241,12 @@ public final class Common {
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
-    java.util.List<io.capman.proto.internal.Common.TestMsg2> 
+    java.util.List<io.capman.proto.internal.CommonProto.TestMsg2> 
         getRmList();
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
-    io.capman.proto.internal.Common.TestMsg2 getRm(int index);
+    io.capman.proto.internal.CommonProto.TestMsg2 getRm(int index);
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
@@ -2254,12 +2254,12 @@ public final class Common {
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
-    java.util.List<? extends io.capman.proto.internal.Common.TestMsg2OrBuilder> 
+    java.util.List<? extends io.capman.proto.internal.CommonProto.TestMsg2OrBuilder> 
         getRmOrBuilderList();
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
-    io.capman.proto.internal.Common.TestMsg2OrBuilder getRmOrBuilder(
+    io.capman.proto.internal.CommonProto.TestMsg2OrBuilder getRmOrBuilder(
         int index);
   }
   /**
@@ -2322,10 +2322,10 @@ public final class Common {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                rm_ = new java.util.ArrayList<io.capman.proto.internal.Common.TestMsg2>();
+                rm_ = new java.util.ArrayList<io.capman.proto.internal.CommonProto.TestMsg2>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              rm_.add(input.readMessage(io.capman.proto.internal.Common.TestMsg2.PARSER, extensionRegistry));
+              rm_.add(input.readMessage(io.capman.proto.internal.CommonProto.TestMsg2.PARSER, extensionRegistry));
               break;
             }
           }
@@ -2345,14 +2345,14 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_descriptor;
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_fieldAccessorTable
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.capman.proto.internal.Common.TestMsg.class, io.capman.proto.internal.Common.TestMsg.Builder.class);
+              io.capman.proto.internal.CommonProto.TestMsg.class, io.capman.proto.internal.CommonProto.TestMsg.Builder.class);
     }
 
     public static com.google.protobuf.Parser<TestMsg> PARSER =
@@ -2414,17 +2414,17 @@ public final class Common {
     }
 
     public static final int RM_FIELD_NUMBER = 2;
-    private java.util.List<io.capman.proto.internal.Common.TestMsg2> rm_;
+    private java.util.List<io.capman.proto.internal.CommonProto.TestMsg2> rm_;
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
-    public java.util.List<io.capman.proto.internal.Common.TestMsg2> getRmList() {
+    public java.util.List<io.capman.proto.internal.CommonProto.TestMsg2> getRmList() {
       return rm_;
     }
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
-    public java.util.List<? extends io.capman.proto.internal.Common.TestMsg2OrBuilder> 
+    public java.util.List<? extends io.capman.proto.internal.CommonProto.TestMsg2OrBuilder> 
         getRmOrBuilderList() {
       return rm_;
     }
@@ -2437,13 +2437,13 @@ public final class Common {
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
-    public io.capman.proto.internal.Common.TestMsg2 getRm(int index) {
+    public io.capman.proto.internal.CommonProto.TestMsg2 getRm(int index) {
       return rm_.get(index);
     }
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
      */
-    public io.capman.proto.internal.Common.TestMsg2OrBuilder getRmOrBuilder(
+    public io.capman.proto.internal.CommonProto.TestMsg2OrBuilder getRmOrBuilder(
         int index) {
       return rm_.get(index);
     }
@@ -2510,53 +2510,53 @@ public final class Common {
       return super.writeReplace();
     }
 
-    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseFrom(byte[] data)
+    public static io.capman.proto.internal.CommonProto.TestMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.TestMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseDelimitedFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.TestMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseDelimitedFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.TestMsg parseFrom(
+    public static io.capman.proto.internal.CommonProto.TestMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2565,7 +2565,7 @@ public final class Common {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(io.capman.proto.internal.Common.TestMsg prototype) {
+    public static Builder newBuilder(io.capman.proto.internal.CommonProto.TestMsg prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -2582,20 +2582,20 @@ public final class Common {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:io.capman.proto.internal.TestMsg)
-        io.capman.proto.internal.Common.TestMsgOrBuilder {
+        io.capman.proto.internal.CommonProto.TestMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_fieldAccessorTable
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.capman.proto.internal.Common.TestMsg.class, io.capman.proto.internal.Common.TestMsg.Builder.class);
+                io.capman.proto.internal.CommonProto.TestMsg.class, io.capman.proto.internal.CommonProto.TestMsg.Builder.class);
       }
 
-      // Construct using io.capman.proto.internal.Common.TestMsg.newBuilder()
+      // Construct using io.capman.proto.internal.CommonProto.TestMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2633,23 +2633,23 @@ public final class Common {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_TestMsg_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_TestMsg_descriptor;
       }
 
-      public io.capman.proto.internal.Common.TestMsg getDefaultInstanceForType() {
-        return io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+      public io.capman.proto.internal.CommonProto.TestMsg getDefaultInstanceForType() {
+        return io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance();
       }
 
-      public io.capman.proto.internal.Common.TestMsg build() {
-        io.capman.proto.internal.Common.TestMsg result = buildPartial();
+      public io.capman.proto.internal.CommonProto.TestMsg build() {
+        io.capman.proto.internal.CommonProto.TestMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public io.capman.proto.internal.Common.TestMsg buildPartial() {
-        io.capman.proto.internal.Common.TestMsg result = new io.capman.proto.internal.Common.TestMsg(this);
+      public io.capman.proto.internal.CommonProto.TestMsg buildPartial() {
+        io.capman.proto.internal.CommonProto.TestMsg result = new io.capman.proto.internal.CommonProto.TestMsg(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2671,16 +2671,16 @@ public final class Common {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.capman.proto.internal.Common.TestMsg) {
-          return mergeFrom((io.capman.proto.internal.Common.TestMsg)other);
+        if (other instanceof io.capman.proto.internal.CommonProto.TestMsg) {
+          return mergeFrom((io.capman.proto.internal.CommonProto.TestMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.capman.proto.internal.Common.TestMsg other) {
-        if (other == io.capman.proto.internal.Common.TestMsg.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.capman.proto.internal.CommonProto.TestMsg other) {
+        if (other == io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance()) return this;
         if (other.hasE()) {
           bitField0_ |= 0x00000001;
           e_ = other.e_;
@@ -2734,11 +2734,11 @@ public final class Common {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.capman.proto.internal.Common.TestMsg parsedMessage = null;
+        io.capman.proto.internal.CommonProto.TestMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.capman.proto.internal.Common.TestMsg) e.getUnfinishedMessage();
+          parsedMessage = (io.capman.proto.internal.CommonProto.TestMsg) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2825,22 +2825,22 @@ public final class Common {
         return this;
       }
 
-      private java.util.List<io.capman.proto.internal.Common.TestMsg2> rm_ =
+      private java.util.List<io.capman.proto.internal.CommonProto.TestMsg2> rm_ =
         java.util.Collections.emptyList();
       private void ensureRmIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          rm_ = new java.util.ArrayList<io.capman.proto.internal.Common.TestMsg2>(rm_);
+          rm_ = new java.util.ArrayList<io.capman.proto.internal.CommonProto.TestMsg2>(rm_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          io.capman.proto.internal.Common.TestMsg2, io.capman.proto.internal.Common.TestMsg2.Builder, io.capman.proto.internal.Common.TestMsg2OrBuilder> rmBuilder_;
+          io.capman.proto.internal.CommonProto.TestMsg2, io.capman.proto.internal.CommonProto.TestMsg2.Builder, io.capman.proto.internal.CommonProto.TestMsg2OrBuilder> rmBuilder_;
 
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public java.util.List<io.capman.proto.internal.Common.TestMsg2> getRmList() {
+      public java.util.List<io.capman.proto.internal.CommonProto.TestMsg2> getRmList() {
         if (rmBuilder_ == null) {
           return java.util.Collections.unmodifiableList(rm_);
         } else {
@@ -2860,7 +2860,7 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg2 getRm(int index) {
+      public io.capman.proto.internal.CommonProto.TestMsg2 getRm(int index) {
         if (rmBuilder_ == null) {
           return rm_.get(index);
         } else {
@@ -2871,7 +2871,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
       public Builder setRm(
-          int index, io.capman.proto.internal.Common.TestMsg2 value) {
+          int index, io.capman.proto.internal.CommonProto.TestMsg2 value) {
         if (rmBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2888,7 +2888,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
       public Builder setRm(
-          int index, io.capman.proto.internal.Common.TestMsg2.Builder builderForValue) {
+          int index, io.capman.proto.internal.CommonProto.TestMsg2.Builder builderForValue) {
         if (rmBuilder_ == null) {
           ensureRmIsMutable();
           rm_.set(index, builderForValue.build());
@@ -2901,7 +2901,7 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public Builder addRm(io.capman.proto.internal.Common.TestMsg2 value) {
+      public Builder addRm(io.capman.proto.internal.CommonProto.TestMsg2 value) {
         if (rmBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2918,7 +2918,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
       public Builder addRm(
-          int index, io.capman.proto.internal.Common.TestMsg2 value) {
+          int index, io.capman.proto.internal.CommonProto.TestMsg2 value) {
         if (rmBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2935,7 +2935,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
       public Builder addRm(
-          io.capman.proto.internal.Common.TestMsg2.Builder builderForValue) {
+          io.capman.proto.internal.CommonProto.TestMsg2.Builder builderForValue) {
         if (rmBuilder_ == null) {
           ensureRmIsMutable();
           rm_.add(builderForValue.build());
@@ -2949,7 +2949,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
       public Builder addRm(
-          int index, io.capman.proto.internal.Common.TestMsg2.Builder builderForValue) {
+          int index, io.capman.proto.internal.CommonProto.TestMsg2.Builder builderForValue) {
         if (rmBuilder_ == null) {
           ensureRmIsMutable();
           rm_.add(index, builderForValue.build());
@@ -2963,7 +2963,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
       public Builder addAllRm(
-          java.lang.Iterable<? extends io.capman.proto.internal.Common.TestMsg2> values) {
+          java.lang.Iterable<? extends io.capman.proto.internal.CommonProto.TestMsg2> values) {
         if (rmBuilder_ == null) {
           ensureRmIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3003,14 +3003,14 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg2.Builder getRmBuilder(
+      public io.capman.proto.internal.CommonProto.TestMsg2.Builder getRmBuilder(
           int index) {
         return getRmFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg2OrBuilder getRmOrBuilder(
+      public io.capman.proto.internal.CommonProto.TestMsg2OrBuilder getRmOrBuilder(
           int index) {
         if (rmBuilder_ == null) {
           return rm_.get(index);  } else {
@@ -3020,7 +3020,7 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public java.util.List<? extends io.capman.proto.internal.Common.TestMsg2OrBuilder> 
+      public java.util.List<? extends io.capman.proto.internal.CommonProto.TestMsg2OrBuilder> 
            getRmOrBuilderList() {
         if (rmBuilder_ != null) {
           return rmBuilder_.getMessageOrBuilderList();
@@ -3031,31 +3031,31 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg2.Builder addRmBuilder() {
+      public io.capman.proto.internal.CommonProto.TestMsg2.Builder addRmBuilder() {
         return getRmFieldBuilder().addBuilder(
-            io.capman.proto.internal.Common.TestMsg2.getDefaultInstance());
+            io.capman.proto.internal.CommonProto.TestMsg2.getDefaultInstance());
       }
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg2.Builder addRmBuilder(
+      public io.capman.proto.internal.CommonProto.TestMsg2.Builder addRmBuilder(
           int index) {
         return getRmFieldBuilder().addBuilder(
-            index, io.capman.proto.internal.Common.TestMsg2.getDefaultInstance());
+            index, io.capman.proto.internal.CommonProto.TestMsg2.getDefaultInstance());
       }
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg2 rm = 2;</code>
        */
-      public java.util.List<io.capman.proto.internal.Common.TestMsg2.Builder> 
+      public java.util.List<io.capman.proto.internal.CommonProto.TestMsg2.Builder> 
            getRmBuilderList() {
         return getRmFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          io.capman.proto.internal.Common.TestMsg2, io.capman.proto.internal.Common.TestMsg2.Builder, io.capman.proto.internal.Common.TestMsg2OrBuilder> 
+          io.capman.proto.internal.CommonProto.TestMsg2, io.capman.proto.internal.CommonProto.TestMsg2.Builder, io.capman.proto.internal.CommonProto.TestMsg2OrBuilder> 
           getRmFieldBuilder() {
         if (rmBuilder_ == null) {
           rmBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              io.capman.proto.internal.Common.TestMsg2, io.capman.proto.internal.Common.TestMsg2.Builder, io.capman.proto.internal.Common.TestMsg2OrBuilder>(
+              io.capman.proto.internal.CommonProto.TestMsg2, io.capman.proto.internal.CommonProto.TestMsg2.Builder, io.capman.proto.internal.CommonProto.TestMsg2OrBuilder>(
                   rm_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -3105,11 +3105,11 @@ public final class Common {
     /**
      * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
      */
-    io.capman.proto.internal.Common.TestMsg getC();
+    io.capman.proto.internal.CommonProto.TestMsg getC();
     /**
      * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
      */
-    io.capman.proto.internal.Common.TestMsgOrBuilder getCOrBuilder();
+    io.capman.proto.internal.CommonProto.TestMsgOrBuilder getCOrBuilder();
 
     /**
      * <code>required bytes array = 4;</code>
@@ -3121,13 +3121,17 @@ public final class Common {
     com.google.protobuf.ByteString getArray();
 
     /**
-     * <code>required bytes array2 = 5;</code>
+     * <code>repeated bytes array2 = 5;</code>
      */
-    boolean hasArray2();
+    java.util.List<com.google.protobuf.ByteString> getArray2List();
     /**
-     * <code>required bytes array2 = 5;</code>
+     * <code>repeated bytes array2 = 5;</code>
      */
-    com.google.protobuf.ByteString getArray2();
+    int getArray2Count();
+    /**
+     * <code>repeated bytes array2 = 5;</code>
+     */
+    com.google.protobuf.ByteString getArray2(int index);
 
     /**
      * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
@@ -3136,7 +3140,7 @@ public final class Common {
     /**
      * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
      */
-    io.capman.proto.internal.Common.ETest getE1();
+    io.capman.proto.internal.CommonProto.ETest getE1();
 
     /**
      * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
@@ -3145,7 +3149,7 @@ public final class Common {
     /**
      * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
      */
-    io.capman.proto.internal.Common.ETest getE2();
+    io.capman.proto.internal.CommonProto.ETest getE2();
 
     /**
      * <code>repeated string ss = 8;</code>
@@ -3169,12 +3173,12 @@ public final class Common {
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
-    java.util.List<io.capman.proto.internal.Common.TestMsg> 
+    java.util.List<io.capman.proto.internal.CommonProto.TestMsg> 
         getRtmList();
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
-    io.capman.proto.internal.Common.TestMsg getRtm(int index);
+    io.capman.proto.internal.CommonProto.TestMsg getRtm(int index);
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
@@ -3182,12 +3186,12 @@ public final class Common {
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
-    java.util.List<? extends io.capman.proto.internal.Common.TestMsgOrBuilder> 
+    java.util.List<? extends io.capman.proto.internal.CommonProto.TestMsgOrBuilder> 
         getRtmOrBuilderList();
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
-    io.capman.proto.internal.Common.TestMsgOrBuilder getRtmOrBuilder(
+    io.capman.proto.internal.CommonProto.TestMsgOrBuilder getRtmOrBuilder(
         int index);
   }
   /**
@@ -3253,11 +3257,11 @@ public final class Common {
               break;
             }
             case 26: {
-              io.capman.proto.internal.Common.TestMsg.Builder subBuilder = null;
+              io.capman.proto.internal.CommonProto.TestMsg.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = c_.toBuilder();
               }
-              c_ = input.readMessage(io.capman.proto.internal.Common.TestMsg.PARSER, extensionRegistry);
+              c_ = input.readMessage(io.capman.proto.internal.CommonProto.TestMsg.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(c_);
                 c_ = subBuilder.buildPartial();
@@ -3271,28 +3275,31 @@ public final class Common {
               break;
             }
             case 42: {
-              bitField0_ |= 0x00000010;
-              array2_ = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                array2_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              array2_.add(input.readBytes());
               break;
             }
             case 48: {
               int rawValue = input.readEnum();
-              io.capman.proto.internal.Common.ETest value = io.capman.proto.internal.Common.ETest.valueOf(rawValue);
+              io.capman.proto.internal.CommonProto.ETest value = io.capman.proto.internal.CommonProto.ETest.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(6, rawValue);
               } else {
-                bitField0_ |= 0x00000020;
+                bitField0_ |= 0x00000010;
                 e1_ = value;
               }
               break;
             }
             case 56: {
               int rawValue = input.readEnum();
-              io.capman.proto.internal.Common.ETest value = io.capman.proto.internal.Common.ETest.valueOf(rawValue);
+              io.capman.proto.internal.CommonProto.ETest value = io.capman.proto.internal.CommonProto.ETest.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(7, rawValue);
               } else {
-                bitField0_ |= 0x00000040;
+                bitField0_ |= 0x00000020;
                 e2_ = value;
               }
               break;
@@ -3308,10 +3315,10 @@ public final class Common {
             }
             case 74: {
               if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                rtm_ = new java.util.ArrayList<io.capman.proto.internal.Common.TestMsg>();
+                rtm_ = new java.util.ArrayList<io.capman.proto.internal.CommonProto.TestMsg>();
                 mutable_bitField0_ |= 0x00000100;
               }
-              rtm_.add(input.readMessage(io.capman.proto.internal.Common.TestMsg.PARSER, extensionRegistry));
+              rtm_.add(input.readMessage(io.capman.proto.internal.CommonProto.TestMsg.PARSER, extensionRegistry));
               break;
             }
           }
@@ -3322,6 +3329,9 @@ public final class Common {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          array2_ = java.util.Collections.unmodifiableList(array2_);
+        }
         if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
           ss_ = ss_.getUnmodifiableView();
         }
@@ -3334,14 +3344,14 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_descriptor;
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_Test_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_fieldAccessorTable
+      return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_Test_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.capman.proto.internal.Common.Test.class, io.capman.proto.internal.Common.Test.Builder.class);
+              io.capman.proto.internal.CommonProto.Test.class, io.capman.proto.internal.CommonProto.Test.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Test> PARSER =
@@ -3391,7 +3401,7 @@ public final class Common {
     }
 
     public static final int C_FIELD_NUMBER = 3;
-    private io.capman.proto.internal.Common.TestMsg c_;
+    private io.capman.proto.internal.CommonProto.TestMsg c_;
     /**
      * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
      */
@@ -3401,13 +3411,13 @@ public final class Common {
     /**
      * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
      */
-    public io.capman.proto.internal.Common.TestMsg getC() {
+    public io.capman.proto.internal.CommonProto.TestMsg getC() {
       return c_;
     }
     /**
      * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
      */
-    public io.capman.proto.internal.Common.TestMsgOrBuilder getCOrBuilder() {
+    public io.capman.proto.internal.CommonProto.TestMsgOrBuilder getCOrBuilder() {
       return c_;
     }
 
@@ -3427,47 +3437,54 @@ public final class Common {
     }
 
     public static final int ARRAY2_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString array2_;
+    private java.util.List<com.google.protobuf.ByteString> array2_;
     /**
-     * <code>required bytes array2 = 5;</code>
+     * <code>repeated bytes array2 = 5;</code>
      */
-    public boolean hasArray2() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+    public java.util.List<com.google.protobuf.ByteString>
+        getArray2List() {
+      return array2_;
     }
     /**
-     * <code>required bytes array2 = 5;</code>
+     * <code>repeated bytes array2 = 5;</code>
      */
-    public com.google.protobuf.ByteString getArray2() {
-      return array2_;
+    public int getArray2Count() {
+      return array2_.size();
+    }
+    /**
+     * <code>repeated bytes array2 = 5;</code>
+     */
+    public com.google.protobuf.ByteString getArray2(int index) {
+      return array2_.get(index);
     }
 
     public static final int E1_FIELD_NUMBER = 6;
-    private io.capman.proto.internal.Common.ETest e1_;
+    private io.capman.proto.internal.CommonProto.ETest e1_;
     /**
      * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
      */
     public boolean hasE1() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
      */
-    public io.capman.proto.internal.Common.ETest getE1() {
+    public io.capman.proto.internal.CommonProto.ETest getE1() {
       return e1_;
     }
 
     public static final int E2_FIELD_NUMBER = 7;
-    private io.capman.proto.internal.Common.ETest e2_;
+    private io.capman.proto.internal.CommonProto.ETest e2_;
     /**
      * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
      */
     public boolean hasE2() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
      */
-    public io.capman.proto.internal.Common.ETest getE2() {
+    public io.capman.proto.internal.CommonProto.ETest getE2() {
       return e2_;
     }
 
@@ -3501,17 +3518,17 @@ public final class Common {
     }
 
     public static final int RTM_FIELD_NUMBER = 9;
-    private java.util.List<io.capman.proto.internal.Common.TestMsg> rtm_;
+    private java.util.List<io.capman.proto.internal.CommonProto.TestMsg> rtm_;
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
-    public java.util.List<io.capman.proto.internal.Common.TestMsg> getRtmList() {
+    public java.util.List<io.capman.proto.internal.CommonProto.TestMsg> getRtmList() {
       return rtm_;
     }
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
-    public java.util.List<? extends io.capman.proto.internal.Common.TestMsgOrBuilder> 
+    public java.util.List<? extends io.capman.proto.internal.CommonProto.TestMsgOrBuilder> 
         getRtmOrBuilderList() {
       return rtm_;
     }
@@ -3524,13 +3541,13 @@ public final class Common {
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
-    public io.capman.proto.internal.Common.TestMsg getRtm(int index) {
+    public io.capman.proto.internal.CommonProto.TestMsg getRtm(int index) {
       return rtm_.get(index);
     }
     /**
      * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
      */
-    public io.capman.proto.internal.Common.TestMsgOrBuilder getRtmOrBuilder(
+    public io.capman.proto.internal.CommonProto.TestMsgOrBuilder getRtmOrBuilder(
         int index) {
       return rtm_.get(index);
     }
@@ -3538,11 +3555,11 @@ public final class Common {
     private void initFields() {
       a_ = 0;
       b_ = 0;
-      c_ = io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+      c_ = io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance();
       array_ = com.google.protobuf.ByteString.EMPTY;
-      array2_ = com.google.protobuf.ByteString.EMPTY;
-      e1_ = io.capman.proto.internal.Common.ETest.ETest_1;
-      e2_ = io.capman.proto.internal.Common.ETest.ETest_1;
+      array2_ = java.util.Collections.emptyList();
+      e1_ = io.capman.proto.internal.CommonProto.ETest.ETest_1;
+      e2_ = io.capman.proto.internal.CommonProto.ETest.ETest_1;
       ss_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       rtm_ = java.util.Collections.emptyList();
     }
@@ -3565,10 +3582,6 @@ public final class Common {
         return false;
       }
       if (!hasArray()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasArray2()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3609,13 +3622,13 @@ public final class Common {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBytes(4, array_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, array2_);
+      for (int i = 0; i < array2_.size(); i++) {
+        output.writeBytes(5, array2_.get(i));
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeEnum(6, e1_.getNumber());
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeEnum(7, e2_.getNumber());
       }
       for (int i = 0; i < ss_.size(); i++) {
@@ -3649,15 +3662,20 @@ public final class Common {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, array_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, array2_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < array2_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(array2_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getArray2List().size();
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(6, e1_.getNumber());
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(7, e2_.getNumber());
       }
@@ -3686,53 +3704,53 @@ public final class Common {
       return super.writeReplace();
     }
 
-    public static io.capman.proto.internal.Common.Test parseFrom(
+    public static io.capman.proto.internal.CommonProto.Test parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.Test parseFrom(
+    public static io.capman.proto.internal.CommonProto.Test parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.Test parseFrom(byte[] data)
+    public static io.capman.proto.internal.CommonProto.Test parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.capman.proto.internal.Common.Test parseFrom(
+    public static io.capman.proto.internal.CommonProto.Test parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.Test parseFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.Test parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.Test parseFrom(
+    public static io.capman.proto.internal.CommonProto.Test parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.Test parseDelimitedFrom(java.io.InputStream input)
+    public static io.capman.proto.internal.CommonProto.Test parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static io.capman.proto.internal.Common.Test parseDelimitedFrom(
+    public static io.capman.proto.internal.CommonProto.Test parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static io.capman.proto.internal.Common.Test parseFrom(
+    public static io.capman.proto.internal.CommonProto.Test parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static io.capman.proto.internal.Common.Test parseFrom(
+    public static io.capman.proto.internal.CommonProto.Test parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3741,7 +3759,7 @@ public final class Common {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(io.capman.proto.internal.Common.Test prototype) {
+    public static Builder newBuilder(io.capman.proto.internal.CommonProto.Test prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -3758,20 +3776,20 @@ public final class Common {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:io.capman.proto.internal.Test)
-        io.capman.proto.internal.Common.TestOrBuilder {
+        io.capman.proto.internal.CommonProto.TestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_Test_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_fieldAccessorTable
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_Test_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.capman.proto.internal.Common.Test.class, io.capman.proto.internal.Common.Test.Builder.class);
+                io.capman.proto.internal.CommonProto.Test.class, io.capman.proto.internal.CommonProto.Test.Builder.class);
       }
 
-      // Construct using io.capman.proto.internal.Common.Test.newBuilder()
+      // Construct using io.capman.proto.internal.CommonProto.Test.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3798,18 +3816,18 @@ public final class Common {
         b_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         if (cBuilder_ == null) {
-          c_ = io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+          c_ = io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance();
         } else {
           cBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         array_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000008);
-        array2_ = com.google.protobuf.ByteString.EMPTY;
+        array2_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
-        e1_ = io.capman.proto.internal.Common.ETest.ETest_1;
+        e1_ = io.capman.proto.internal.CommonProto.ETest.ETest_1;
         bitField0_ = (bitField0_ & ~0x00000020);
-        e2_ = io.capman.proto.internal.Common.ETest.ETest_1;
+        e2_ = io.capman.proto.internal.CommonProto.ETest.ETest_1;
         bitField0_ = (bitField0_ & ~0x00000040);
         ss_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -3828,23 +3846,23 @@ public final class Common {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.capman.proto.internal.Common.internal_static_io_capman_proto_internal_Test_descriptor;
+        return io.capman.proto.internal.CommonProto.internal_static_io_capman_proto_internal_Test_descriptor;
       }
 
-      public io.capman.proto.internal.Common.Test getDefaultInstanceForType() {
-        return io.capman.proto.internal.Common.Test.getDefaultInstance();
+      public io.capman.proto.internal.CommonProto.Test getDefaultInstanceForType() {
+        return io.capman.proto.internal.CommonProto.Test.getDefaultInstance();
       }
 
-      public io.capman.proto.internal.Common.Test build() {
-        io.capman.proto.internal.Common.Test result = buildPartial();
+      public io.capman.proto.internal.CommonProto.Test build() {
+        io.capman.proto.internal.CommonProto.Test result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public io.capman.proto.internal.Common.Test buildPartial() {
-        io.capman.proto.internal.Common.Test result = new io.capman.proto.internal.Common.Test(this);
+      public io.capman.proto.internal.CommonProto.Test buildPartial() {
+        io.capman.proto.internal.CommonProto.Test result = new io.capman.proto.internal.CommonProto.Test(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3867,16 +3885,17 @@ public final class Common {
           to_bitField0_ |= 0x00000008;
         }
         result.array_ = array_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          array2_ = java.util.Collections.unmodifiableList(array2_);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.array2_ = array2_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
+          to_bitField0_ |= 0x00000010;
         }
         result.e1_ = e1_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
+          to_bitField0_ |= 0x00000020;
         }
         result.e2_ = e2_;
         if (((bitField0_ & 0x00000080) == 0x00000080)) {
@@ -3899,16 +3918,16 @@ public final class Common {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.capman.proto.internal.Common.Test) {
-          return mergeFrom((io.capman.proto.internal.Common.Test)other);
+        if (other instanceof io.capman.proto.internal.CommonProto.Test) {
+          return mergeFrom((io.capman.proto.internal.CommonProto.Test)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.capman.proto.internal.Common.Test other) {
-        if (other == io.capman.proto.internal.Common.Test.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.capman.proto.internal.CommonProto.Test other) {
+        if (other == io.capman.proto.internal.CommonProto.Test.getDefaultInstance()) return this;
         if (other.hasA()) {
           setA(other.getA());
         }
@@ -3921,8 +3940,15 @@ public final class Common {
         if (other.hasArray()) {
           setArray(other.getArray());
         }
-        if (other.hasArray2()) {
-          setArray2(other.getArray2());
+        if (!other.array2_.isEmpty()) {
+          if (array2_.isEmpty()) {
+            array2_ = other.array2_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureArray2IsMutable();
+            array2_.addAll(other.array2_);
+          }
+          onChanged();
         }
         if (other.hasE1()) {
           setE1(other.getE1());
@@ -3987,10 +4013,6 @@ public final class Common {
           
           return false;
         }
-        if (!hasArray2()) {
-          
-          return false;
-        }
         if (!hasE1()) {
           
           return false;
@@ -4016,11 +4038,11 @@ public final class Common {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.capman.proto.internal.Common.Test parsedMessage = null;
+        io.capman.proto.internal.CommonProto.Test parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.capman.proto.internal.Common.Test) e.getUnfinishedMessage();
+          parsedMessage = (io.capman.proto.internal.CommonProto.Test) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -4095,9 +4117,9 @@ public final class Common {
         return this;
       }
 
-      private io.capman.proto.internal.Common.TestMsg c_ = io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+      private io.capman.proto.internal.CommonProto.TestMsg c_ = io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder> cBuilder_;
+          io.capman.proto.internal.CommonProto.TestMsg, io.capman.proto.internal.CommonProto.TestMsg.Builder, io.capman.proto.internal.CommonProto.TestMsgOrBuilder> cBuilder_;
       /**
        * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
        */
@@ -4107,7 +4129,7 @@ public final class Common {
       /**
        * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg getC() {
+      public io.capman.proto.internal.CommonProto.TestMsg getC() {
         if (cBuilder_ == null) {
           return c_;
         } else {
@@ -4117,7 +4139,7 @@ public final class Common {
       /**
        * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
        */
-      public Builder setC(io.capman.proto.internal.Common.TestMsg value) {
+      public Builder setC(io.capman.proto.internal.CommonProto.TestMsg value) {
         if (cBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4134,7 +4156,7 @@ public final class Common {
        * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
        */
       public Builder setC(
-          io.capman.proto.internal.Common.TestMsg.Builder builderForValue) {
+          io.capman.proto.internal.CommonProto.TestMsg.Builder builderForValue) {
         if (cBuilder_ == null) {
           c_ = builderForValue.build();
           onChanged();
@@ -4147,12 +4169,12 @@ public final class Common {
       /**
        * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
        */
-      public Builder mergeC(io.capman.proto.internal.Common.TestMsg value) {
+      public Builder mergeC(io.capman.proto.internal.CommonProto.TestMsg value) {
         if (cBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              c_ != io.capman.proto.internal.Common.TestMsg.getDefaultInstance()) {
+              c_ != io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance()) {
             c_ =
-              io.capman.proto.internal.Common.TestMsg.newBuilder(c_).mergeFrom(value).buildPartial();
+              io.capman.proto.internal.CommonProto.TestMsg.newBuilder(c_).mergeFrom(value).buildPartial();
           } else {
             c_ = value;
           }
@@ -4168,7 +4190,7 @@ public final class Common {
        */
       public Builder clearC() {
         if (cBuilder_ == null) {
-          c_ = io.capman.proto.internal.Common.TestMsg.getDefaultInstance();
+          c_ = io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance();
           onChanged();
         } else {
           cBuilder_.clear();
@@ -4179,7 +4201,7 @@ public final class Common {
       /**
        * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg.Builder getCBuilder() {
+      public io.capman.proto.internal.CommonProto.TestMsg.Builder getCBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getCFieldBuilder().getBuilder();
@@ -4187,7 +4209,7 @@ public final class Common {
       /**
        * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
        */
-      public io.capman.proto.internal.Common.TestMsgOrBuilder getCOrBuilder() {
+      public io.capman.proto.internal.CommonProto.TestMsgOrBuilder getCOrBuilder() {
         if (cBuilder_ != null) {
           return cBuilder_.getMessageOrBuilder();
         } else {
@@ -4198,11 +4220,11 @@ public final class Common {
        * <code>required .io.capman.proto.internal.TestMsg c = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder> 
+          io.capman.proto.internal.CommonProto.TestMsg, io.capman.proto.internal.CommonProto.TestMsg.Builder, io.capman.proto.internal.CommonProto.TestMsgOrBuilder> 
           getCFieldBuilder() {
         if (cBuilder_ == null) {
           cBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder>(
+              io.capman.proto.internal.CommonProto.TestMsg, io.capman.proto.internal.CommonProto.TestMsg.Builder, io.capman.proto.internal.CommonProto.TestMsgOrBuilder>(
                   getC(),
                   getParentForChildren(),
                   isClean());
@@ -4246,42 +4268,79 @@ public final class Common {
         return this;
       }
 
-      private com.google.protobuf.ByteString array2_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>required bytes array2 = 5;</code>
-       */
-      public boolean hasArray2() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+      private java.util.List<com.google.protobuf.ByteString> array2_ = java.util.Collections.emptyList();
+      private void ensureArray2IsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          array2_ = new java.util.ArrayList<com.google.protobuf.ByteString>(array2_);
+          bitField0_ |= 0x00000010;
+         }
       }
       /**
-       * <code>required bytes array2 = 5;</code>
+       * <code>repeated bytes array2 = 5;</code>
        */
-      public com.google.protobuf.ByteString getArray2() {
-        return array2_;
+      public java.util.List<com.google.protobuf.ByteString>
+          getArray2List() {
+        return java.util.Collections.unmodifiableList(array2_);
       }
       /**
-       * <code>required bytes array2 = 5;</code>
+       * <code>repeated bytes array2 = 5;</code>
        */
-      public Builder setArray2(com.google.protobuf.ByteString value) {
+      public int getArray2Count() {
+        return array2_.size();
+      }
+      /**
+       * <code>repeated bytes array2 = 5;</code>
+       */
+      public com.google.protobuf.ByteString getArray2(int index) {
+        return array2_.get(index);
+      }
+      /**
+       * <code>repeated bytes array2 = 5;</code>
+       */
+      public Builder setArray2(
+          int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
-        array2_ = value;
+  ensureArray2IsMutable();
+        array2_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>required bytes array2 = 5;</code>
+       * <code>repeated bytes array2 = 5;</code>
+       */
+      public Builder addArray2(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArray2IsMutable();
+        array2_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes array2 = 5;</code>
+       */
+      public Builder addAllArray2(
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+        ensureArray2IsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, array2_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes array2 = 5;</code>
        */
       public Builder clearArray2() {
+        array2_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
-        array2_ = getDefaultInstance().getArray2();
         onChanged();
         return this;
       }
 
-      private io.capman.proto.internal.Common.ETest e1_ = io.capman.proto.internal.Common.ETest.ETest_1;
+      private io.capman.proto.internal.CommonProto.ETest e1_ = io.capman.proto.internal.CommonProto.ETest.ETest_1;
       /**
        * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
        */
@@ -4291,13 +4350,13 @@ public final class Common {
       /**
        * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
        */
-      public io.capman.proto.internal.Common.ETest getE1() {
+      public io.capman.proto.internal.CommonProto.ETest getE1() {
         return e1_;
       }
       /**
        * <code>required .io.capman.proto.internal.ETest e1 = 6;</code>
        */
-      public Builder setE1(io.capman.proto.internal.Common.ETest value) {
+      public Builder setE1(io.capman.proto.internal.CommonProto.ETest value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -4311,12 +4370,12 @@ public final class Common {
        */
       public Builder clearE1() {
         bitField0_ = (bitField0_ & ~0x00000020);
-        e1_ = io.capman.proto.internal.Common.ETest.ETest_1;
+        e1_ = io.capman.proto.internal.CommonProto.ETest.ETest_1;
         onChanged();
         return this;
       }
 
-      private io.capman.proto.internal.Common.ETest e2_ = io.capman.proto.internal.Common.ETest.ETest_1;
+      private io.capman.proto.internal.CommonProto.ETest e2_ = io.capman.proto.internal.CommonProto.ETest.ETest_1;
       /**
        * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
        */
@@ -4326,13 +4385,13 @@ public final class Common {
       /**
        * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
        */
-      public io.capman.proto.internal.Common.ETest getE2() {
+      public io.capman.proto.internal.CommonProto.ETest getE2() {
         return e2_;
       }
       /**
        * <code>required .io.capman.proto.internal.ETest e2 = 7;</code>
        */
-      public Builder setE2(io.capman.proto.internal.Common.ETest value) {
+      public Builder setE2(io.capman.proto.internal.CommonProto.ETest value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -4346,7 +4405,7 @@ public final class Common {
        */
       public Builder clearE2() {
         bitField0_ = (bitField0_ & ~0x00000040);
-        e2_ = io.capman.proto.internal.Common.ETest.ETest_1;
+        e2_ = io.capman.proto.internal.CommonProto.ETest.ETest_1;
         onChanged();
         return this;
       }
@@ -4444,22 +4503,22 @@ public final class Common {
         return this;
       }
 
-      private java.util.List<io.capman.proto.internal.Common.TestMsg> rtm_ =
+      private java.util.List<io.capman.proto.internal.CommonProto.TestMsg> rtm_ =
         java.util.Collections.emptyList();
       private void ensureRtmIsMutable() {
         if (!((bitField0_ & 0x00000100) == 0x00000100)) {
-          rtm_ = new java.util.ArrayList<io.capman.proto.internal.Common.TestMsg>(rtm_);
+          rtm_ = new java.util.ArrayList<io.capman.proto.internal.CommonProto.TestMsg>(rtm_);
           bitField0_ |= 0x00000100;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder> rtmBuilder_;
+          io.capman.proto.internal.CommonProto.TestMsg, io.capman.proto.internal.CommonProto.TestMsg.Builder, io.capman.proto.internal.CommonProto.TestMsgOrBuilder> rtmBuilder_;
 
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public java.util.List<io.capman.proto.internal.Common.TestMsg> getRtmList() {
+      public java.util.List<io.capman.proto.internal.CommonProto.TestMsg> getRtmList() {
         if (rtmBuilder_ == null) {
           return java.util.Collections.unmodifiableList(rtm_);
         } else {
@@ -4479,7 +4538,7 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg getRtm(int index) {
+      public io.capman.proto.internal.CommonProto.TestMsg getRtm(int index) {
         if (rtmBuilder_ == null) {
           return rtm_.get(index);
         } else {
@@ -4490,7 +4549,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
       public Builder setRtm(
-          int index, io.capman.proto.internal.Common.TestMsg value) {
+          int index, io.capman.proto.internal.CommonProto.TestMsg value) {
         if (rtmBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4507,7 +4566,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
       public Builder setRtm(
-          int index, io.capman.proto.internal.Common.TestMsg.Builder builderForValue) {
+          int index, io.capman.proto.internal.CommonProto.TestMsg.Builder builderForValue) {
         if (rtmBuilder_ == null) {
           ensureRtmIsMutable();
           rtm_.set(index, builderForValue.build());
@@ -4520,7 +4579,7 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public Builder addRtm(io.capman.proto.internal.Common.TestMsg value) {
+      public Builder addRtm(io.capman.proto.internal.CommonProto.TestMsg value) {
         if (rtmBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4537,7 +4596,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
       public Builder addRtm(
-          int index, io.capman.proto.internal.Common.TestMsg value) {
+          int index, io.capman.proto.internal.CommonProto.TestMsg value) {
         if (rtmBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4554,7 +4613,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
       public Builder addRtm(
-          io.capman.proto.internal.Common.TestMsg.Builder builderForValue) {
+          io.capman.proto.internal.CommonProto.TestMsg.Builder builderForValue) {
         if (rtmBuilder_ == null) {
           ensureRtmIsMutable();
           rtm_.add(builderForValue.build());
@@ -4568,7 +4627,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
       public Builder addRtm(
-          int index, io.capman.proto.internal.Common.TestMsg.Builder builderForValue) {
+          int index, io.capman.proto.internal.CommonProto.TestMsg.Builder builderForValue) {
         if (rtmBuilder_ == null) {
           ensureRtmIsMutable();
           rtm_.add(index, builderForValue.build());
@@ -4582,7 +4641,7 @@ public final class Common {
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
       public Builder addAllRtm(
-          java.lang.Iterable<? extends io.capman.proto.internal.Common.TestMsg> values) {
+          java.lang.Iterable<? extends io.capman.proto.internal.CommonProto.TestMsg> values) {
         if (rtmBuilder_ == null) {
           ensureRtmIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4622,14 +4681,14 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg.Builder getRtmBuilder(
+      public io.capman.proto.internal.CommonProto.TestMsg.Builder getRtmBuilder(
           int index) {
         return getRtmFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public io.capman.proto.internal.Common.TestMsgOrBuilder getRtmOrBuilder(
+      public io.capman.proto.internal.CommonProto.TestMsgOrBuilder getRtmOrBuilder(
           int index) {
         if (rtmBuilder_ == null) {
           return rtm_.get(index);  } else {
@@ -4639,7 +4698,7 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public java.util.List<? extends io.capman.proto.internal.Common.TestMsgOrBuilder> 
+      public java.util.List<? extends io.capman.proto.internal.CommonProto.TestMsgOrBuilder> 
            getRtmOrBuilderList() {
         if (rtmBuilder_ != null) {
           return rtmBuilder_.getMessageOrBuilderList();
@@ -4650,31 +4709,31 @@ public final class Common {
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg.Builder addRtmBuilder() {
+      public io.capman.proto.internal.CommonProto.TestMsg.Builder addRtmBuilder() {
         return getRtmFieldBuilder().addBuilder(
-            io.capman.proto.internal.Common.TestMsg.getDefaultInstance());
+            io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance());
       }
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public io.capman.proto.internal.Common.TestMsg.Builder addRtmBuilder(
+      public io.capman.proto.internal.CommonProto.TestMsg.Builder addRtmBuilder(
           int index) {
         return getRtmFieldBuilder().addBuilder(
-            index, io.capman.proto.internal.Common.TestMsg.getDefaultInstance());
+            index, io.capman.proto.internal.CommonProto.TestMsg.getDefaultInstance());
       }
       /**
        * <code>repeated .io.capman.proto.internal.TestMsg rtm = 9;</code>
        */
-      public java.util.List<io.capman.proto.internal.Common.TestMsg.Builder> 
+      public java.util.List<io.capman.proto.internal.CommonProto.TestMsg.Builder> 
            getRtmBuilderList() {
         return getRtmFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder> 
+          io.capman.proto.internal.CommonProto.TestMsg, io.capman.proto.internal.CommonProto.TestMsg.Builder, io.capman.proto.internal.CommonProto.TestMsgOrBuilder> 
           getRtmFieldBuilder() {
         if (rtmBuilder_ == null) {
           rtmBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              io.capman.proto.internal.Common.TestMsg, io.capman.proto.internal.Common.TestMsg.Builder, io.capman.proto.internal.Common.TestMsgOrBuilder>(
+              io.capman.proto.internal.CommonProto.TestMsg, io.capman.proto.internal.CommonProto.TestMsg.Builder, io.capman.proto.internal.CommonProto.TestMsgOrBuilder>(
                   rtm_,
                   ((bitField0_ & 0x00000100) == 0x00000100),
                   getParentForChildren(),
@@ -4695,7 +4754,7 @@ public final class Common {
     // @@protoc_insertion_point(class_scope:io.capman.proto.internal.Test)
   }
 
-  public static final int SERVICENAME_FIELD_NUMBER = 1000;
+  public static final int SERVICENAME_FIELD_NUMBER = 10000;
   /**
    * <code>extend .com.google.protobuf.ServiceOptions { ... }</code>
    */
@@ -4706,7 +4765,7 @@ public final class Common {
           .newFileScopedGeneratedExtension(
         java.lang.String.class,
         null);
-  public static final int SERVICETYPE_FIELD_NUMBER = 1001;
+  public static final int SERVICETYPE_FIELD_NUMBER = 10001;
   /**
    * <code>extend .com.google.protobuf.ServiceOptions { ... }</code>
    */
@@ -4717,7 +4776,7 @@ public final class Common {
           .newFileScopedGeneratedExtension(
         java.lang.Integer.class,
         null);
-  public static final int DEFAULTSERVICEURIPARAMS_FIELD_NUMBER = 1002;
+  public static final int DEFAULTSERVICEURIPARAMS_FIELD_NUMBER = 10002;
   /**
    * <code>extend .com.google.protobuf.ServiceOptions { ... }</code>
    *
@@ -4731,27 +4790,27 @@ public final class Common {
           .newFileScopedGeneratedExtension(
         java.lang.String.class,
         null);
-  public static final int DEFAULTCLUSTERSTRATEGY_FIELD_NUMBER = 1000;
+  public static final int DEFAULTCLUSTERSTRATEGY_FIELD_NUMBER = 10000;
   /**
    * <code>extend .com.google.protobuf.MethodOptions { ... }</code>
    */
   public static final
     com.google.protobuf.GeneratedMessage.GeneratedExtension<
       com.google.protobuf.DescriptorProtos.MethodOptions,
-      io.capman.proto.internal.Common.EClusterStrategy> defaultClusterStrategy = com.google.protobuf.GeneratedMessage
+      io.capman.proto.internal.CommonProto.EClusterStrategy> defaultClusterStrategy = com.google.protobuf.GeneratedMessage
           .newFileScopedGeneratedExtension(
-        io.capman.proto.internal.Common.EClusterStrategy.class,
+        io.capman.proto.internal.CommonProto.EClusterStrategy.class,
         null);
-  public static final int DEFAULTLOADBALANCESTRATEGY_FIELD_NUMBER = 1001;
+  public static final int DEFAULTLOADBALANCESTRATEGY_FIELD_NUMBER = 10001;
   /**
    * <code>extend .com.google.protobuf.MethodOptions { ... }</code>
    */
   public static final
     com.google.protobuf.GeneratedMessage.GeneratedExtension<
       com.google.protobuf.DescriptorProtos.MethodOptions,
-      io.capman.proto.internal.Common.ELoadbalanceStrategy> defaultLoadBalanceStrategy = com.google.protobuf.GeneratedMessage
+      io.capman.proto.internal.CommonProto.ELoadbalanceStrategy> defaultLoadBalanceStrategy = com.google.protobuf.GeneratedMessage
           .newFileScopedGeneratedExtension(
-        io.capman.proto.internal.Common.ELoadbalanceStrategy.class,
+        io.capman.proto.internal.CommonProto.ELoadbalanceStrategy.class,
         null);
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_io_capman_proto_internal_InternalRequest_descriptor;
@@ -4797,7 +4856,7 @@ public final class Common {
       "proto.internal.TestMsg2\"\377\001\n\004Test\022\t\n\001a\030\001 " +
       "\002(\005\022\t\n\001b\030\002 \002(\005\022,\n\001c\030\003 \002(\0132!.io.capman.pr" +
       "oto.internal.TestMsg\022\r\n\005array\030\004 \002(\014\022\016\n\006a",
-      "rray2\030\005 \002(\014\022+\n\002e1\030\006 \002(\0162\037.io.capman.prot" +
+      "rray2\030\005 \003(\014\022+\n\002e1\030\006 \002(\0162\037.io.capman.prot" +
       "o.internal.ETest\022+\n\002e2\030\007 \002(\0162\037.io.capman" +
       ".proto.internal.ETest\022\n\n\002ss\030\010 \003(\t\022.\n\003rtm" +
       "\030\t \003(\0132!.io.capman.proto.internal.TestMs" +
@@ -4817,18 +4876,19 @@ public final class Common {
       "\003\022\037\n\033ELoadbalanceStrategy_Custom\020\004*!\n\005ET" +
       "est\022\013\n\007ETest_1\020\001\022\013\n\007ETest_2\020\002:;\n\013service" +
       "Name\022#.com.google.protobuf.ServiceOption",
-      "s\030\350\007 \001(\t:\000:<\n\013serviceType\022#.com.google.p" +
-      "rotobuf.ServiceOptions\030\351\007 \001(\005:\0010:G\n\027defa" +
+      "s\030\220N \001(\t:\000:<\n\013serviceType\022#.com.google.p" +
+      "rotobuf.ServiceOptions\030\221N \001(\005:\0010:G\n\027defa" +
       "ultServiceUriParams\022#.com.google.protobu" +
-      "f.ServiceOptions\030\352\007 \001(\t:\000:\212\001\n\026defaultClu" +
+      "f.ServiceOptions\030\222N \001(\t:\000:\212\001\n\026defaultClu" +
       "sterStrategy\022\".com.google.protobuf.Metho" +
-      "dOptions\030\350\007 \001(\0162*.io.capman.proto.intern" +
+      "dOptions\030\220N \001(\0162*.io.capman.proto.intern" +
       "al.EClusterStrategy:\031EClusterStrategy_Fa" +
       "ilOver:\234\001\n\032defaultLoadBalanceStrategy\022\"." +
-      "com.google.protobuf.MethodOptions\030\351\007 \001(\016" +
+      "com.google.protobuf.MethodOptions\030\221N \001(\016" +
       "2..io.capman.proto.internal.ELoadbalance",
       "Strategy:#ELoadbalanceStrategy_Consisten" +
-      "tHashB\032\n\030io.capman.proto.internal"
+      "tHashB)\n\030io.capman.proto.internalB\013Commo" +
+      "nProtoH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

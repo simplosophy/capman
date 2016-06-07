@@ -20,6 +20,8 @@ import java.util.Map;
 public class JSConfigEngine {
     private static Logger LOGGER = LoggerFactory.getLogger(JSConfigEngine.class);
 
+    private JSConfigEngine(){}
+
     private static final JSConfigEngine instance = new JSConfigEngine();
 
     public static JSConfigEngine getInstance() {
@@ -77,8 +79,11 @@ public class JSConfigEngine {
     }
 
 
-    private <Builder extends GeneratedMessage.Builder> GeneratedMessage.Builder<Builder>
-    js2pb(Map m, GeneratedMessage.Builder<Builder> b) throws JSConfigFormatException {
+    /**
+     * 将JavaScript对象转换为protobuf的Message
+     */
+    private <Builder extends GeneratedMessage.Builder>
+    GeneratedMessage.Builder<Builder> js2pb(Map m, GeneratedMessage.Builder<Builder> b) throws JSConfigFormatException {
         Descriptors.Descriptor descriptor = b.getDescriptorForType();
 
         for (Object o : m.keySet()) {
@@ -229,7 +234,15 @@ public class JSConfigEngine {
     }
 
 
-    public <T extends GeneratedMessage> T js2PbMsg(String jsStr, Class<T> pbClass) throws JSConfigFormatException {
+    /**
+     * JavaScript对象转换为ProtoBuf的Message
+     * @param jsStr
+     * @param pbClass
+     * @param <T> 必须是带有descriptor的Message(OptimizeMode不能是optimize_for = LITE_RUNTIME)
+     * @return
+     * @throws JSConfigFormatException
+     */
+    public <T extends AbstractMessage> T js2PbMsg(String jsStr, Class<T> pbClass) throws JSConfigFormatException {
         try {
             GeneratedMessage.Builder<GeneratedMessage.Builder> builder = null;
             builder = (GeneratedMessage.Builder<GeneratedMessage.Builder>) pbClass.getMethod("newBuilder").invoke(pbClass);
@@ -237,7 +250,6 @@ public class JSConfigEngine {
             GeneratedMessage.Builder<GeneratedMessage.Builder> bb = js2pb(map, builder);
             return (T) bb.build();
         } catch (Exception e) {
-            e.printStackTrace();
             throw new JSConfigFormatException(e.getMessage());
         }
     }

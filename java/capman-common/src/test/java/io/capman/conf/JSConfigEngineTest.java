@@ -1,6 +1,6 @@
 package io.capman.conf;
 
-import io.capman.proto.internal.Common;
+import io.capman.proto.internal.CommonProto;
 import io.capman.util.CommonUtils;
 import org.junit.Test;
 
@@ -17,9 +17,9 @@ public class JSConfigEngineTest {
 
         long start = System.currentTimeMillis();
         String js = CommonUtils.resourceAsString("t.js");
-        for (int i = 0; i < 1; i++) {
-            Common.Test test = JSConfigEngine.getInstance().js2PbMsg(js, Common.Test.class);
-            System.out.println(test);
+        for (int i = 0; i < 1000; i++) {
+            CommonProto.Test test = JSConfigEngine.getInstance().js2PbMsg(js, CommonProto.Test.class);
+//            System.out.println(test);
         }
 
         System.out.println("costs : " +(System.currentTimeMillis() - start));
