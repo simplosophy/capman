@@ -1,0 +1,1864 @@
+Created by PLY version 3.8 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    BLOCK_COMMENT
+    LINE_COMMENT
+    EXTENDS
+
+Grammar
+
+Rule 0     S' -> goal
+Rule 1     empty -> <empty>
+Rule 2     field_modifier -> REQUIRED
+Rule 3     field_modifier -> OPTIONAL
+Rule 4     field_modifier -> REPEATED
+Rule 5     primitive_type -> DOUBLE
+Rule 6     primitive_type -> FLOAT
+Rule 7     primitive_type -> INT32
+Rule 8     primitive_type -> INT64
+Rule 9     primitive_type -> UINT32
+Rule 10    primitive_type -> UINT64
+Rule 11    primitive_type -> SINT32
+Rule 12    primitive_type -> SINT64
+Rule 13    primitive_type -> FIXED32
+Rule 14    primitive_type -> FIXED64
+Rule 15    primitive_type -> SFIXED32
+Rule 16    primitive_type -> SFIXED64
+Rule 17    primitive_type -> BOOL
+Rule 18    primitive_type -> STRING
+Rule 19    primitive_type -> BYTES
+Rule 20    field_id -> NUM
+Rule 21    rvalue -> NUM
+Rule 22    rvalue -> TRUE
+Rule 23    rvalue -> FALSE
+Rule 24    rvalue -> NAME
+Rule 25    field_directive -> LBRACK NAME EQ rvalue RBRACK
+Rule 26    field_directive_times -> field_directive_plus
+Rule 27    field_directive_times -> empty
+Rule 28    field_directive_plus -> field_directive
+Rule 29    field_directive_plus -> field_directive_plus field_directive
+Rule 30    dotname -> NAME
+Rule 31    dotname -> dotname DOT NAME
+Rule 32    field_name -> NAME
+Rule 33    field_name -> MESSAGE
+Rule 34    field_name -> MAX
+Rule 35    field_type -> primitive_type
+Rule 36    field_type -> dotname
+Rule 37    field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI
+Rule 38    enum_field -> field_name EQ NUM SEMI
+Rule 39    enum_body_part -> enum_field
+Rule 40    enum_body_part -> option_directive
+Rule 41    enum_body -> enum_body_part
+Rule 42    enum_body -> enum_body enum_body_part
+Rule 43    enum_body_opt -> empty
+Rule 44    enum_body_opt -> enum_body
+Rule 45    enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE
+Rule 46    extensions_to -> MAX
+Rule 47    extensions_to -> NUM
+Rule 48    extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI
+Rule 49    message_extension -> EXTEND NAME LBRACE message_body RBRACE
+Rule 50    message_body_part -> field_definition
+Rule 51    message_body_part -> enum_definition
+Rule 52    message_body_part -> message_definition
+Rule 53    message_body_part -> extensions_definition
+Rule 54    message_body_part -> message_extension
+Rule 55    message_body -> empty
+Rule 56    message_body -> message_body_part
+Rule 57    message_body -> message_body message_body_part
+Rule 58    message_definition -> MESSAGE NAME LBRACE message_body RBRACE
+Rule 59    method_definition -> RPC NAME LPAR NAME RPAR RETURNS LPAR NAME RPAR
+Rule 60    method_definition_opt -> empty
+Rule 61    method_definition_opt -> method_definition
+Rule 62    method_definition_opt -> method_definition_opt method_definition
+Rule 63    service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE
+Rule 64    package_directive -> PACKAGE dotname SEMI
+Rule 65    import_directive -> IMPORT STRING_LITERAL SEMI
+Rule 66    option_rvalue -> NUM
+Rule 67    option_rvalue -> TRUE
+Rule 68    option_rvalue -> FALSE
+Rule 69    option_rvalue -> STRING_LITERAL
+Rule 70    option_rvalue -> NAME
+Rule 71    option_directive -> OPTION NAME EQ option_rvalue SEMI
+Rule 72    topLevel -> message_definition
+Rule 73    topLevel -> message_extension
+Rule 74    topLevel -> enum_definition
+Rule 75    topLevel -> service_definition
+Rule 76    topLevel -> import_directive
+Rule 77    topLevel -> option_directive
+Rule 78    package_definition -> package_directive
+Rule 79    package_definition -> empty
+Rule 80    statements -> topLevel
+Rule 81    statements -> statements topLevel
+Rule 82    statements -> empty
+Rule 83    protofile -> package_definition statements
+Rule 84    goal -> STARTTOKEN protofile
+
+Terminals, with rules where they appear
+
+BLOCK_COMMENT        : 
+BOOL                 : 17
+BYTES                : 19
+DOT                  : 31
+DOUBLE               : 5
+ENUM                 : 45
+EQ                   : 25 37 38 71
+EXTEND               : 49
+EXTENDS              : 
+EXTENSIONS           : 48
+FALSE                : 23 68
+FIXED32              : 13
+FIXED64              : 14
+FLOAT                : 6
+IMPORT               : 65
+INT32                : 7
+INT64                : 8
+LBRACE               : 45 49 58 63
+LBRACK               : 25
+LINE_COMMENT         : 
+LPAR                 : 59 59
+MAX                  : 34 46
+MESSAGE              : 33 58
+NAME                 : 24 25 30 31 32 45 49 58 59 59 59 63 70 71
+NUM                  : 20 21 38 47 48 66
+OPTION               : 71
+OPTIONAL             : 3
+PACKAGE              : 64
+RBRACE               : 45 49 58 63
+RBRACK               : 25
+REPEATED             : 4
+REQUIRED             : 2
+RETURNS              : 59
+RPAR                 : 59 59
+RPC                  : 59
+SEMI                 : 37 38 48 64 65 71
+SERVICE              : 63
+SFIXED32             : 15
+SFIXED64             : 16
+SINT32               : 11
+SINT64               : 12
+STARTTOKEN           : 84
+STRING               : 18
+STRING_LITERAL       : 65 69
+TO                   : 48
+TRUE                 : 22 67
+UINT32               : 9
+UINT64               : 10
+error                : 
+
+Nonterminals, with rules where they appear
+
+dotname              : 31 36 64
+empty                : 27 43 55 60 79 82
+enum_body            : 42 44
+enum_body_opt        : 45
+enum_body_part       : 41 42
+enum_definition      : 51 74
+enum_field           : 39
+extensions_definition : 53
+extensions_to        : 48
+field_definition     : 50
+field_directive      : 28 29
+field_directive_plus : 26 29
+field_directive_times : 37
+field_id             : 37
+field_modifier       : 37
+field_name           : 37 38
+field_type           : 37
+goal                 : 0
+import_directive     : 76
+message_body         : 49 57 58
+message_body_part    : 56 57
+message_definition   : 52 72
+message_extension    : 54 73
+method_definition    : 61 62
+method_definition_opt : 62 63
+option_directive     : 40 77
+option_rvalue        : 71
+package_definition   : 83
+package_directive    : 78
+primitive_type       : 35
+protofile            : 84
+rvalue               : 25
+service_definition   : 75
+statements           : 81 83
+topLevel             : 80 81
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . goal
+    (84) goal -> . STARTTOKEN protofile
+
+    STARTTOKEN      shift and go to state 1
+
+    goal                           shift and go to state 2
+
+state 1
+
+    (84) goal -> STARTTOKEN . protofile
+    (83) protofile -> . package_definition statements
+    (78) package_definition -> . package_directive
+    (79) package_definition -> . empty
+    (64) package_directive -> . PACKAGE dotname SEMI
+    (1) empty -> .
+
+    PACKAGE         shift and go to state 4
+    MESSAGE         reduce using rule 1 (empty -> .)
+    EXTEND          reduce using rule 1 (empty -> .)
+    ENUM            reduce using rule 1 (empty -> .)
+    SERVICE         reduce using rule 1 (empty -> .)
+    IMPORT          reduce using rule 1 (empty -> .)
+    OPTION          reduce using rule 1 (empty -> .)
+    $end            reduce using rule 1 (empty -> .)
+
+    package_directive              shift and go to state 3
+    protofile                      shift and go to state 5
+    package_definition             shift and go to state 6
+    empty                          shift and go to state 7
+
+state 2
+
+    (0) S' -> goal .
+
+
+
+state 3
+
+    (78) package_definition -> package_directive .
+
+    MESSAGE         reduce using rule 78 (package_definition -> package_directive .)
+    EXTEND          reduce using rule 78 (package_definition -> package_directive .)
+    ENUM            reduce using rule 78 (package_definition -> package_directive .)
+    SERVICE         reduce using rule 78 (package_definition -> package_directive .)
+    IMPORT          reduce using rule 78 (package_definition -> package_directive .)
+    OPTION          reduce using rule 78 (package_definition -> package_directive .)
+    $end            reduce using rule 78 (package_definition -> package_directive .)
+
+
+state 4
+
+    (64) package_directive -> PACKAGE . dotname SEMI
+    (30) dotname -> . NAME
+    (31) dotname -> . dotname DOT NAME
+
+    NAME            shift and go to state 9
+
+    dotname                        shift and go to state 8
+
+state 5
+
+    (84) goal -> STARTTOKEN protofile .
+
+    $end            reduce using rule 84 (goal -> STARTTOKEN protofile .)
+
+
+state 6
+
+    (83) protofile -> package_definition . statements
+    (80) statements -> . topLevel
+    (81) statements -> . statements topLevel
+    (82) statements -> . empty
+    (72) topLevel -> . message_definition
+    (73) topLevel -> . message_extension
+    (74) topLevel -> . enum_definition
+    (75) topLevel -> . service_definition
+    (76) topLevel -> . import_directive
+    (77) topLevel -> . option_directive
+    (1) empty -> .
+    (58) message_definition -> . MESSAGE NAME LBRACE message_body RBRACE
+    (49) message_extension -> . EXTEND NAME LBRACE message_body RBRACE
+    (45) enum_definition -> . ENUM NAME LBRACE enum_body_opt RBRACE
+    (63) service_definition -> . SERVICE NAME LBRACE method_definition_opt RBRACE
+    (65) import_directive -> . IMPORT STRING_LITERAL SEMI
+    (71) option_directive -> . OPTION NAME EQ option_rvalue SEMI
+
+  ! shift/reduce conflict for MESSAGE resolved as shift
+  ! shift/reduce conflict for EXTEND resolved as shift
+  ! shift/reduce conflict for ENUM resolved as shift
+  ! shift/reduce conflict for SERVICE resolved as shift
+  ! shift/reduce conflict for IMPORT resolved as shift
+  ! shift/reduce conflict for OPTION resolved as shift
+    $end            reduce using rule 1 (empty -> .)
+    MESSAGE         shift and go to state 24
+    EXTEND          shift and go to state 14
+    ENUM            shift and go to state 20
+    SERVICE         shift and go to state 12
+    IMPORT          shift and go to state 16
+    OPTION          shift and go to state 11
+
+  ! MESSAGE         [ reduce using rule 1 (empty -> .) ]
+  ! EXTEND          [ reduce using rule 1 (empty -> .) ]
+  ! ENUM            [ reduce using rule 1 (empty -> .) ]
+  ! SERVICE         [ reduce using rule 1 (empty -> .) ]
+  ! IMPORT          [ reduce using rule 1 (empty -> .) ]
+  ! OPTION          [ reduce using rule 1 (empty -> .) ]
+
+    message_definition             shift and go to state 18
+    statements                     shift and go to state 10
+    message_extension              shift and go to state 15
+    import_directive               shift and go to state 19
+    enum_definition                shift and go to state 22
+    service_definition             shift and go to state 13
+    option_directive               shift and go to state 21
+    topLevel                       shift and go to state 23
+    empty                          shift and go to state 17
+
+state 7
+
+    (79) package_definition -> empty .
+
+    MESSAGE         reduce using rule 79 (package_definition -> empty .)
+    EXTEND          reduce using rule 79 (package_definition -> empty .)
+    ENUM            reduce using rule 79 (package_definition -> empty .)
+    SERVICE         reduce using rule 79 (package_definition -> empty .)
+    IMPORT          reduce using rule 79 (package_definition -> empty .)
+    OPTION          reduce using rule 79 (package_definition -> empty .)
+    $end            reduce using rule 79 (package_definition -> empty .)
+
+
+state 8
+
+    (64) package_directive -> PACKAGE dotname . SEMI
+    (31) dotname -> dotname . DOT NAME
+
+    SEMI            shift and go to state 26
+    DOT             shift and go to state 25
+
+
+state 9
+
+    (30) dotname -> NAME .
+
+    SEMI            reduce using rule 30 (dotname -> NAME .)
+    DOT             reduce using rule 30 (dotname -> NAME .)
+    NAME            reduce using rule 30 (dotname -> NAME .)
+    MESSAGE         reduce using rule 30 (dotname -> NAME .)
+    MAX             reduce using rule 30 (dotname -> NAME .)
+
+
+state 10
+
+    (83) protofile -> package_definition statements .
+    (81) statements -> statements . topLevel
+    (72) topLevel -> . message_definition
+    (73) topLevel -> . message_extension
+    (74) topLevel -> . enum_definition
+    (75) topLevel -> . service_definition
+    (76) topLevel -> . import_directive
+    (77) topLevel -> . option_directive
+    (58) message_definition -> . MESSAGE NAME LBRACE message_body RBRACE
+    (49) message_extension -> . EXTEND NAME LBRACE message_body RBRACE
+    (45) enum_definition -> . ENUM NAME LBRACE enum_body_opt RBRACE
+    (63) service_definition -> . SERVICE NAME LBRACE method_definition_opt RBRACE
+    (65) import_directive -> . IMPORT STRING_LITERAL SEMI
+    (71) option_directive -> . OPTION NAME EQ option_rvalue SEMI
+
+    $end            reduce using rule 83 (protofile -> package_definition statements .)
+    MESSAGE         shift and go to state 24
+    EXTEND          shift and go to state 14
+    ENUM            shift and go to state 20
+    SERVICE         shift and go to state 12
+    IMPORT          shift and go to state 16
+    OPTION          shift and go to state 11
+
+    message_definition             shift and go to state 18
+    message_extension              shift and go to state 15
+    import_directive               shift and go to state 19
+    enum_definition                shift and go to state 22
+    service_definition             shift and go to state 13
+    option_directive               shift and go to state 21
+    topLevel                       shift and go to state 27
+
+state 11
+
+    (71) option_directive -> OPTION . NAME EQ option_rvalue SEMI
+
+    NAME            shift and go to state 28
+
+
+state 12
+
+    (63) service_definition -> SERVICE . NAME LBRACE method_definition_opt RBRACE
+
+    NAME            shift and go to state 29
+
+
+state 13
+
+    (75) topLevel -> service_definition .
+
+    MESSAGE         reduce using rule 75 (topLevel -> service_definition .)
+    EXTEND          reduce using rule 75 (topLevel -> service_definition .)
+    ENUM            reduce using rule 75 (topLevel -> service_definition .)
+    SERVICE         reduce using rule 75 (topLevel -> service_definition .)
+    IMPORT          reduce using rule 75 (topLevel -> service_definition .)
+    OPTION          reduce using rule 75 (topLevel -> service_definition .)
+    $end            reduce using rule 75 (topLevel -> service_definition .)
+
+
+state 14
+
+    (49) message_extension -> EXTEND . NAME LBRACE message_body RBRACE
+
+    NAME            shift and go to state 30
+
+
+state 15
+
+    (73) topLevel -> message_extension .
+
+    MESSAGE         reduce using rule 73 (topLevel -> message_extension .)
+    EXTEND          reduce using rule 73 (topLevel -> message_extension .)
+    ENUM            reduce using rule 73 (topLevel -> message_extension .)
+    SERVICE         reduce using rule 73 (topLevel -> message_extension .)
+    IMPORT          reduce using rule 73 (topLevel -> message_extension .)
+    OPTION          reduce using rule 73 (topLevel -> message_extension .)
+    $end            reduce using rule 73 (topLevel -> message_extension .)
+
+
+state 16
+
+    (65) import_directive -> IMPORT . STRING_LITERAL SEMI
+
+    STRING_LITERAL  shift and go to state 31
+
+
+state 17
+
+    (82) statements -> empty .
+
+    MESSAGE         reduce using rule 82 (statements -> empty .)
+    EXTEND          reduce using rule 82 (statements -> empty .)
+    ENUM            reduce using rule 82 (statements -> empty .)
+    SERVICE         reduce using rule 82 (statements -> empty .)
+    IMPORT          reduce using rule 82 (statements -> empty .)
+    OPTION          reduce using rule 82 (statements -> empty .)
+    $end            reduce using rule 82 (statements -> empty .)
+
+
+state 18
+
+    (72) topLevel -> message_definition .
+
+    MESSAGE         reduce using rule 72 (topLevel -> message_definition .)
+    EXTEND          reduce using rule 72 (topLevel -> message_definition .)
+    ENUM            reduce using rule 72 (topLevel -> message_definition .)
+    SERVICE         reduce using rule 72 (topLevel -> message_definition .)
+    IMPORT          reduce using rule 72 (topLevel -> message_definition .)
+    OPTION          reduce using rule 72 (topLevel -> message_definition .)
+    $end            reduce using rule 72 (topLevel -> message_definition .)
+
+
+state 19
+
+    (76) topLevel -> import_directive .
+
+    MESSAGE         reduce using rule 76 (topLevel -> import_directive .)
+    EXTEND          reduce using rule 76 (topLevel -> import_directive .)
+    ENUM            reduce using rule 76 (topLevel -> import_directive .)
+    SERVICE         reduce using rule 76 (topLevel -> import_directive .)
+    IMPORT          reduce using rule 76 (topLevel -> import_directive .)
+    OPTION          reduce using rule 76 (topLevel -> import_directive .)
+    $end            reduce using rule 76 (topLevel -> import_directive .)
+
+
+state 20
+
+    (45) enum_definition -> ENUM . NAME LBRACE enum_body_opt RBRACE
+
+    NAME            shift and go to state 32
+
+
+state 21
+
+    (77) topLevel -> option_directive .
+
+    MESSAGE         reduce using rule 77 (topLevel -> option_directive .)
+    EXTEND          reduce using rule 77 (topLevel -> option_directive .)
+    ENUM            reduce using rule 77 (topLevel -> option_directive .)
+    SERVICE         reduce using rule 77 (topLevel -> option_directive .)
+    IMPORT          reduce using rule 77 (topLevel -> option_directive .)
+    OPTION          reduce using rule 77 (topLevel -> option_directive .)
+    $end            reduce using rule 77 (topLevel -> option_directive .)
+
+
+state 22
+
+    (74) topLevel -> enum_definition .
+
+    MESSAGE         reduce using rule 74 (topLevel -> enum_definition .)
+    EXTEND          reduce using rule 74 (topLevel -> enum_definition .)
+    ENUM            reduce using rule 74 (topLevel -> enum_definition .)
+    SERVICE         reduce using rule 74 (topLevel -> enum_definition .)
+    IMPORT          reduce using rule 74 (topLevel -> enum_definition .)
+    OPTION          reduce using rule 74 (topLevel -> enum_definition .)
+    $end            reduce using rule 74 (topLevel -> enum_definition .)
+
+
+state 23
+
+    (80) statements -> topLevel .
+
+    MESSAGE         reduce using rule 80 (statements -> topLevel .)
+    EXTEND          reduce using rule 80 (statements -> topLevel .)
+    ENUM            reduce using rule 80 (statements -> topLevel .)
+    SERVICE         reduce using rule 80 (statements -> topLevel .)
+    IMPORT          reduce using rule 80 (statements -> topLevel .)
+    OPTION          reduce using rule 80 (statements -> topLevel .)
+    $end            reduce using rule 80 (statements -> topLevel .)
+
+
+state 24
+
+    (58) message_definition -> MESSAGE . NAME LBRACE message_body RBRACE
+
+    NAME            shift and go to state 33
+
+
+state 25
+
+    (31) dotname -> dotname DOT . NAME
+
+    NAME            shift and go to state 34
+
+
+state 26
+
+    (64) package_directive -> PACKAGE dotname SEMI .
+
+    MESSAGE         reduce using rule 64 (package_directive -> PACKAGE dotname SEMI .)
+    EXTEND          reduce using rule 64 (package_directive -> PACKAGE dotname SEMI .)
+    ENUM            reduce using rule 64 (package_directive -> PACKAGE dotname SEMI .)
+    SERVICE         reduce using rule 64 (package_directive -> PACKAGE dotname SEMI .)
+    IMPORT          reduce using rule 64 (package_directive -> PACKAGE dotname SEMI .)
+    OPTION          reduce using rule 64 (package_directive -> PACKAGE dotname SEMI .)
+    $end            reduce using rule 64 (package_directive -> PACKAGE dotname SEMI .)
+
+
+state 27
+
+    (81) statements -> statements topLevel .
+
+    MESSAGE         reduce using rule 81 (statements -> statements topLevel .)
+    EXTEND          reduce using rule 81 (statements -> statements topLevel .)
+    ENUM            reduce using rule 81 (statements -> statements topLevel .)
+    SERVICE         reduce using rule 81 (statements -> statements topLevel .)
+    IMPORT          reduce using rule 81 (statements -> statements topLevel .)
+    OPTION          reduce using rule 81 (statements -> statements topLevel .)
+    $end            reduce using rule 81 (statements -> statements topLevel .)
+
+
+state 28
+
+    (71) option_directive -> OPTION NAME . EQ option_rvalue SEMI
+
+    EQ              shift and go to state 35
+
+
+state 29
+
+    (63) service_definition -> SERVICE NAME . LBRACE method_definition_opt RBRACE
+
+    LBRACE          shift and go to state 36
+
+
+state 30
+
+    (49) message_extension -> EXTEND NAME . LBRACE message_body RBRACE
+
+    LBRACE          shift and go to state 37
+
+
+state 31
+
+    (65) import_directive -> IMPORT STRING_LITERAL . SEMI
+
+    SEMI            shift and go to state 38
+
+
+state 32
+
+    (45) enum_definition -> ENUM NAME . LBRACE enum_body_opt RBRACE
+
+    LBRACE          shift and go to state 39
+
+
+state 33
+
+    (58) message_definition -> MESSAGE NAME . LBRACE message_body RBRACE
+
+    LBRACE          shift and go to state 40
+
+
+state 34
+
+    (31) dotname -> dotname DOT NAME .
+
+    SEMI            reduce using rule 31 (dotname -> dotname DOT NAME .)
+    DOT             reduce using rule 31 (dotname -> dotname DOT NAME .)
+    NAME            reduce using rule 31 (dotname -> dotname DOT NAME .)
+    MESSAGE         reduce using rule 31 (dotname -> dotname DOT NAME .)
+    MAX             reduce using rule 31 (dotname -> dotname DOT NAME .)
+
+
+state 35
+
+    (71) option_directive -> OPTION NAME EQ . option_rvalue SEMI
+    (66) option_rvalue -> . NUM
+    (67) option_rvalue -> . TRUE
+    (68) option_rvalue -> . FALSE
+    (69) option_rvalue -> . STRING_LITERAL
+    (70) option_rvalue -> . NAME
+
+    NUM             shift and go to state 44
+    TRUE            shift and go to state 42
+    FALSE           shift and go to state 41
+    STRING_LITERAL  shift and go to state 43
+    NAME            shift and go to state 46
+
+    option_rvalue                  shift and go to state 45
+
+state 36
+
+    (63) service_definition -> SERVICE NAME LBRACE . method_definition_opt RBRACE
+    (60) method_definition_opt -> . empty
+    (61) method_definition_opt -> . method_definition
+    (62) method_definition_opt -> . method_definition_opt method_definition
+    (1) empty -> .
+    (59) method_definition -> . RPC NAME LPAR NAME RPAR RETURNS LPAR NAME RPAR
+
+  ! shift/reduce conflict for RPC resolved as shift
+    RBRACE          reduce using rule 1 (empty -> .)
+    RPC             shift and go to state 48
+
+  ! RPC             [ reduce using rule 1 (empty -> .) ]
+
+    method_definition              shift and go to state 49
+    method_definition_opt          shift and go to state 47
+    empty                          shift and go to state 50
+
+state 37
+
+    (49) message_extension -> EXTEND NAME LBRACE . message_body RBRACE
+    (55) message_body -> . empty
+    (56) message_body -> . message_body_part
+    (57) message_body -> . message_body message_body_part
+    (1) empty -> .
+    (50) message_body_part -> . field_definition
+    (51) message_body_part -> . enum_definition
+    (52) message_body_part -> . message_definition
+    (53) message_body_part -> . extensions_definition
+    (54) message_body_part -> . message_extension
+    (37) field_definition -> . field_modifier field_type field_name EQ field_id field_directive_times SEMI
+    (45) enum_definition -> . ENUM NAME LBRACE enum_body_opt RBRACE
+    (58) message_definition -> . MESSAGE NAME LBRACE message_body RBRACE
+    (48) extensions_definition -> . EXTENSIONS NUM TO extensions_to SEMI
+    (49) message_extension -> . EXTEND NAME LBRACE message_body RBRACE
+    (2) field_modifier -> . REQUIRED
+    (3) field_modifier -> . OPTIONAL
+    (4) field_modifier -> . REPEATED
+
+  ! shift/reduce conflict for ENUM resolved as shift
+  ! shift/reduce conflict for MESSAGE resolved as shift
+  ! shift/reduce conflict for EXTENSIONS resolved as shift
+  ! shift/reduce conflict for EXTEND resolved as shift
+  ! shift/reduce conflict for REQUIRED resolved as shift
+  ! shift/reduce conflict for OPTIONAL resolved as shift
+  ! shift/reduce conflict for REPEATED resolved as shift
+    RBRACE          reduce using rule 1 (empty -> .)
+    ENUM            shift and go to state 20
+    MESSAGE         shift and go to state 24
+    EXTENSIONS      shift and go to state 56
+    EXTEND          shift and go to state 14
+    REQUIRED        shift and go to state 54
+    OPTIONAL        shift and go to state 55
+    REPEATED        shift and go to state 52
+
+  ! ENUM            [ reduce using rule 1 (empty -> .) ]
+  ! MESSAGE         [ reduce using rule 1 (empty -> .) ]
+  ! EXTENSIONS      [ reduce using rule 1 (empty -> .) ]
+  ! EXTEND          [ reduce using rule 1 (empty -> .) ]
+  ! REQUIRED        [ reduce using rule 1 (empty -> .) ]
+  ! OPTIONAL        [ reduce using rule 1 (empty -> .) ]
+  ! REPEATED        [ reduce using rule 1 (empty -> .) ]
+
+    message_body                   shift and go to state 51
+    message_definition             shift and go to state 58
+    extensions_definition          shift and go to state 59
+    message_extension              shift and go to state 63
+    enum_definition                shift and go to state 62
+    field_definition               shift and go to state 60
+    message_body_part              shift and go to state 53
+    field_modifier                 shift and go to state 61
+    empty                          shift and go to state 57
+
+state 38
+
+    (65) import_directive -> IMPORT STRING_LITERAL SEMI .
+
+    MESSAGE         reduce using rule 65 (import_directive -> IMPORT STRING_LITERAL SEMI .)
+    EXTEND          reduce using rule 65 (import_directive -> IMPORT STRING_LITERAL SEMI .)
+    ENUM            reduce using rule 65 (import_directive -> IMPORT STRING_LITERAL SEMI .)
+    SERVICE         reduce using rule 65 (import_directive -> IMPORT STRING_LITERAL SEMI .)
+    IMPORT          reduce using rule 65 (import_directive -> IMPORT STRING_LITERAL SEMI .)
+    OPTION          reduce using rule 65 (import_directive -> IMPORT STRING_LITERAL SEMI .)
+    $end            reduce using rule 65 (import_directive -> IMPORT STRING_LITERAL SEMI .)
+
+
+state 39
+
+    (45) enum_definition -> ENUM NAME LBRACE . enum_body_opt RBRACE
+    (43) enum_body_opt -> . empty
+    (44) enum_body_opt -> . enum_body
+    (1) empty -> .
+    (41) enum_body -> . enum_body_part
+    (42) enum_body -> . enum_body enum_body_part
+    (39) enum_body_part -> . enum_field
+    (40) enum_body_part -> . option_directive
+    (38) enum_field -> . field_name EQ NUM SEMI
+    (71) option_directive -> . OPTION NAME EQ option_rvalue SEMI
+    (32) field_name -> . NAME
+    (33) field_name -> . MESSAGE
+    (34) field_name -> . MAX
+
+    RBRACE          reduce using rule 1 (empty -> .)
+    OPTION          shift and go to state 11
+    NAME            shift and go to state 64
+    MESSAGE         shift and go to state 71
+    MAX             shift and go to state 68
+
+    enum_body                      shift and go to state 65
+    field_name                     shift and go to state 66
+    option_directive               shift and go to state 67
+    enum_body_part                 shift and go to state 69
+    enum_body_opt                  shift and go to state 70
+    enum_field                     shift and go to state 72
+    empty                          shift and go to state 73
+
+state 40
+
+    (58) message_definition -> MESSAGE NAME LBRACE . message_body RBRACE
+    (55) message_body -> . empty
+    (56) message_body -> . message_body_part
+    (57) message_body -> . message_body message_body_part
+    (1) empty -> .
+    (50) message_body_part -> . field_definition
+    (51) message_body_part -> . enum_definition
+    (52) message_body_part -> . message_definition
+    (53) message_body_part -> . extensions_definition
+    (54) message_body_part -> . message_extension
+    (37) field_definition -> . field_modifier field_type field_name EQ field_id field_directive_times SEMI
+    (45) enum_definition -> . ENUM NAME LBRACE enum_body_opt RBRACE
+    (58) message_definition -> . MESSAGE NAME LBRACE message_body RBRACE
+    (48) extensions_definition -> . EXTENSIONS NUM TO extensions_to SEMI
+    (49) message_extension -> . EXTEND NAME LBRACE message_body RBRACE
+    (2) field_modifier -> . REQUIRED
+    (3) field_modifier -> . OPTIONAL
+    (4) field_modifier -> . REPEATED
+
+  ! shift/reduce conflict for ENUM resolved as shift
+  ! shift/reduce conflict for MESSAGE resolved as shift
+  ! shift/reduce conflict for EXTENSIONS resolved as shift
+  ! shift/reduce conflict for EXTEND resolved as shift
+  ! shift/reduce conflict for REQUIRED resolved as shift
+  ! shift/reduce conflict for OPTIONAL resolved as shift
+  ! shift/reduce conflict for REPEATED resolved as shift
+    RBRACE          reduce using rule 1 (empty -> .)
+    ENUM            shift and go to state 20
+    MESSAGE         shift and go to state 24
+    EXTENSIONS      shift and go to state 56
+    EXTEND          shift and go to state 14
+    REQUIRED        shift and go to state 54
+    OPTIONAL        shift and go to state 55
+    REPEATED        shift and go to state 52
+
+  ! ENUM            [ reduce using rule 1 (empty -> .) ]
+  ! MESSAGE         [ reduce using rule 1 (empty -> .) ]
+  ! EXTENSIONS      [ reduce using rule 1 (empty -> .) ]
+  ! EXTEND          [ reduce using rule 1 (empty -> .) ]
+  ! REQUIRED        [ reduce using rule 1 (empty -> .) ]
+  ! OPTIONAL        [ reduce using rule 1 (empty -> .) ]
+  ! REPEATED        [ reduce using rule 1 (empty -> .) ]
+
+    message_body                   shift and go to state 74
+    message_definition             shift and go to state 58
+    extensions_definition          shift and go to state 59
+    message_extension              shift and go to state 63
+    enum_definition                shift and go to state 62
+    field_definition               shift and go to state 60
+    message_body_part              shift and go to state 53
+    field_modifier                 shift and go to state 61
+    empty                          shift and go to state 57
+
+state 41
+
+    (68) option_rvalue -> FALSE .
+
+    SEMI            reduce using rule 68 (option_rvalue -> FALSE .)
+
+
+state 42
+
+    (67) option_rvalue -> TRUE .
+
+    SEMI            reduce using rule 67 (option_rvalue -> TRUE .)
+
+
+state 43
+
+    (69) option_rvalue -> STRING_LITERAL .
+
+    SEMI            reduce using rule 69 (option_rvalue -> STRING_LITERAL .)
+
+
+state 44
+
+    (66) option_rvalue -> NUM .
+
+    SEMI            reduce using rule 66 (option_rvalue -> NUM .)
+
+
+state 45
+
+    (71) option_directive -> OPTION NAME EQ option_rvalue . SEMI
+
+    SEMI            shift and go to state 75
+
+
+state 46
+
+    (70) option_rvalue -> NAME .
+
+    SEMI            reduce using rule 70 (option_rvalue -> NAME .)
+
+
+state 47
+
+    (63) service_definition -> SERVICE NAME LBRACE method_definition_opt . RBRACE
+    (62) method_definition_opt -> method_definition_opt . method_definition
+    (59) method_definition -> . RPC NAME LPAR NAME RPAR RETURNS LPAR NAME RPAR
+
+    RBRACE          shift and go to state 77
+    RPC             shift and go to state 48
+
+    method_definition              shift and go to state 76
+
+state 48
+
+    (59) method_definition -> RPC . NAME LPAR NAME RPAR RETURNS LPAR NAME RPAR
+
+    NAME            shift and go to state 78
+
+
+state 49
+
+    (61) method_definition_opt -> method_definition .
+
+    RBRACE          reduce using rule 61 (method_definition_opt -> method_definition .)
+    RPC             reduce using rule 61 (method_definition_opt -> method_definition .)
+
+
+state 50
+
+    (60) method_definition_opt -> empty .
+
+    RBRACE          reduce using rule 60 (method_definition_opt -> empty .)
+    RPC             reduce using rule 60 (method_definition_opt -> empty .)
+
+
+state 51
+
+    (49) message_extension -> EXTEND NAME LBRACE message_body . RBRACE
+    (57) message_body -> message_body . message_body_part
+    (50) message_body_part -> . field_definition
+    (51) message_body_part -> . enum_definition
+    (52) message_body_part -> . message_definition
+    (53) message_body_part -> . extensions_definition
+    (54) message_body_part -> . message_extension
+    (37) field_definition -> . field_modifier field_type field_name EQ field_id field_directive_times SEMI
+    (45) enum_definition -> . ENUM NAME LBRACE enum_body_opt RBRACE
+    (58) message_definition -> . MESSAGE NAME LBRACE message_body RBRACE
+    (48) extensions_definition -> . EXTENSIONS NUM TO extensions_to SEMI
+    (49) message_extension -> . EXTEND NAME LBRACE message_body RBRACE
+    (2) field_modifier -> . REQUIRED
+    (3) field_modifier -> . OPTIONAL
+    (4) field_modifier -> . REPEATED
+
+    RBRACE          shift and go to state 80
+    ENUM            shift and go to state 20
+    MESSAGE         shift and go to state 24
+    EXTENSIONS      shift and go to state 56
+    EXTEND          shift and go to state 14
+    REQUIRED        shift and go to state 54
+    OPTIONAL        shift and go to state 55
+    REPEATED        shift and go to state 52
+
+    message_definition             shift and go to state 58
+    extensions_definition          shift and go to state 59
+    message_extension              shift and go to state 63
+    enum_definition                shift and go to state 62
+    field_definition               shift and go to state 60
+    message_body_part              shift and go to state 79
+    field_modifier                 shift and go to state 61
+
+state 52
+
+    (4) field_modifier -> REPEATED .
+
+    DOUBLE          reduce using rule 4 (field_modifier -> REPEATED .)
+    FLOAT           reduce using rule 4 (field_modifier -> REPEATED .)
+    INT32           reduce using rule 4 (field_modifier -> REPEATED .)
+    INT64           reduce using rule 4 (field_modifier -> REPEATED .)
+    UINT32          reduce using rule 4 (field_modifier -> REPEATED .)
+    UINT64          reduce using rule 4 (field_modifier -> REPEATED .)
+    SINT32          reduce using rule 4 (field_modifier -> REPEATED .)
+    SINT64          reduce using rule 4 (field_modifier -> REPEATED .)
+    FIXED32         reduce using rule 4 (field_modifier -> REPEATED .)
+    FIXED64         reduce using rule 4 (field_modifier -> REPEATED .)
+    SFIXED32        reduce using rule 4 (field_modifier -> REPEATED .)
+    SFIXED64        reduce using rule 4 (field_modifier -> REPEATED .)
+    BOOL            reduce using rule 4 (field_modifier -> REPEATED .)
+    STRING          reduce using rule 4 (field_modifier -> REPEATED .)
+    BYTES           reduce using rule 4 (field_modifier -> REPEATED .)
+    NAME            reduce using rule 4 (field_modifier -> REPEATED .)
+
+
+state 53
+
+    (56) message_body -> message_body_part .
+
+    RBRACE          reduce using rule 56 (message_body -> message_body_part .)
+    ENUM            reduce using rule 56 (message_body -> message_body_part .)
+    MESSAGE         reduce using rule 56 (message_body -> message_body_part .)
+    EXTENSIONS      reduce using rule 56 (message_body -> message_body_part .)
+    EXTEND          reduce using rule 56 (message_body -> message_body_part .)
+    REQUIRED        reduce using rule 56 (message_body -> message_body_part .)
+    OPTIONAL        reduce using rule 56 (message_body -> message_body_part .)
+    REPEATED        reduce using rule 56 (message_body -> message_body_part .)
+
+
+state 54
+
+    (2) field_modifier -> REQUIRED .
+
+    DOUBLE          reduce using rule 2 (field_modifier -> REQUIRED .)
+    FLOAT           reduce using rule 2 (field_modifier -> REQUIRED .)
+    INT32           reduce using rule 2 (field_modifier -> REQUIRED .)
+    INT64           reduce using rule 2 (field_modifier -> REQUIRED .)
+    UINT32          reduce using rule 2 (field_modifier -> REQUIRED .)
+    UINT64          reduce using rule 2 (field_modifier -> REQUIRED .)
+    SINT32          reduce using rule 2 (field_modifier -> REQUIRED .)
+    SINT64          reduce using rule 2 (field_modifier -> REQUIRED .)
+    FIXED32         reduce using rule 2 (field_modifier -> REQUIRED .)
+    FIXED64         reduce using rule 2 (field_modifier -> REQUIRED .)
+    SFIXED32        reduce using rule 2 (field_modifier -> REQUIRED .)
+    SFIXED64        reduce using rule 2 (field_modifier -> REQUIRED .)
+    BOOL            reduce using rule 2 (field_modifier -> REQUIRED .)
+    STRING          reduce using rule 2 (field_modifier -> REQUIRED .)
+    BYTES           reduce using rule 2 (field_modifier -> REQUIRED .)
+    NAME            reduce using rule 2 (field_modifier -> REQUIRED .)
+
+
+state 55
+
+    (3) field_modifier -> OPTIONAL .
+
+    DOUBLE          reduce using rule 3 (field_modifier -> OPTIONAL .)
+    FLOAT           reduce using rule 3 (field_modifier -> OPTIONAL .)
+    INT32           reduce using rule 3 (field_modifier -> OPTIONAL .)
+    INT64           reduce using rule 3 (field_modifier -> OPTIONAL .)
+    UINT32          reduce using rule 3 (field_modifier -> OPTIONAL .)
+    UINT64          reduce using rule 3 (field_modifier -> OPTIONAL .)
+    SINT32          reduce using rule 3 (field_modifier -> OPTIONAL .)
+    SINT64          reduce using rule 3 (field_modifier -> OPTIONAL .)
+    FIXED32         reduce using rule 3 (field_modifier -> OPTIONAL .)
+    FIXED64         reduce using rule 3 (field_modifier -> OPTIONAL .)
+    SFIXED32        reduce using rule 3 (field_modifier -> OPTIONAL .)
+    SFIXED64        reduce using rule 3 (field_modifier -> OPTIONAL .)
+    BOOL            reduce using rule 3 (field_modifier -> OPTIONAL .)
+    STRING          reduce using rule 3 (field_modifier -> OPTIONAL .)
+    BYTES           reduce using rule 3 (field_modifier -> OPTIONAL .)
+    NAME            reduce using rule 3 (field_modifier -> OPTIONAL .)
+
+
+state 56
+
+    (48) extensions_definition -> EXTENSIONS . NUM TO extensions_to SEMI
+
+    NUM             shift and go to state 81
+
+
+state 57
+
+    (55) message_body -> empty .
+
+    RBRACE          reduce using rule 55 (message_body -> empty .)
+    ENUM            reduce using rule 55 (message_body -> empty .)
+    MESSAGE         reduce using rule 55 (message_body -> empty .)
+    EXTENSIONS      reduce using rule 55 (message_body -> empty .)
+    EXTEND          reduce using rule 55 (message_body -> empty .)
+    REQUIRED        reduce using rule 55 (message_body -> empty .)
+    OPTIONAL        reduce using rule 55 (message_body -> empty .)
+    REPEATED        reduce using rule 55 (message_body -> empty .)
+
+
+state 58
+
+    (52) message_body_part -> message_definition .
+
+    RBRACE          reduce using rule 52 (message_body_part -> message_definition .)
+    ENUM            reduce using rule 52 (message_body_part -> message_definition .)
+    MESSAGE         reduce using rule 52 (message_body_part -> message_definition .)
+    EXTENSIONS      reduce using rule 52 (message_body_part -> message_definition .)
+    EXTEND          reduce using rule 52 (message_body_part -> message_definition .)
+    REQUIRED        reduce using rule 52 (message_body_part -> message_definition .)
+    OPTIONAL        reduce using rule 52 (message_body_part -> message_definition .)
+    REPEATED        reduce using rule 52 (message_body_part -> message_definition .)
+
+
+state 59
+
+    (53) message_body_part -> extensions_definition .
+
+    RBRACE          reduce using rule 53 (message_body_part -> extensions_definition .)
+    ENUM            reduce using rule 53 (message_body_part -> extensions_definition .)
+    MESSAGE         reduce using rule 53 (message_body_part -> extensions_definition .)
+    EXTENSIONS      reduce using rule 53 (message_body_part -> extensions_definition .)
+    EXTEND          reduce using rule 53 (message_body_part -> extensions_definition .)
+    REQUIRED        reduce using rule 53 (message_body_part -> extensions_definition .)
+    OPTIONAL        reduce using rule 53 (message_body_part -> extensions_definition .)
+    REPEATED        reduce using rule 53 (message_body_part -> extensions_definition .)
+
+
+state 60
+
+    (50) message_body_part -> field_definition .
+
+    RBRACE          reduce using rule 50 (message_body_part -> field_definition .)
+    ENUM            reduce using rule 50 (message_body_part -> field_definition .)
+    MESSAGE         reduce using rule 50 (message_body_part -> field_definition .)
+    EXTENSIONS      reduce using rule 50 (message_body_part -> field_definition .)
+    EXTEND          reduce using rule 50 (message_body_part -> field_definition .)
+    REQUIRED        reduce using rule 50 (message_body_part -> field_definition .)
+    OPTIONAL        reduce using rule 50 (message_body_part -> field_definition .)
+    REPEATED        reduce using rule 50 (message_body_part -> field_definition .)
+
+
+state 61
+
+    (37) field_definition -> field_modifier . field_type field_name EQ field_id field_directive_times SEMI
+    (35) field_type -> . primitive_type
+    (36) field_type -> . dotname
+    (5) primitive_type -> . DOUBLE
+    (6) primitive_type -> . FLOAT
+    (7) primitive_type -> . INT32
+    (8) primitive_type -> . INT64
+    (9) primitive_type -> . UINT32
+    (10) primitive_type -> . UINT64
+    (11) primitive_type -> . SINT32
+    (12) primitive_type -> . SINT64
+    (13) primitive_type -> . FIXED32
+    (14) primitive_type -> . FIXED64
+    (15) primitive_type -> . SFIXED32
+    (16) primitive_type -> . SFIXED64
+    (17) primitive_type -> . BOOL
+    (18) primitive_type -> . STRING
+    (19) primitive_type -> . BYTES
+    (30) dotname -> . NAME
+    (31) dotname -> . dotname DOT NAME
+
+    DOUBLE          shift and go to state 95
+    FLOAT           shift and go to state 96
+    INT32           shift and go to state 90
+    INT64           shift and go to state 92
+    UINT32          shift and go to state 97
+    UINT64          shift and go to state 93
+    SINT32          shift and go to state 88
+    SINT64          shift and go to state 94
+    FIXED32         shift and go to state 82
+    FIXED64         shift and go to state 86
+    SFIXED32        shift and go to state 98
+    SFIXED64        shift and go to state 87
+    BOOL            shift and go to state 99
+    STRING          shift and go to state 89
+    BYTES           shift and go to state 91
+    NAME            shift and go to state 9
+
+    field_type                     shift and go to state 84
+    primitive_type                 shift and go to state 85
+    dotname                        shift and go to state 83
+
+state 62
+
+    (51) message_body_part -> enum_definition .
+
+    RBRACE          reduce using rule 51 (message_body_part -> enum_definition .)
+    ENUM            reduce using rule 51 (message_body_part -> enum_definition .)
+    MESSAGE         reduce using rule 51 (message_body_part -> enum_definition .)
+    EXTENSIONS      reduce using rule 51 (message_body_part -> enum_definition .)
+    EXTEND          reduce using rule 51 (message_body_part -> enum_definition .)
+    REQUIRED        reduce using rule 51 (message_body_part -> enum_definition .)
+    OPTIONAL        reduce using rule 51 (message_body_part -> enum_definition .)
+    REPEATED        reduce using rule 51 (message_body_part -> enum_definition .)
+
+
+state 63
+
+    (54) message_body_part -> message_extension .
+
+    RBRACE          reduce using rule 54 (message_body_part -> message_extension .)
+    ENUM            reduce using rule 54 (message_body_part -> message_extension .)
+    MESSAGE         reduce using rule 54 (message_body_part -> message_extension .)
+    EXTENSIONS      reduce using rule 54 (message_body_part -> message_extension .)
+    EXTEND          reduce using rule 54 (message_body_part -> message_extension .)
+    REQUIRED        reduce using rule 54 (message_body_part -> message_extension .)
+    OPTIONAL        reduce using rule 54 (message_body_part -> message_extension .)
+    REPEATED        reduce using rule 54 (message_body_part -> message_extension .)
+
+
+state 64
+
+    (32) field_name -> NAME .
+
+    EQ              reduce using rule 32 (field_name -> NAME .)
+
+
+state 65
+
+    (44) enum_body_opt -> enum_body .
+    (42) enum_body -> enum_body . enum_body_part
+    (39) enum_body_part -> . enum_field
+    (40) enum_body_part -> . option_directive
+    (38) enum_field -> . field_name EQ NUM SEMI
+    (71) option_directive -> . OPTION NAME EQ option_rvalue SEMI
+    (32) field_name -> . NAME
+    (33) field_name -> . MESSAGE
+    (34) field_name -> . MAX
+
+    RBRACE          reduce using rule 44 (enum_body_opt -> enum_body .)
+    OPTION          shift and go to state 11
+    NAME            shift and go to state 64
+    MESSAGE         shift and go to state 71
+    MAX             shift and go to state 68
+
+    enum_field                     shift and go to state 72
+    option_directive               shift and go to state 67
+    enum_body_part                 shift and go to state 100
+    field_name                     shift and go to state 66
+
+state 66
+
+    (38) enum_field -> field_name . EQ NUM SEMI
+
+    EQ              shift and go to state 101
+
+
+state 67
+
+    (40) enum_body_part -> option_directive .
+
+    OPTION          reduce using rule 40 (enum_body_part -> option_directive .)
+    NAME            reduce using rule 40 (enum_body_part -> option_directive .)
+    MESSAGE         reduce using rule 40 (enum_body_part -> option_directive .)
+    MAX             reduce using rule 40 (enum_body_part -> option_directive .)
+    RBRACE          reduce using rule 40 (enum_body_part -> option_directive .)
+
+
+state 68
+
+    (34) field_name -> MAX .
+
+    EQ              reduce using rule 34 (field_name -> MAX .)
+
+
+state 69
+
+    (41) enum_body -> enum_body_part .
+
+    OPTION          reduce using rule 41 (enum_body -> enum_body_part .)
+    NAME            reduce using rule 41 (enum_body -> enum_body_part .)
+    MESSAGE         reduce using rule 41 (enum_body -> enum_body_part .)
+    MAX             reduce using rule 41 (enum_body -> enum_body_part .)
+    RBRACE          reduce using rule 41 (enum_body -> enum_body_part .)
+
+
+state 70
+
+    (45) enum_definition -> ENUM NAME LBRACE enum_body_opt . RBRACE
+
+    RBRACE          shift and go to state 102
+
+
+state 71
+
+    (33) field_name -> MESSAGE .
+
+    EQ              reduce using rule 33 (field_name -> MESSAGE .)
+
+
+state 72
+
+    (39) enum_body_part -> enum_field .
+
+    OPTION          reduce using rule 39 (enum_body_part -> enum_field .)
+    NAME            reduce using rule 39 (enum_body_part -> enum_field .)
+    MESSAGE         reduce using rule 39 (enum_body_part -> enum_field .)
+    MAX             reduce using rule 39 (enum_body_part -> enum_field .)
+    RBRACE          reduce using rule 39 (enum_body_part -> enum_field .)
+
+
+state 73
+
+    (43) enum_body_opt -> empty .
+
+    RBRACE          reduce using rule 43 (enum_body_opt -> empty .)
+
+
+state 74
+
+    (58) message_definition -> MESSAGE NAME LBRACE message_body . RBRACE
+    (57) message_body -> message_body . message_body_part
+    (50) message_body_part -> . field_definition
+    (51) message_body_part -> . enum_definition
+    (52) message_body_part -> . message_definition
+    (53) message_body_part -> . extensions_definition
+    (54) message_body_part -> . message_extension
+    (37) field_definition -> . field_modifier field_type field_name EQ field_id field_directive_times SEMI
+    (45) enum_definition -> . ENUM NAME LBRACE enum_body_opt RBRACE
+    (58) message_definition -> . MESSAGE NAME LBRACE message_body RBRACE
+    (48) extensions_definition -> . EXTENSIONS NUM TO extensions_to SEMI
+    (49) message_extension -> . EXTEND NAME LBRACE message_body RBRACE
+    (2) field_modifier -> . REQUIRED
+    (3) field_modifier -> . OPTIONAL
+    (4) field_modifier -> . REPEATED
+
+    RBRACE          shift and go to state 103
+    ENUM            shift and go to state 20
+    MESSAGE         shift and go to state 24
+    EXTENSIONS      shift and go to state 56
+    EXTEND          shift and go to state 14
+    REQUIRED        shift and go to state 54
+    OPTIONAL        shift and go to state 55
+    REPEATED        shift and go to state 52
+
+    message_definition             shift and go to state 58
+    extensions_definition          shift and go to state 59
+    message_extension              shift and go to state 63
+    enum_definition                shift and go to state 62
+    field_definition               shift and go to state 60
+    message_body_part              shift and go to state 79
+    field_modifier                 shift and go to state 61
+
+state 75
+
+    (71) option_directive -> OPTION NAME EQ option_rvalue SEMI .
+
+    OPTION          reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    NAME            reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    MESSAGE         reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    MAX             reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    RBRACE          reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    EXTEND          reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    ENUM            reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    SERVICE         reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    IMPORT          reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+    $end            reduce using rule 71 (option_directive -> OPTION NAME EQ option_rvalue SEMI .)
+
+
+state 76
+
+    (62) method_definition_opt -> method_definition_opt method_definition .
+
+    RBRACE          reduce using rule 62 (method_definition_opt -> method_definition_opt method_definition .)
+    RPC             reduce using rule 62 (method_definition_opt -> method_definition_opt method_definition .)
+
+
+state 77
+
+    (63) service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE .
+
+    MESSAGE         reduce using rule 63 (service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE .)
+    EXTEND          reduce using rule 63 (service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE .)
+    ENUM            reduce using rule 63 (service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE .)
+    SERVICE         reduce using rule 63 (service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE .)
+    IMPORT          reduce using rule 63 (service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE .)
+    OPTION          reduce using rule 63 (service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE .)
+    $end            reduce using rule 63 (service_definition -> SERVICE NAME LBRACE method_definition_opt RBRACE .)
+
+
+state 78
+
+    (59) method_definition -> RPC NAME . LPAR NAME RPAR RETURNS LPAR NAME RPAR
+
+    LPAR            shift and go to state 104
+
+
+state 79
+
+    (57) message_body -> message_body message_body_part .
+
+    RBRACE          reduce using rule 57 (message_body -> message_body message_body_part .)
+    ENUM            reduce using rule 57 (message_body -> message_body message_body_part .)
+    MESSAGE         reduce using rule 57 (message_body -> message_body message_body_part .)
+    EXTENSIONS      reduce using rule 57 (message_body -> message_body message_body_part .)
+    EXTEND          reduce using rule 57 (message_body -> message_body message_body_part .)
+    REQUIRED        reduce using rule 57 (message_body -> message_body message_body_part .)
+    OPTIONAL        reduce using rule 57 (message_body -> message_body message_body_part .)
+    REPEATED        reduce using rule 57 (message_body -> message_body message_body_part .)
+
+
+state 80
+
+    (49) message_extension -> EXTEND NAME LBRACE message_body RBRACE .
+
+    MESSAGE         reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    EXTEND          reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    ENUM            reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    SERVICE         reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    IMPORT          reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    OPTION          reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    $end            reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    RBRACE          reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    EXTENSIONS      reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    REQUIRED        reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    OPTIONAL        reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+    REPEATED        reduce using rule 49 (message_extension -> EXTEND NAME LBRACE message_body RBRACE .)
+
+
+state 81
+
+    (48) extensions_definition -> EXTENSIONS NUM . TO extensions_to SEMI
+
+    TO              shift and go to state 105
+
+
+state 82
+
+    (13) primitive_type -> FIXED32 .
+
+    NAME            reduce using rule 13 (primitive_type -> FIXED32 .)
+    MESSAGE         reduce using rule 13 (primitive_type -> FIXED32 .)
+    MAX             reduce using rule 13 (primitive_type -> FIXED32 .)
+
+
+state 83
+
+    (36) field_type -> dotname .
+    (31) dotname -> dotname . DOT NAME
+
+    NAME            reduce using rule 36 (field_type -> dotname .)
+    MESSAGE         reduce using rule 36 (field_type -> dotname .)
+    MAX             reduce using rule 36 (field_type -> dotname .)
+    DOT             shift and go to state 25
+
+
+state 84
+
+    (37) field_definition -> field_modifier field_type . field_name EQ field_id field_directive_times SEMI
+    (32) field_name -> . NAME
+    (33) field_name -> . MESSAGE
+    (34) field_name -> . MAX
+
+    NAME            shift and go to state 64
+    MESSAGE         shift and go to state 71
+    MAX             shift and go to state 68
+
+    field_name                     shift and go to state 106
+
+state 85
+
+    (35) field_type -> primitive_type .
+
+    NAME            reduce using rule 35 (field_type -> primitive_type .)
+    MESSAGE         reduce using rule 35 (field_type -> primitive_type .)
+    MAX             reduce using rule 35 (field_type -> primitive_type .)
+
+
+state 86
+
+    (14) primitive_type -> FIXED64 .
+
+    NAME            reduce using rule 14 (primitive_type -> FIXED64 .)
+    MESSAGE         reduce using rule 14 (primitive_type -> FIXED64 .)
+    MAX             reduce using rule 14 (primitive_type -> FIXED64 .)
+
+
+state 87
+
+    (16) primitive_type -> SFIXED64 .
+
+    NAME            reduce using rule 16 (primitive_type -> SFIXED64 .)
+    MESSAGE         reduce using rule 16 (primitive_type -> SFIXED64 .)
+    MAX             reduce using rule 16 (primitive_type -> SFIXED64 .)
+
+
+state 88
+
+    (11) primitive_type -> SINT32 .
+
+    NAME            reduce using rule 11 (primitive_type -> SINT32 .)
+    MESSAGE         reduce using rule 11 (primitive_type -> SINT32 .)
+    MAX             reduce using rule 11 (primitive_type -> SINT32 .)
+
+
+state 89
+
+    (18) primitive_type -> STRING .
+
+    NAME            reduce using rule 18 (primitive_type -> STRING .)
+    MESSAGE         reduce using rule 18 (primitive_type -> STRING .)
+    MAX             reduce using rule 18 (primitive_type -> STRING .)
+
+
+state 90
+
+    (7) primitive_type -> INT32 .
+
+    NAME            reduce using rule 7 (primitive_type -> INT32 .)
+    MESSAGE         reduce using rule 7 (primitive_type -> INT32 .)
+    MAX             reduce using rule 7 (primitive_type -> INT32 .)
+
+
+state 91
+
+    (19) primitive_type -> BYTES .
+
+    NAME            reduce using rule 19 (primitive_type -> BYTES .)
+    MESSAGE         reduce using rule 19 (primitive_type -> BYTES .)
+    MAX             reduce using rule 19 (primitive_type -> BYTES .)
+
+
+state 92
+
+    (8) primitive_type -> INT64 .
+
+    NAME            reduce using rule 8 (primitive_type -> INT64 .)
+    MESSAGE         reduce using rule 8 (primitive_type -> INT64 .)
+    MAX             reduce using rule 8 (primitive_type -> INT64 .)
+
+
+state 93
+
+    (10) primitive_type -> UINT64 .
+
+    NAME            reduce using rule 10 (primitive_type -> UINT64 .)
+    MESSAGE         reduce using rule 10 (primitive_type -> UINT64 .)
+    MAX             reduce using rule 10 (primitive_type -> UINT64 .)
+
+
+state 94
+
+    (12) primitive_type -> SINT64 .
+
+    NAME            reduce using rule 12 (primitive_type -> SINT64 .)
+    MESSAGE         reduce using rule 12 (primitive_type -> SINT64 .)
+    MAX             reduce using rule 12 (primitive_type -> SINT64 .)
+
+
+state 95
+
+    (5) primitive_type -> DOUBLE .
+
+    NAME            reduce using rule 5 (primitive_type -> DOUBLE .)
+    MESSAGE         reduce using rule 5 (primitive_type -> DOUBLE .)
+    MAX             reduce using rule 5 (primitive_type -> DOUBLE .)
+
+
+state 96
+
+    (6) primitive_type -> FLOAT .
+
+    NAME            reduce using rule 6 (primitive_type -> FLOAT .)
+    MESSAGE         reduce using rule 6 (primitive_type -> FLOAT .)
+    MAX             reduce using rule 6 (primitive_type -> FLOAT .)
+
+
+state 97
+
+    (9) primitive_type -> UINT32 .
+
+    NAME            reduce using rule 9 (primitive_type -> UINT32 .)
+    MESSAGE         reduce using rule 9 (primitive_type -> UINT32 .)
+    MAX             reduce using rule 9 (primitive_type -> UINT32 .)
+
+
+state 98
+
+    (15) primitive_type -> SFIXED32 .
+
+    NAME            reduce using rule 15 (primitive_type -> SFIXED32 .)
+    MESSAGE         reduce using rule 15 (primitive_type -> SFIXED32 .)
+    MAX             reduce using rule 15 (primitive_type -> SFIXED32 .)
+
+
+state 99
+
+    (17) primitive_type -> BOOL .
+
+    NAME            reduce using rule 17 (primitive_type -> BOOL .)
+    MESSAGE         reduce using rule 17 (primitive_type -> BOOL .)
+    MAX             reduce using rule 17 (primitive_type -> BOOL .)
+
+
+state 100
+
+    (42) enum_body -> enum_body enum_body_part .
+
+    OPTION          reduce using rule 42 (enum_body -> enum_body enum_body_part .)
+    NAME            reduce using rule 42 (enum_body -> enum_body enum_body_part .)
+    MESSAGE         reduce using rule 42 (enum_body -> enum_body enum_body_part .)
+    MAX             reduce using rule 42 (enum_body -> enum_body enum_body_part .)
+    RBRACE          reduce using rule 42 (enum_body -> enum_body enum_body_part .)
+
+
+state 101
+
+    (38) enum_field -> field_name EQ . NUM SEMI
+
+    NUM             shift and go to state 107
+
+
+state 102
+
+    (45) enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .
+
+    RBRACE          reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    ENUM            reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    MESSAGE         reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    EXTENSIONS      reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    EXTEND          reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    REQUIRED        reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    OPTIONAL        reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    REPEATED        reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    SERVICE         reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    IMPORT          reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    OPTION          reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+    $end            reduce using rule 45 (enum_definition -> ENUM NAME LBRACE enum_body_opt RBRACE .)
+
+
+state 103
+
+    (58) message_definition -> MESSAGE NAME LBRACE message_body RBRACE .
+
+    RBRACE          reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    ENUM            reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    MESSAGE         reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    EXTENSIONS      reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    EXTEND          reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    REQUIRED        reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    OPTIONAL        reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    REPEATED        reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    SERVICE         reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    IMPORT          reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    OPTION          reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+    $end            reduce using rule 58 (message_definition -> MESSAGE NAME LBRACE message_body RBRACE .)
+
+
+state 104
+
+    (59) method_definition -> RPC NAME LPAR . NAME RPAR RETURNS LPAR NAME RPAR
+
+    NAME            shift and go to state 108
+
+
+state 105
+
+    (48) extensions_definition -> EXTENSIONS NUM TO . extensions_to SEMI
+    (46) extensions_to -> . MAX
+    (47) extensions_to -> . NUM
+
+    MAX             shift and go to state 109
+    NUM             shift and go to state 111
+
+    extensions_to                  shift and go to state 110
+
+state 106
+
+    (37) field_definition -> field_modifier field_type field_name . EQ field_id field_directive_times SEMI
+
+    EQ              shift and go to state 112
+
+
+state 107
+
+    (38) enum_field -> field_name EQ NUM . SEMI
+
+    SEMI            shift and go to state 113
+
+
+state 108
+
+    (59) method_definition -> RPC NAME LPAR NAME . RPAR RETURNS LPAR NAME RPAR
+
+    RPAR            shift and go to state 114
+
+
+state 109
+
+    (46) extensions_to -> MAX .
+
+    SEMI            reduce using rule 46 (extensions_to -> MAX .)
+
+
+state 110
+
+    (48) extensions_definition -> EXTENSIONS NUM TO extensions_to . SEMI
+
+    SEMI            shift and go to state 115
+
+
+state 111
+
+    (47) extensions_to -> NUM .
+
+    SEMI            reduce using rule 47 (extensions_to -> NUM .)
+
+
+state 112
+
+    (37) field_definition -> field_modifier field_type field_name EQ . field_id field_directive_times SEMI
+    (20) field_id -> . NUM
+
+    NUM             shift and go to state 117
+
+    field_id                       shift and go to state 116
+
+state 113
+
+    (38) enum_field -> field_name EQ NUM SEMI .
+
+    OPTION          reduce using rule 38 (enum_field -> field_name EQ NUM SEMI .)
+    NAME            reduce using rule 38 (enum_field -> field_name EQ NUM SEMI .)
+    MESSAGE         reduce using rule 38 (enum_field -> field_name EQ NUM SEMI .)
+    MAX             reduce using rule 38 (enum_field -> field_name EQ NUM SEMI .)
+    RBRACE          reduce using rule 38 (enum_field -> field_name EQ NUM SEMI .)
+
+
+state 114
+
+    (59) method_definition -> RPC NAME LPAR NAME RPAR . RETURNS LPAR NAME RPAR
+
+    RETURNS         shift and go to state 118
+
+
+state 115
+
+    (48) extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .
+
+    RBRACE          reduce using rule 48 (extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .)
+    ENUM            reduce using rule 48 (extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .)
+    MESSAGE         reduce using rule 48 (extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .)
+    EXTENSIONS      reduce using rule 48 (extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .)
+    EXTEND          reduce using rule 48 (extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .)
+    REQUIRED        reduce using rule 48 (extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .)
+    OPTIONAL        reduce using rule 48 (extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .)
+    REPEATED        reduce using rule 48 (extensions_definition -> EXTENSIONS NUM TO extensions_to SEMI .)
+
+
+state 116
+
+    (37) field_definition -> field_modifier field_type field_name EQ field_id . field_directive_times SEMI
+    (26) field_directive_times -> . field_directive_plus
+    (27) field_directive_times -> . empty
+    (28) field_directive_plus -> . field_directive
+    (29) field_directive_plus -> . field_directive_plus field_directive
+    (1) empty -> .
+    (25) field_directive -> . LBRACK NAME EQ rvalue RBRACK
+
+    SEMI            reduce using rule 1 (empty -> .)
+    LBRACK          shift and go to state 120
+
+    field_directive_times          shift and go to state 119
+    field_directive                shift and go to state 121
+    field_directive_plus           shift and go to state 122
+    empty                          shift and go to state 123
+
+state 117
+
+    (20) field_id -> NUM .
+
+    LBRACK          reduce using rule 20 (field_id -> NUM .)
+    SEMI            reduce using rule 20 (field_id -> NUM .)
+
+
+state 118
+
+    (59) method_definition -> RPC NAME LPAR NAME RPAR RETURNS . LPAR NAME RPAR
+
+    LPAR            shift and go to state 124
+
+
+state 119
+
+    (37) field_definition -> field_modifier field_type field_name EQ field_id field_directive_times . SEMI
+
+    SEMI            shift and go to state 125
+
+
+state 120
+
+    (25) field_directive -> LBRACK . NAME EQ rvalue RBRACK
+
+    NAME            shift and go to state 126
+
+
+state 121
+
+    (28) field_directive_plus -> field_directive .
+
+    LBRACK          reduce using rule 28 (field_directive_plus -> field_directive .)
+    SEMI            reduce using rule 28 (field_directive_plus -> field_directive .)
+
+
+state 122
+
+    (26) field_directive_times -> field_directive_plus .
+    (29) field_directive_plus -> field_directive_plus . field_directive
+    (25) field_directive -> . LBRACK NAME EQ rvalue RBRACK
+
+    SEMI            reduce using rule 26 (field_directive_times -> field_directive_plus .)
+    LBRACK          shift and go to state 120
+
+    field_directive                shift and go to state 127
+
+state 123
+
+    (27) field_directive_times -> empty .
+
+    SEMI            reduce using rule 27 (field_directive_times -> empty .)
+
+
+state 124
+
+    (59) method_definition -> RPC NAME LPAR NAME RPAR RETURNS LPAR . NAME RPAR
+
+    NAME            shift and go to state 128
+
+
+state 125
+
+    (37) field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .
+
+    RBRACE          reduce using rule 37 (field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .)
+    ENUM            reduce using rule 37 (field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .)
+    MESSAGE         reduce using rule 37 (field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .)
+    EXTENSIONS      reduce using rule 37 (field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .)
+    EXTEND          reduce using rule 37 (field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .)
+    REQUIRED        reduce using rule 37 (field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .)
+    OPTIONAL        reduce using rule 37 (field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .)
+    REPEATED        reduce using rule 37 (field_definition -> field_modifier field_type field_name EQ field_id field_directive_times SEMI .)
+
+
+state 126
+
+    (25) field_directive -> LBRACK NAME . EQ rvalue RBRACK
+
+    EQ              shift and go to state 129
+
+
+state 127
+
+    (29) field_directive_plus -> field_directive_plus field_directive .
+
+    LBRACK          reduce using rule 29 (field_directive_plus -> field_directive_plus field_directive .)
+    SEMI            reduce using rule 29 (field_directive_plus -> field_directive_plus field_directive .)
+
+
+state 128
+
+    (59) method_definition -> RPC NAME LPAR NAME RPAR RETURNS LPAR NAME . RPAR
+
+    RPAR            shift and go to state 130
+
+
+state 129
+
+    (25) field_directive -> LBRACK NAME EQ . rvalue RBRACK
+    (21) rvalue -> . NUM
+    (22) rvalue -> . TRUE
+    (23) rvalue -> . FALSE
+    (24) rvalue -> . NAME
+
+    NUM             shift and go to state 135
+    TRUE            shift and go to state 134
+    FALSE           shift and go to state 132
+    NAME            shift and go to state 133
+
+    rvalue                         shift and go to state 131
+
+state 130
+
+    (59) method_definition -> RPC NAME LPAR NAME RPAR RETURNS LPAR NAME RPAR .
+
+    RBRACE          reduce using rule 59 (method_definition -> RPC NAME LPAR NAME RPAR RETURNS LPAR NAME RPAR .)
+    RPC             reduce using rule 59 (method_definition -> RPC NAME LPAR NAME RPAR RETURNS LPAR NAME RPAR .)
+
+
+state 131
+
+    (25) field_directive -> LBRACK NAME EQ rvalue . RBRACK
+
+    RBRACK          shift and go to state 136
+
+
+state 132
+
+    (23) rvalue -> FALSE .
+
+    RBRACK          reduce using rule 23 (rvalue -> FALSE .)
+
+
+state 133
+
+    (24) rvalue -> NAME .
+
+    RBRACK          reduce using rule 24 (rvalue -> NAME .)
+
+
+state 134
+
+    (22) rvalue -> TRUE .
+
+    RBRACK          reduce using rule 22 (rvalue -> TRUE .)
+
+
+state 135
+
+    (21) rvalue -> NUM .
+
+    RBRACK          reduce using rule 21 (rvalue -> NUM .)
+
+
+state 136
+
+    (25) field_directive -> LBRACK NAME EQ rvalue RBRACK .
+
+    LBRACK          reduce using rule 25 (field_directive -> LBRACK NAME EQ rvalue RBRACK .)
+    SEMI            reduce using rule 25 (field_directive -> LBRACK NAME EQ rvalue RBRACK .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for MESSAGE in state 6 resolved as shift
+WARNING: shift/reduce conflict for EXTEND in state 6 resolved as shift
+WARNING: shift/reduce conflict for ENUM in state 6 resolved as shift
+WARNING: shift/reduce conflict for SERVICE in state 6 resolved as shift
+WARNING: shift/reduce conflict for IMPORT in state 6 resolved as shift
+WARNING: shift/reduce conflict for OPTION in state 6 resolved as shift
+WARNING: shift/reduce conflict for RPC in state 36 resolved as shift
+WARNING: shift/reduce conflict for ENUM in state 37 resolved as shift
+WARNING: shift/reduce conflict for MESSAGE in state 37 resolved as shift
+WARNING: shift/reduce conflict for EXTENSIONS in state 37 resolved as shift
+WARNING: shift/reduce conflict for EXTEND in state 37 resolved as shift
+WARNING: shift/reduce conflict for REQUIRED in state 37 resolved as shift
+WARNING: shift/reduce conflict for OPTIONAL in state 37 resolved as shift
+WARNING: shift/reduce conflict for REPEATED in state 37 resolved as shift
+WARNING: shift/reduce conflict for ENUM in state 40 resolved as shift
+WARNING: shift/reduce conflict for MESSAGE in state 40 resolved as shift
+WARNING: shift/reduce conflict for EXTENSIONS in state 40 resolved as shift
+WARNING: shift/reduce conflict for EXTEND in state 40 resolved as shift
+WARNING: shift/reduce conflict for REQUIRED in state 40 resolved as shift
+WARNING: shift/reduce conflict for OPTIONAL in state 40 resolved as shift
+WARNING: shift/reduce conflict for REPEATED in state 40 resolved as shift

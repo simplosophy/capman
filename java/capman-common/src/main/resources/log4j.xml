@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" [
+        <!ENTITY log.dir "/tmp/logs/logicserver/">
+        <!ENTITY log.console.level "DEBUG">
+        ]>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- ===================================================================== -->
+    <!--  以下是appender的定义                                                 -->
+    <!-- ===================================================================== -->
+
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss,SSS\} %-5p] [%t] %c{2\} - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="&log.console.level;"/>
+            <param name="levelMax" value="ERROR"/>
+        </filter>
+    </appender>
+
+    <appender name="PROJECT" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="file" value="&log.dir;/logicserver.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="utf-8"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="fileNamePattern" value="&log.dir;/logicserver.log.%d"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss,SSS\} %-5p] [%t] %c{2\} - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="PROJECT-ASYNC" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="2048"/>
+        <appender-ref ref="PROJECT"/>
+    </appender>
+
+    <appender name="PROJECT-DEBUG" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="file" value="&log.dir;/logicserver-debug.log"/>
+        <param name="append" value="false"/>
+        <param name="encoding" value="utf-8"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="fileNamePattern" value="&log.dir;/logicserver-debug.log.%d"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss,SSS\} %-5p] [%t] %c{2\} - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMax" value="info"/>
+        </filter>
+    </appender>
+
+    <appender name="PROJECT-DEBUG-ASYNC" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="2048"/>
+        <appender-ref ref="PROJECT-DEBUG"/>
+    </appender>
+
+
+    <appender name="TIME" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="file" value="&log.dir;/time.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="utf-8"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="fileNamePattern" value="&log.dir;/time.log.%d"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss,SSS\} %-5p] [%t] %c{2\} - %m%n"/>
+        </layout>
+    </appender>
+    <!--time 使用异步日志-->
+    <appender name="TIME-ASYNC" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="2048"/>
+        <appender-ref ref="TIME"/>
+    </appender>
+
+    <appender name="API" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="file" value="&log.dir;/logicserver-api.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="utf-8"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="fileNamePattern" value="&log.dir;/logicserver-api.log.%d"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss,SSS\} %-5p] [%t] %c{2\} - %m%n"/>
+        </layout>
+    </appender>
+    <!--api 使用异步日志-->
+    <appender name="API-ASYNC" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="2048"/>
+        <appender-ref ref="API"/>
+    </appender>
+
+
+    <appender name="CLIENT" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="file" value="&log.dir;/logicserver-client.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="utf-8"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="fileNamePattern" value="&log.dir;/logicserver-client.log.%d"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss,SSS\} %-5p] [%t] %c{2\} - %m%n"/>
+        </layout>
+    </appender>
+    <!--api 使用异步日志-->
+    <appender name="CLIENT-ASYNC" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="2048"/>
+        <appender-ref ref="CLIENT"/>
+    </appender>
+
+    <appender name="RPC" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="file" value="&log.dir;/rpc.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="utf-8"/>
+        <param name="BufferSize" value="2048"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="fileNamePattern" value="&log.dir;/rpc.log.%d"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss,SSS\} %-5p] [%t] %c{2\} - %m%n"/>
+        </layout>
+    </appender>
+    <!-- ===================================================================== -->
+    <!--  以下是logger的定义                                                     -->
+    <!-- ===================================================================== -->
+    <logger name="io.capman">
+        <level value="INFO"/>
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="rpcLog">
+        <level value="INFO"/>
+        <appender-ref ref="RPC"/>
+    </logger>
+    <logger name="io.capman.client">
+        <level value="INFO"/>
+        <appender-ref ref="CLIENT-ASYNC"/>
+    </logger>
+    <logger name="io.netty">
+        <level value="INFO"/>
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="io.capman.logicserver">
+        <level value="DEBUG"/>
+        <appender-ref ref="PROJECT-ASYNC"/>
+    </logger>
+    <logger name="stdout" additivity="false">
+        <level value="WARN"/>
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="timeLog" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="TIME-ASYNC"/>
+    </logger>
+    <logger name="org.reflections" additivity="false">
+        <level value="ERROR"/>
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="org.apache.curator" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="console"/>
+    </logger>
+
+    <!-- ===================================================================== -->
+    <!--  Root logger的定义                                                    -->
+    <!-- ===================================================================== -->
+    <root>
+        <level value="${ROOT_LOG_LEVEL}"/>
+        <appender-ref ref="PROJECT-ASYNC"/>
+    </root>
+</log4j:configuration>

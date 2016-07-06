@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+import argparse, sys
+
+parser = argparse.ArgumentParser()
+subparser = parser.add_subparsers(dest="action_name")
+genapp_parser = subparser.add_parser('genapp')
+genapp_parser.add_argument('-p', '--proto', )
+
+genproto_parser = subparser.add_parser('genproto')
+genproto_parser.add_argument('-p', '--proto', )
+
+genclient_parser = subparser.add_parser('genclient')
+genclient_parser.add_argument('-p', '--proto', )
+
+args = parser.parse_args(sys.argv[1:])
+
+print args
+print args.proto

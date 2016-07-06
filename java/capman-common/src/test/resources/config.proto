@@ -1,0 +1,27 @@
+
+
+
+message TestMsg2{
+    required string e = 1;
+}
+
+message TestMsg{
+    required string e = 1;
+    repeated TestMsg2 rm = 2;
+}
+enum ETest{
+    ETest_1 = 1;
+    ETest_2 = 2;
+}
+
+message Test{
+    required int32 a = 1;
+    required int32 b = 2;
+    required TestMsg c = 3;
+    required bytes array = 4;
+    repeated bytes array2 = 5;
+    required ETest e1 = 6;
+    required ETest e2 = 7;
+    repeated string ss = 8;
+    repeated TestMsg rtm = 9;
+}

@@ -122,26 +122,6 @@ public class CommonUtils {
         return outputStream.toByteArray();
     }
 
-    public static String genBillNO(String merchantId) throws IOException {
-        long current = System.currentTimeMillis();
-        String billNO = merchantId + DATE_FORMAT.format(new Date(current));
-        int millSecondsInDay = (int) (current % 86400 * 1000);
-        int millSecondsLen = String.valueOf(millSecondsInDay).length();
-        if (millSecondsLen < 8) {
-            for (int i = 0; i < 8 - millSecondsLen; i++) {
-                billNO += "0";
-            }
-        }
-        billNO += millSecondsInDay;
-        for (int i = 0; i < 2; i++) {
-            billNO += RAND.nextInt(10);
-        }
-        return billNO;
-    }
-
-    public static String genBillNO() throws IOException {
-        return genBillNO("1279319901");
-    }
 
     public static String readStream(InputStream inputStream) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

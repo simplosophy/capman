@@ -1,0 +1,36 @@
+package example;
+import "capman/common.proto";
+option java_package="com.example.hello.protobuf"; //${topdomain}, ${project}, ${subproject}, ${module}
+option java_generic_services = true;
+
+//option app_base_dir = "example-hello";
+
+
+
+message HelloRequest{
+}
+message HelloResponse{
+}
+message EchoRequest{
+
+}
+message EchoResponse{
+}
+
+service HelloService{
+
+    option (capman.service_name) = "HelloService";
+
+    rpc sayHello(HelloRequest) returns (HelloResponse){
+        option (capman.cluster_strategy) = EClusterStrategy_FailOver;
+    }
+}
+
+service EchoService{
+    option (capman.service_name) = "EchoService";
+
+    rpc echo(EchoRequest) returns (EchoResponse){
+        option (capman.cluster_strategy) = EClusterStrategy_FailOver;
+    }
+}
+

@@ -19,6 +19,7 @@ public class URIConfig {
     private Map<String, List<String>> params = new LinkedHashMap<String, List<String>>();
 
     public void mergeQuery(String q) throws UnsupportedEncodingException {
+        if(q == null) return;
         final String[] pairs = q.split("&");
         for (String pair : pairs) {
             final int idx = pair.indexOf("=");
@@ -31,12 +32,12 @@ public class URIConfig {
         }
     }
 
-    public URIConfig(String u) throws URISyntaxException {
-        this.uri = new URI(u);
+    public URIConfig(String u)  {
         try {
+            this.uri = new URI(u);
             mergeQuery(uri.getQuery());
-        } catch (UnsupportedEncodingException e) {
-            throw new  URISyntaxException("UnsupportedEncodingException",e.getMessage());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("URI Syntax Error: "+e.getMessage());
         }
     }
 
@@ -44,6 +45,17 @@ public class URIConfig {
         return uri;
     }
 
+    public boolean getParamBoolean(String key){
+        List<String> strings = params.get(key);
+        return Boolean.parseBoolean(strings.get(0));
+    }
+    public boolean getParamBoolean(String key, boolean defaultValue){
+        List<String> strings = params.get(key);
+        if(strings == null){
+            return defaultValue;
+        }
+        return Boolean.parseBoolean(strings.get(0));
+    }
     public int getParamInt(String key){
         List<String> strings = params.get(key);
         return Integer.parseInt(strings.get(0));

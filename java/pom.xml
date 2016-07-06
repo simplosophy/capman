@@ -19,7 +19,7 @@
 	<properties>
 		<!-- Common libs -->
         <protobuf_version>2.6.1</protobuf_version>
-        <netty_version>4.0.36.Final</netty_version>
+        <netty_version>4.1.2.Final</netty_version>
         <rhino_version>1.7.7.1</rhino_version>
 
         <junit_version>4.10</junit_version>
@@ -27,8 +27,6 @@
 
         <!-- for maven compiler plugin -->
         <maven_compiler_plugin_version>2.3.2</maven_compiler_plugin_version>
-        <java_source_version>1.6</java_source_version>
-        <java_target_version>1.6</java_target_version>
         <file_encoding>UTF-8</file_encoding>
 
         <project.build.sourceEncoding>${file_encoding}</project.build.sourceEncoding>

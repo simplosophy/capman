@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by flying on 6/7/16.
  */
-public class JSConfigUtils {
+class JSConfigUtils {
 
     public static int value2int(Object value) throws JSConfigFormatException {
         if(value instanceof Number){
@@ -40,7 +40,8 @@ public class JSConfigUtils {
         if(value instanceof Number){
             Number d = (Number) value;
             if(d.doubleValue() > maxIntegerInDouble){
-                throw new JSConfigPrecisionException("Reach Max Long Value That Can be Stored In double, Try Use String rather than Double " );
+                throw new JSConfigPrecisionException("Reach Max Long Value That Can be Stored In double, Try Use " +
+                        "String In js file rather than Double " );
             }
             return d.longValue();
         }
