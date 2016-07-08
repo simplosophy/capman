@@ -23,6 +23,7 @@
         <rhino_version>1.7.7.1</rhino_version>
 
         <junit_version>4.10</junit_version>
+        <guava.verion>18.0</guava.verion>
 
 
         <!-- for maven compiler plugin -->
@@ -48,6 +49,11 @@
                 <groupId>org.mozilla</groupId>
                 <artifactId>rhino</artifactId>
                 <version>${rhino_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
 
 

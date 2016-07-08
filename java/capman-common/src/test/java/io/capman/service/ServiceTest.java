@@ -1,6 +1,5 @@
 package io.capman.service;
 
-import com.google.protobuf.ByteString;
 import com.google.protobuf.MessageLite;
 import io.capman.app.App;
 import io.capman.protobuf.Internal;
@@ -8,7 +7,6 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
@@ -16,41 +14,60 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by flying on 7/5/16.
  */
 public class ServiceTest {
 
-    private class TestService extends AbstractService{
+    static RpcProcessorFactory handler;
+    static {
+        handler =
+                new RpcProcessorFactory() {
 
-        public TestService() {
-            super("tcp://0.0.0.0:2222/");
+                    public  RpcProcessor<Internal.TestMessage, Internal.TestMessage> getProcessor(String rpcMethod) {
+                        return new RpcProcessor<Internal.TestMessage, Internal.TestMessage>() {
+                            public Internal.TestMessage getRequestDefaultInstance() {
+                                return Internal.TestMessage.getDefaultInstance();
+                            }
+
+                            public Internal.TestMessage process(Internal.TestMessage req) throws BizException {
+                                return req;
+                            }
+                        };
+                    }
+
+//                    @RpcMethod
+//                    public Internal.TestMessage doRpc(Internal.TestMessage request ){
+//                        System.out.println(RequestContexts.current());
+//                        return request;
+//                    }
+
+                };
+    }
+
+    public class TestService extends AbstractService{
+
+        public TestService(String uri) {
+            super(uri);
         }
 
         @Override
-        public ServiceRpcHandler getServiceRpcHandler() {
-            return new ServiceRpcHandler() {
-
-                @RpcMethod
-                public Internal.TestMessage doRpc(RpcRequestContext context, Internal.TestMessage request ){
-                    System.out.println(context);
-                    return request;
-                }
-
-            };
+        public RpcProcessorFactory getProcessorFactory() {
+            return handler;
         }
     }
+
+//    public class ProtoTestService extends Abstra
 
 
     @Test
     public void runServer()throws Exception{
 
 
-        Service s = new TestService();
+        Service s = new TestService("tcp://0.0.0.0:2222/?logLevel=debug");
         App.newBuilder()
                 .addService(s)
+                .addService(new TestService("tcp://0.0.0.0:2223"))
                 .build().start();
         System.out.println("service started...");
 
@@ -108,6 +125,7 @@ public class ServiceTest {
         Internal.InternalRequest.Builder req = Internal.InternalRequest.newBuilder()
                 .setUin(12)
                 .setMethod("doRpc")
+                .setSeq(1)
                 .setReqData(
                         Internal.TestMessage.newBuilder().setF1(123).setF2("test msg").build().toByteString()
                 );

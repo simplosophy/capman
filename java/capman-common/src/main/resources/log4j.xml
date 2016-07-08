@@ -136,7 +136,7 @@
         <appender-ref ref="CLIENT-ASYNC"/>
     </logger>
     <logger name="io.netty">
-        <level value="INFO"/>
+        <level value="debug"/>
         <appender-ref ref="console"/>
     </logger>
     <logger name="io.capman.logicserver">

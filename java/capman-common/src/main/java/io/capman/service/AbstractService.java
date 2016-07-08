@@ -3,6 +3,8 @@ package io.capman.service;
 
 import io.capman.app.App;
 import io.capman.protobuf.Internal;
+import io.capman.service.handler.ConnectionHandler;
+import io.capman.service.handler.InternalDispatcher;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.socket.SocketChannel;
@@ -11,9 +13,10 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
-import io.netty.handler.stream.ChunkedWriteHandler;
-
-import java.util.List;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.timeout.IdleStateHandler;
+import io.netty.util.Timer;
 
 /**
  * Created by flying on 5/17/16.
@@ -48,11 +51,42 @@ public abstract class AbstractService implements Service {
         return null;
     }
 
-    public List<ChannelHandler> getChannelHandlers(){
-        return null;
+
+    public abstract RpcProcessorFactory getProcessorFactory();
+
+    private LogLevel getLogLevel(String level){
+        if("debug".equalsIgnoreCase(level)){
+            return LogLevel.DEBUG;
+        }
+        if("info".equalsIgnoreCase(level)){
+            return LogLevel.INFO;
+        }
+        if("warn".equalsIgnoreCase(level)){
+            return LogLevel.WARN;
+        }
+        if("error".equalsIgnoreCase(level)){
+            return LogLevel.ERROR;
+        }
+        if("trace".equalsIgnoreCase(level)){
+            return LogLevel.TRACE;
+        }
+        return LogLevel.INFO;
     }
 
-    public abstract ServiceRpcHandler getServiceRpcHandler();
+
+    protected void checkProcessorFactory(RpcProcessorFactory processorFactory){
+        if(processorFactory == null){
+            throw new RuntimeException("RpcProcessorFactory is NULL");
+        }
+    }
+
+    /**
+     * a timer to check task timeout
+     * @return
+     */
+    public Timer getTimer(){
+        return null;
+    }
 
 
     public void open() {
@@ -63,7 +97,7 @@ public abstract class AbstractService implements Service {
                 }
             }
         }
-        new InternalRpcHandler(getServiceRpcHandler());//check handler first
+        checkProcessorFactory(getProcessorFactory());
         final ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap
                 .group(
@@ -73,21 +107,26 @@ public abstract class AbstractService implements Service {
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        InternalRpcHandler internalRpcHandler = new InternalRpcHandler(getServiceRpcHandler());
-                        ch.pipeline()
-                                //decode
-                                .addLast("frameDecoder",new ProtobufVarint32FrameDecoder())
-                                .addLast("protobufDecoder", new ProtobufDecoder(Internal.InternalRequest.getDefaultInstance()))
-                                //encode
-                                .addLast("frameEncoder",new ProtobufVarint32LengthFieldPrepender())
-                                .addLast("protobufEncoder", new ProtobufEncoder())
-                                .addLast("rpcHandler", internalRpcHandler)
-                        ;
-                        if(getChannelHandlers() != null){
-                            for (ChannelHandler handler : getChannelHandlers()) {
-                                ch.pipeline().addLast("handler-" + handler.getClass().getSimpleName(),handler);
-                            }
+                        ChannelPipeline p = ch.pipeline();
+                        p.addFirst("capmanConnectionHandler", new ConnectionHandler());
+                        //decode
+                        p.addLast("frameDecoder",new ProtobufVarint32FrameDecoder());
+                        p.addLast("protobufDecoder", new ProtobufDecoder(Internal.InternalRequest.getDefaultInstance()));
+                        //encode
+                        p.addLast("frameEncoder",new ProtobufVarint32LengthFieldPrepender());
+                        p.addLast("protobufEncoder", new ProtobufEncoder());
+
+                        if(config.getClientIdleSeconds() > 0){
+                            p.addLast("idleTimeoutHandler", new IdleStateHandler(config.getClientIdleSeconds(), 0,0 ));
                         }
+
+                        p.addLast("capmanServiceDispatcher", new InternalDispatcher(
+                                getProcessorFactory(),
+                                config.getExecutor(),
+                                getTimer()==null?App.getInstance().getTimer():getTimer(),
+                                config.getTaskTimeoutMillis(),
+                                config.getQueueTimeoutMillis()
+                        ));
                     }
                 })
                 .option(ChannelOption.SO_KEEPALIVE, config.isSockKeepAlive())//server socket
@@ -95,6 +134,10 @@ public abstract class AbstractService implements Service {
                 .childOption(ChannelOption.SO_KEEPALIVE, config.isSockKeepAlive())//incoming connections
                 .childOption(ChannelOption.TCP_NODELAY, config.isSockTcpNoDelay())//incoming connections
         ;
+
+        if(config.getLogLevel() != null){
+            bootstrap.handler(new LoggingHandler("logHandler",getLogLevel(config.getLogLevel())));
+        }
         serveThread = new Thread(new Runnable() {
             public void run() {
                 try {
@@ -105,14 +148,24 @@ public abstract class AbstractService implements Service {
                     e.printStackTrace();
                 }
             }
-        }, "Service-Thread-" + this.getClass().getSimpleName());
+        }, "Capman-Service-Thread-" + this.getClass().getSimpleName());
         serveThread.start();
         isOpen = true;
     }
 
+    public Thread getServeThread() {
+        return serveThread;
+    }
+
     public void close() {
         try {
-            channelFuture.channel().closeFuture().sync();
+            channelFuture.channel().closeFuture()
+                    .addListener(new ChannelFutureListener() {
+                        public void operationComplete(ChannelFuture future) throws Exception {
+                            System.err.println("Service Stopped: " + config.getURI());
+                        }
+                    })
+                    .sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -3,7 +3,12 @@ package io.capman.app;
 import io.capman.client.Client;
 import io.capman.service.Service;
 import io.netty.channel.EventLoopGroup;
+import io.netty.channel.group.ChannelGroup;
+import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.util.HashedWheelTimer;
+import io.netty.util.Timer;
+import io.netty.util.concurrent.GlobalEventExecutor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +23,7 @@ public class App {
     private EventLoopGroup bossGroup;
     private List<Client> clientList;
     private List<Service> serviceList;
+    private Timer timer;
     private App(){}
     private static final App instance = new App();
     private boolean built = false;
@@ -37,8 +43,14 @@ public class App {
         bossGroup.shutdownGracefully();
     }
 
+    public Timer getTimer() {
+        return timer;
+    }
 
     public void start(){
+
+//        final ChannelGroup channels =
+//                new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
         for (Client client : clientList) {
             client.open();
@@ -78,6 +90,7 @@ public class App {
 
         private EventLoopGroup workerGroup;
         private EventLoopGroup bossGroup;
+        private Timer timer;
         private List<Client> clientList = new ArrayList<Client>();
         private List<Service> serviceList = new ArrayList<Service>(2);
 
@@ -89,6 +102,11 @@ public class App {
 
         public Builder setBossGroup(EventLoopGroup bossGroup) {
             this.bossGroup = bossGroup;
+            return this;
+        }
+
+        public Builder setTimer(Timer timer){
+            this.timer = timer;
             return this;
         }
 
@@ -114,6 +132,10 @@ public class App {
             if(bossGroup == null){
                 bossGroup = new NioEventLoopGroup();
             }
+            if(timer == null){
+                timer = new HashedWheelTimer();
+            }
+            instance.timer = timer;
             instance.bossGroup = bossGroup;
             instance.clientList = clientList;
             instance.serviceList = serviceList;

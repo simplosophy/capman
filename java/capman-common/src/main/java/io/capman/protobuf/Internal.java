@@ -14,35 +14,59 @@ public final class Internal {
   public enum EnumInternalRet
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <code>EnumInternalRet_INTERNAL_OVER_LOADED = -9;</code>
+     *
+     * <pre>
+     *load is too high
+     * </pre>
+     */
+    EnumInternalRet_INTERNAL_OVER_LOADED(0, -9),
+    /**
+     * <code>EnumInternalRet_INTERNAL_TASK_TIMEOUT = -8;</code>
+     */
+    EnumInternalRet_INTERNAL_TASK_TIMEOUT(1, -8),
+    /**
+     * <code>EnumInternalRet_INTERNAL_QUEUE_TIMEOUT = -7;</code>
+     */
+    EnumInternalRet_INTERNAL_QUEUE_TIMEOUT(2, -7),
+    /**
      * <code>EnumInternalRet_INTERNAL_ERROR = -6;</code>
      */
-    EnumInternalRet_INTERNAL_ERROR(0, -6),
+    EnumInternalRet_INTERNAL_ERROR(3, -6),
     /**
      * <code>EnumInternalRet_METHOD_NOT_FOUND = -5;</code>
      */
-    EnumInternalRet_METHOD_NOT_FOUND(1, -5),
+    EnumInternalRet_METHOD_NOT_FOUND(4, -5),
     /**
      * <code>EnumInternalRet_PARAMETER_EXCEPTION = -4;</code>
      */
-    EnumInternalRet_PARAMETER_EXCEPTION(2, -4),
-    /**
-     * <code>EnumInternalRet_TIMEOUT_EXCEPTION = -3;</code>
-     */
-    EnumInternalRet_TIMEOUT_EXCEPTION(3, -3),
-    /**
-     * <code>EnumInternalRet_NETWORK_EXCEPTION = -2;</code>
-     */
-    EnumInternalRet_NETWORK_EXCEPTION(4, -2),
+    EnumInternalRet_PARAMETER_EXCEPTION(5, -4),
     /**
      * <code>EnumInternalRet_BIZ_ERROR = -1;</code>
      */
-    EnumInternalRet_BIZ_ERROR(5, -1),
+    EnumInternalRet_BIZ_ERROR(6, -1),
     /**
      * <code>EnumInternalRet_OK = 0;</code>
      */
-    EnumInternalRet_OK(6, 0),
+    EnumInternalRet_OK(7, 0),
     ;
 
+    /**
+     * <code>EnumInternalRet_INTERNAL_OVER_LOADED = -9;</code>
+     *
+     * <pre>
+     *load is too high
+     * </pre>
+     */
+    public static final int EnumInternalRet_INTERNAL_OVER_LOADED_VALUE = -9;
+    /**
+     * <code>EnumInternalRet_INTERNAL_TASK_TIMEOUT = -8;</code>
+     */
+    public static final int EnumInternalRet_INTERNAL_TASK_TIMEOUT_VALUE = -8;
+    /**
+     * <code>EnumInternalRet_INTERNAL_QUEUE_TIMEOUT = -7;</code>
+     */
+    public static final int EnumInternalRet_INTERNAL_QUEUE_TIMEOUT_VALUE = -7;
     /**
      * <code>EnumInternalRet_INTERNAL_ERROR = -6;</code>
      */
@@ -55,14 +79,6 @@ public final class Internal {
      * <code>EnumInternalRet_PARAMETER_EXCEPTION = -4;</code>
      */
     public static final int EnumInternalRet_PARAMETER_EXCEPTION_VALUE = -4;
-    /**
-     * <code>EnumInternalRet_TIMEOUT_EXCEPTION = -3;</code>
-     */
-    public static final int EnumInternalRet_TIMEOUT_EXCEPTION_VALUE = -3;
-    /**
-     * <code>EnumInternalRet_NETWORK_EXCEPTION = -2;</code>
-     */
-    public static final int EnumInternalRet_NETWORK_EXCEPTION_VALUE = -2;
     /**
      * <code>EnumInternalRet_BIZ_ERROR = -1;</code>
      */
@@ -77,11 +93,12 @@ public final class Internal {
 
     public static EnumInternalRet valueOf(int value) {
       switch (value) {
+        case -9: return EnumInternalRet_INTERNAL_OVER_LOADED;
+        case -8: return EnumInternalRet_INTERNAL_TASK_TIMEOUT;
+        case -7: return EnumInternalRet_INTERNAL_QUEUE_TIMEOUT;
         case -6: return EnumInternalRet_INTERNAL_ERROR;
         case -5: return EnumInternalRet_METHOD_NOT_FOUND;
         case -4: return EnumInternalRet_PARAMETER_EXCEPTION;
-        case -3: return EnumInternalRet_TIMEOUT_EXCEPTION;
-        case -2: return EnumInternalRet_NETWORK_EXCEPTION;
         case -1: return EnumInternalRet_BIZ_ERROR;
         case 0: return EnumInternalRet_OK;
         default: return null;
@@ -149,25 +166,34 @@ public final class Internal {
     int getUin();
 
     /**
-     * <code>required string method = 2;</code>
+     * <code>required int32 seq = 2;</code>
+     */
+    boolean hasSeq();
+    /**
+     * <code>required int32 seq = 2;</code>
+     */
+    int getSeq();
+
+    /**
+     * <code>required string method = 3;</code>
      */
     boolean hasMethod();
     /**
-     * <code>required string method = 2;</code>
+     * <code>required string method = 3;</code>
      */
     java.lang.String getMethod();
     /**
-     * <code>required string method = 2;</code>
+     * <code>required string method = 3;</code>
      */
     com.google.protobuf.ByteString
         getMethodBytes();
 
     /**
-     * <code>required bytes reqData = 3;</code>
+     * <code>required bytes reqData = 4;</code>
      */
     boolean hasReqData();
     /**
-     * <code>required bytes reqData = 3;</code>
+     * <code>required bytes reqData = 4;</code>
      */
     com.google.protobuf.ByteString getReqData();
   }
@@ -228,14 +254,19 @@ public final class Internal {
               uin_ = input.readInt32();
               break;
             }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 16: {
               bitField0_ |= 0x00000002;
-              method_ = bs;
+              seq_ = input.readInt32();
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
+              method_ = bs;
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
               reqData_ = input.readBytes();
               break;
             }
@@ -294,16 +325,31 @@ public final class Internal {
       return uin_;
     }
 
-    public static final int METHOD_FIELD_NUMBER = 2;
-    private java.lang.Object method_;
+    public static final int SEQ_FIELD_NUMBER = 2;
+    private int seq_;
     /**
-     * <code>required string method = 2;</code>
+     * <code>required int32 seq = 2;</code>
      */
-    public boolean hasMethod() {
+    public boolean hasSeq() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string method = 2;</code>
+     * <code>required int32 seq = 2;</code>
+     */
+    public int getSeq() {
+      return seq_;
+    }
+
+    public static final int METHOD_FIELD_NUMBER = 3;
+    private java.lang.Object method_;
+    /**
+     * <code>required string method = 3;</code>
+     */
+    public boolean hasMethod() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string method = 3;</code>
      */
     public java.lang.String getMethod() {
       java.lang.Object ref = method_;
@@ -320,7 +366,7 @@ public final class Internal {
       }
     }
     /**
-     * <code>required string method = 2;</code>
+     * <code>required string method = 3;</code>
      */
     public com.google.protobuf.ByteString
         getMethodBytes() {
@@ -336,16 +382,16 @@ public final class Internal {
       }
     }
 
-    public static final int REQDATA_FIELD_NUMBER = 3;
+    public static final int REQDATA_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString reqData_;
     /**
-     * <code>required bytes reqData = 3;</code>
+     * <code>required bytes reqData = 4;</code>
      */
     public boolean hasReqData() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required bytes reqData = 3;</code>
+     * <code>required bytes reqData = 4;</code>
      */
     public com.google.protobuf.ByteString getReqData() {
       return reqData_;
@@ -353,6 +399,7 @@ public final class Internal {
 
     private void initFields() {
       uin_ = 0;
+      seq_ = 0;
       method_ = "";
       reqData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -363,6 +410,10 @@ public final class Internal {
       if (isInitialized == 0) return false;
 
       if (!hasUin()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSeq()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -385,10 +436,13 @@ public final class Internal {
         output.writeInt32(1, uin_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getMethodBytes());
+        output.writeInt32(2, seq_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, reqData_);
+        output.writeBytes(3, getMethodBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, reqData_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -405,11 +459,15 @@ public final class Internal {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getMethodBytes());
+          .computeInt32Size(2, seq_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, reqData_);
+          .computeBytesSize(3, getMethodBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, reqData_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -530,10 +588,12 @@ public final class Internal {
         super.clear();
         uin_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        method_ = "";
+        seq_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        reqData_ = com.google.protobuf.ByteString.EMPTY;
+        method_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        reqData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -569,9 +629,13 @@ public final class Internal {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.method_ = method_;
+        result.seq_ = seq_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
+        }
+        result.method_ = method_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         result.reqData_ = reqData_;
         result.bitField0_ = to_bitField0_;
@@ -593,8 +657,11 @@ public final class Internal {
         if (other.hasUin()) {
           setUin(other.getUin());
         }
+        if (other.hasSeq()) {
+          setSeq(other.getSeq());
+        }
         if (other.hasMethod()) {
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           method_ = other.method_;
           onChanged();
         }
@@ -607,6 +674,10 @@ public final class Internal {
 
       public final boolean isInitialized() {
         if (!hasUin()) {
+          
+          return false;
+        }
+        if (!hasSeq()) {
           
           return false;
         }
@@ -672,15 +743,47 @@ public final class Internal {
         return this;
       }
 
-      private java.lang.Object method_ = "";
+      private int seq_ ;
       /**
-       * <code>required string method = 2;</code>
+       * <code>required int32 seq = 2;</code>
        */
-      public boolean hasMethod() {
+      public boolean hasSeq() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string method = 2;</code>
+       * <code>required int32 seq = 2;</code>
+       */
+      public int getSeq() {
+        return seq_;
+      }
+      /**
+       * <code>required int32 seq = 2;</code>
+       */
+      public Builder setSeq(int value) {
+        bitField0_ |= 0x00000002;
+        seq_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 seq = 2;</code>
+       */
+      public Builder clearSeq() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        seq_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object method_ = "";
+      /**
+       * <code>required string method = 3;</code>
+       */
+      public boolean hasMethod() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string method = 3;</code>
        */
       public java.lang.String getMethod() {
         java.lang.Object ref = method_;
@@ -697,7 +800,7 @@ public final class Internal {
         }
       }
       /**
-       * <code>required string method = 2;</code>
+       * <code>required string method = 3;</code>
        */
       public com.google.protobuf.ByteString
           getMethodBytes() {
@@ -713,36 +816,36 @@ public final class Internal {
         }
       }
       /**
-       * <code>required string method = 2;</code>
+       * <code>required string method = 3;</code>
        */
       public Builder setMethod(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         method_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string method = 2;</code>
+       * <code>required string method = 3;</code>
        */
       public Builder clearMethod() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         method_ = getDefaultInstance().getMethod();
         onChanged();
         return this;
       }
       /**
-       * <code>required string method = 2;</code>
+       * <code>required string method = 3;</code>
        */
       public Builder setMethodBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         method_ = value;
         onChanged();
         return this;
@@ -750,34 +853,34 @@ public final class Internal {
 
       private com.google.protobuf.ByteString reqData_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required bytes reqData = 3;</code>
+       * <code>required bytes reqData = 4;</code>
        */
       public boolean hasReqData() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required bytes reqData = 3;</code>
+       * <code>required bytes reqData = 4;</code>
        */
       public com.google.protobuf.ByteString getReqData() {
         return reqData_;
       }
       /**
-       * <code>required bytes reqData = 3;</code>
+       * <code>required bytes reqData = 4;</code>
        */
       public Builder setReqData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         reqData_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bytes reqData = 3;</code>
+       * <code>required bytes reqData = 4;</code>
        */
       public Builder clearReqData() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         reqData_ = getDefaultInstance().getReqData();
         onChanged();
         return this;
@@ -808,24 +911,33 @@ public final class Internal {
     int getRet();
 
     /**
-     * <code>required bytes respData = 2;</code>
+     * <code>required int32 seq = 2;</code>
+     */
+    boolean hasSeq();
+    /**
+     * <code>required int32 seq = 2;</code>
+     */
+    int getSeq();
+
+    /**
+     * <code>optional bytes respData = 3;</code>
      */
     boolean hasRespData();
     /**
-     * <code>required bytes respData = 2;</code>
+     * <code>optional bytes respData = 3;</code>
      */
     com.google.protobuf.ByteString getRespData();
 
     /**
-     * <code>optional string msg = 3;</code>
+     * <code>optional string msg = 4;</code>
      */
     boolean hasMsg();
     /**
-     * <code>optional string msg = 3;</code>
+     * <code>optional string msg = 4;</code>
      */
     java.lang.String getMsg();
     /**
-     * <code>optional string msg = 3;</code>
+     * <code>optional string msg = 4;</code>
      */
     com.google.protobuf.ByteString
         getMsgBytes();
@@ -887,14 +999,19 @@ public final class Internal {
               ret_ = input.readInt32();
               break;
             }
-            case 18: {
+            case 16: {
               bitField0_ |= 0x00000002;
-              respData_ = input.readBytes();
+              seq_ = input.readInt32();
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
+              respData_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
               msg_ = bs;
               break;
             }
@@ -953,31 +1070,46 @@ public final class Internal {
       return ret_;
     }
 
-    public static final int RESPDATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString respData_;
+    public static final int SEQ_FIELD_NUMBER = 2;
+    private int seq_;
     /**
-     * <code>required bytes respData = 2;</code>
+     * <code>required int32 seq = 2;</code>
      */
-    public boolean hasRespData() {
+    public boolean hasSeq() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required bytes respData = 2;</code>
+     * <code>required int32 seq = 2;</code>
+     */
+    public int getSeq() {
+      return seq_;
+    }
+
+    public static final int RESPDATA_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString respData_;
+    /**
+     * <code>optional bytes respData = 3;</code>
+     */
+    public boolean hasRespData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bytes respData = 3;</code>
      */
     public com.google.protobuf.ByteString getRespData() {
       return respData_;
     }
 
-    public static final int MSG_FIELD_NUMBER = 3;
+    public static final int MSG_FIELD_NUMBER = 4;
     private java.lang.Object msg_;
     /**
-     * <code>optional string msg = 3;</code>
+     * <code>optional string msg = 4;</code>
      */
     public boolean hasMsg() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional string msg = 3;</code>
+     * <code>optional string msg = 4;</code>
      */
     public java.lang.String getMsg() {
       java.lang.Object ref = msg_;
@@ -994,7 +1126,7 @@ public final class Internal {
       }
     }
     /**
-     * <code>optional string msg = 3;</code>
+     * <code>optional string msg = 4;</code>
      */
     public com.google.protobuf.ByteString
         getMsgBytes() {
@@ -1012,6 +1144,7 @@ public final class Internal {
 
     private void initFields() {
       ret_ = 0;
+      seq_ = 0;
       respData_ = com.google.protobuf.ByteString.EMPTY;
       msg_ = "";
     }
@@ -1025,7 +1158,7 @@ public final class Internal {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasRespData()) {
+      if (!hasSeq()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1040,10 +1173,13 @@ public final class Internal {
         output.writeInt32(1, ret_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, respData_);
+        output.writeInt32(2, seq_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getMsgBytes());
+        output.writeBytes(3, respData_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getMsgBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -1060,11 +1196,15 @@ public final class Internal {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, respData_);
+          .computeInt32Size(2, seq_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getMsgBytes());
+          .computeBytesSize(3, respData_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getMsgBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1185,10 +1325,12 @@ public final class Internal {
         super.clear();
         ret_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        respData_ = com.google.protobuf.ByteString.EMPTY;
+        seq_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        msg_ = "";
+        respData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        msg_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1224,9 +1366,13 @@ public final class Internal {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.respData_ = respData_;
+        result.seq_ = seq_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
+        }
+        result.respData_ = respData_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         result.msg_ = msg_;
         result.bitField0_ = to_bitField0_;
@@ -1248,11 +1394,14 @@ public final class Internal {
         if (other.hasRet()) {
           setRet(other.getRet());
         }
+        if (other.hasSeq()) {
+          setSeq(other.getSeq());
+        }
         if (other.hasRespData()) {
           setRespData(other.getRespData());
         }
         if (other.hasMsg()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           msg_ = other.msg_;
           onChanged();
         }
@@ -1265,7 +1414,7 @@ public final class Internal {
           
           return false;
         }
-        if (!hasRespData()) {
+        if (!hasSeq()) {
           
           return false;
         }
@@ -1323,36 +1472,68 @@ public final class Internal {
         return this;
       }
 
-      private com.google.protobuf.ByteString respData_ = com.google.protobuf.ByteString.EMPTY;
+      private int seq_ ;
       /**
-       * <code>required bytes respData = 2;</code>
+       * <code>required int32 seq = 2;</code>
        */
-      public boolean hasRespData() {
+      public boolean hasSeq() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required bytes respData = 2;</code>
+       * <code>required int32 seq = 2;</code>
+       */
+      public int getSeq() {
+        return seq_;
+      }
+      /**
+       * <code>required int32 seq = 2;</code>
+       */
+      public Builder setSeq(int value) {
+        bitField0_ |= 0x00000002;
+        seq_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 seq = 2;</code>
+       */
+      public Builder clearSeq() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        seq_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString respData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes respData = 3;</code>
+       */
+      public boolean hasRespData() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional bytes respData = 3;</code>
        */
       public com.google.protobuf.ByteString getRespData() {
         return respData_;
       }
       /**
-       * <code>required bytes respData = 2;</code>
+       * <code>optional bytes respData = 3;</code>
        */
       public Builder setRespData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         respData_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bytes respData = 2;</code>
+       * <code>optional bytes respData = 3;</code>
        */
       public Builder clearRespData() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         respData_ = getDefaultInstance().getRespData();
         onChanged();
         return this;
@@ -1360,13 +1541,13 @@ public final class Internal {
 
       private java.lang.Object msg_ = "";
       /**
-       * <code>optional string msg = 3;</code>
+       * <code>optional string msg = 4;</code>
        */
       public boolean hasMsg() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional string msg = 3;</code>
+       * <code>optional string msg = 4;</code>
        */
       public java.lang.String getMsg() {
         java.lang.Object ref = msg_;
@@ -1383,7 +1564,7 @@ public final class Internal {
         }
       }
       /**
-       * <code>optional string msg = 3;</code>
+       * <code>optional string msg = 4;</code>
        */
       public com.google.protobuf.ByteString
           getMsgBytes() {
@@ -1399,36 +1580,36 @@ public final class Internal {
         }
       }
       /**
-       * <code>optional string msg = 3;</code>
+       * <code>optional string msg = 4;</code>
        */
       public Builder setMsg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         msg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string msg = 3;</code>
+       * <code>optional string msg = 4;</code>
        */
       public Builder clearMsg() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         msg_ = getDefaultInstance().getMsg();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string msg = 3;</code>
+       * <code>optional string msg = 4;</code>
        */
       public Builder setMsgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         msg_ = value;
         onChanged();
         return this;
@@ -2015,6 +2196,1378 @@ public final class Internal {
     // @@protoc_insertion_point(class_scope:capman.TestMessage)
   }
 
+  public interface TestRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:capman.TestRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 f1 = 1;</code>
+     */
+    boolean hasF1();
+    /**
+     * <code>required int32 f1 = 1;</code>
+     */
+    int getF1();
+
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    boolean hasF2();
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    java.lang.String getF2();
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getF2Bytes();
+  }
+  /**
+   * Protobuf type {@code capman.TestRequest}
+   */
+  public static final class TestRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:capman.TestRequest)
+      TestRequestOrBuilder {
+    // Use TestRequest.newBuilder() to construct.
+    private TestRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TestRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TestRequest defaultInstance;
+    public static TestRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TestRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TestRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              f1_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              f2_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.capman.protobuf.Internal.internal_static_capman_TestRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.capman.protobuf.Internal.internal_static_capman_TestRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.capman.protobuf.Internal.TestRequest.class, io.capman.protobuf.Internal.TestRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TestRequest> PARSER =
+        new com.google.protobuf.AbstractParser<TestRequest>() {
+      public TestRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TestRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TestRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int F1_FIELD_NUMBER = 1;
+    private int f1_;
+    /**
+     * <code>required int32 f1 = 1;</code>
+     */
+    public boolean hasF1() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 f1 = 1;</code>
+     */
+    public int getF1() {
+      return f1_;
+    }
+
+    public static final int F2_FIELD_NUMBER = 2;
+    private java.lang.Object f2_;
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    public boolean hasF2() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    public java.lang.String getF2() {
+      java.lang.Object ref = f2_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          f2_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getF2Bytes() {
+      java.lang.Object ref = f2_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        f2_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      f1_ = 0;
+      f2_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasF1()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasF2()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, f1_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getF2Bytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, f1_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getF2Bytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static io.capman.protobuf.Internal.TestRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.protobuf.Internal.TestRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(io.capman.protobuf.Internal.TestRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code capman.TestRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:capman.TestRequest)
+        io.capman.protobuf.Internal.TestRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.capman.protobuf.Internal.internal_static_capman_TestRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.capman.protobuf.Internal.internal_static_capman_TestRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.capman.protobuf.Internal.TestRequest.class, io.capman.protobuf.Internal.TestRequest.Builder.class);
+      }
+
+      // Construct using io.capman.protobuf.Internal.TestRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        f1_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        f2_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.capman.protobuf.Internal.internal_static_capman_TestRequest_descriptor;
+      }
+
+      public io.capman.protobuf.Internal.TestRequest getDefaultInstanceForType() {
+        return io.capman.protobuf.Internal.TestRequest.getDefaultInstance();
+      }
+
+      public io.capman.protobuf.Internal.TestRequest build() {
+        io.capman.protobuf.Internal.TestRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public io.capman.protobuf.Internal.TestRequest buildPartial() {
+        io.capman.protobuf.Internal.TestRequest result = new io.capman.protobuf.Internal.TestRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.f1_ = f1_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.f2_ = f2_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.capman.protobuf.Internal.TestRequest) {
+          return mergeFrom((io.capman.protobuf.Internal.TestRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.capman.protobuf.Internal.TestRequest other) {
+        if (other == io.capman.protobuf.Internal.TestRequest.getDefaultInstance()) return this;
+        if (other.hasF1()) {
+          setF1(other.getF1());
+        }
+        if (other.hasF2()) {
+          bitField0_ |= 0x00000002;
+          f2_ = other.f2_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasF1()) {
+          
+          return false;
+        }
+        if (!hasF2()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.capman.protobuf.Internal.TestRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.capman.protobuf.Internal.TestRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int f1_ ;
+      /**
+       * <code>required int32 f1 = 1;</code>
+       */
+      public boolean hasF1() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 f1 = 1;</code>
+       */
+      public int getF1() {
+        return f1_;
+      }
+      /**
+       * <code>required int32 f1 = 1;</code>
+       */
+      public Builder setF1(int value) {
+        bitField0_ |= 0x00000001;
+        f1_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 f1 = 1;</code>
+       */
+      public Builder clearF1() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        f1_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object f2_ = "";
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public boolean hasF2() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public java.lang.String getF2() {
+        java.lang.Object ref = f2_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            f2_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getF2Bytes() {
+        java.lang.Object ref = f2_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          f2_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public Builder setF2(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        f2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public Builder clearF2() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        f2_ = getDefaultInstance().getF2();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public Builder setF2Bytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        f2_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:capman.TestRequest)
+    }
+
+    static {
+      defaultInstance = new TestRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:capman.TestRequest)
+  }
+
+  public interface TestResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:capman.TestResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 f1 = 1;</code>
+     */
+    boolean hasF1();
+    /**
+     * <code>required int32 f1 = 1;</code>
+     */
+    int getF1();
+
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    boolean hasF2();
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    java.lang.String getF2();
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getF2Bytes();
+  }
+  /**
+   * Protobuf type {@code capman.TestResponse}
+   */
+  public static final class TestResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:capman.TestResponse)
+      TestResponseOrBuilder {
+    // Use TestResponse.newBuilder() to construct.
+    private TestResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TestResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TestResponse defaultInstance;
+    public static TestResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TestResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TestResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              f1_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              f2_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.capman.protobuf.Internal.internal_static_capman_TestResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.capman.protobuf.Internal.internal_static_capman_TestResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.capman.protobuf.Internal.TestResponse.class, io.capman.protobuf.Internal.TestResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TestResponse> PARSER =
+        new com.google.protobuf.AbstractParser<TestResponse>() {
+      public TestResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TestResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TestResponse> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int F1_FIELD_NUMBER = 1;
+    private int f1_;
+    /**
+     * <code>required int32 f1 = 1;</code>
+     */
+    public boolean hasF1() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 f1 = 1;</code>
+     */
+    public int getF1() {
+      return f1_;
+    }
+
+    public static final int F2_FIELD_NUMBER = 2;
+    private java.lang.Object f2_;
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    public boolean hasF2() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    public java.lang.String getF2() {
+      java.lang.Object ref = f2_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          f2_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string f2 = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getF2Bytes() {
+      java.lang.Object ref = f2_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        f2_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      f1_ = 0;
+      f2_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasF1()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasF2()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, f1_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getF2Bytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, f1_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getF2Bytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static io.capman.protobuf.Internal.TestResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.capman.protobuf.Internal.TestResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(io.capman.protobuf.Internal.TestResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code capman.TestResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:capman.TestResponse)
+        io.capman.protobuf.Internal.TestResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.capman.protobuf.Internal.internal_static_capman_TestResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.capman.protobuf.Internal.internal_static_capman_TestResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.capman.protobuf.Internal.TestResponse.class, io.capman.protobuf.Internal.TestResponse.Builder.class);
+      }
+
+      // Construct using io.capman.protobuf.Internal.TestResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        f1_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        f2_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.capman.protobuf.Internal.internal_static_capman_TestResponse_descriptor;
+      }
+
+      public io.capman.protobuf.Internal.TestResponse getDefaultInstanceForType() {
+        return io.capman.protobuf.Internal.TestResponse.getDefaultInstance();
+      }
+
+      public io.capman.protobuf.Internal.TestResponse build() {
+        io.capman.protobuf.Internal.TestResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public io.capman.protobuf.Internal.TestResponse buildPartial() {
+        io.capman.protobuf.Internal.TestResponse result = new io.capman.protobuf.Internal.TestResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.f1_ = f1_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.f2_ = f2_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.capman.protobuf.Internal.TestResponse) {
+          return mergeFrom((io.capman.protobuf.Internal.TestResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.capman.protobuf.Internal.TestResponse other) {
+        if (other == io.capman.protobuf.Internal.TestResponse.getDefaultInstance()) return this;
+        if (other.hasF1()) {
+          setF1(other.getF1());
+        }
+        if (other.hasF2()) {
+          bitField0_ |= 0x00000002;
+          f2_ = other.f2_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasF1()) {
+          
+          return false;
+        }
+        if (!hasF2()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.capman.protobuf.Internal.TestResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.capman.protobuf.Internal.TestResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int f1_ ;
+      /**
+       * <code>required int32 f1 = 1;</code>
+       */
+      public boolean hasF1() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 f1 = 1;</code>
+       */
+      public int getF1() {
+        return f1_;
+      }
+      /**
+       * <code>required int32 f1 = 1;</code>
+       */
+      public Builder setF1(int value) {
+        bitField0_ |= 0x00000001;
+        f1_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 f1 = 1;</code>
+       */
+      public Builder clearF1() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        f1_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object f2_ = "";
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public boolean hasF2() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public java.lang.String getF2() {
+        java.lang.Object ref = f2_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            f2_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getF2Bytes() {
+        java.lang.Object ref = f2_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          f2_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public Builder setF2(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        f2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public Builder clearF2() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        f2_ = getDefaultInstance().getF2();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string f2 = 2;</code>
+       */
+      public Builder setF2Bytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        f2_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:capman.TestResponse)
+    }
+
+    static {
+      defaultInstance = new TestResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:capman.TestResponse)
+  }
+
+  /**
+   * Protobuf service {@code capman.TestService}
+   */
+  public static abstract class TestService
+      implements com.google.protobuf.Service {
+    protected TestService() {}
+
+    public interface Interface {
+      /**
+       * <code>rpc sayHello(.capman.TestRequest) returns (.capman.TestResponse);</code>
+       */
+      public abstract void sayHello(
+          com.google.protobuf.RpcController controller,
+          io.capman.protobuf.Internal.TestRequest request,
+          com.google.protobuf.RpcCallback<io.capman.protobuf.Internal.TestResponse> done);
+
+    }
+
+    public static com.google.protobuf.Service newReflectiveService(
+        final Interface impl) {
+      return new TestService() {
+        @java.lang.Override
+        public  void sayHello(
+            com.google.protobuf.RpcController controller,
+            io.capman.protobuf.Internal.TestRequest request,
+            com.google.protobuf.RpcCallback<io.capman.protobuf.Internal.TestResponse> done) {
+          impl.sayHello(controller, request, done);
+        }
+
+      };
+    }
+
+    public static com.google.protobuf.BlockingService
+        newReflectiveBlockingService(final BlockingInterface impl) {
+      return new com.google.protobuf.BlockingService() {
+        public final com.google.protobuf.Descriptors.ServiceDescriptor
+            getDescriptorForType() {
+          return getDescriptor();
+        }
+
+        public final com.google.protobuf.Message callBlockingMethod(
+            com.google.protobuf.Descriptors.MethodDescriptor method,
+            com.google.protobuf.RpcController controller,
+            com.google.protobuf.Message request)
+            throws com.google.protobuf.ServiceException {
+          if (method.getService() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+              "Service.callBlockingMethod() given method descriptor for " +
+              "wrong service type.");
+          }
+          switch(method.getIndex()) {
+            case 0:
+              return impl.sayHello(controller, (io.capman.protobuf.Internal.TestRequest)request);
+            default:
+              throw new java.lang.AssertionError("Can't get here.");
+          }
+        }
+
+        public final com.google.protobuf.Message
+            getRequestPrototype(
+            com.google.protobuf.Descriptors.MethodDescriptor method) {
+          if (method.getService() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+              "Service.getRequestPrototype() given method " +
+              "descriptor for wrong service type.");
+          }
+          switch(method.getIndex()) {
+            case 0:
+              return io.capman.protobuf.Internal.TestRequest.getDefaultInstance();
+            default:
+              throw new java.lang.AssertionError("Can't get here.");
+          }
+        }
+
+        public final com.google.protobuf.Message
+            getResponsePrototype(
+            com.google.protobuf.Descriptors.MethodDescriptor method) {
+          if (method.getService() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+              "Service.getResponsePrototype() given method " +
+              "descriptor for wrong service type.");
+          }
+          switch(method.getIndex()) {
+            case 0:
+              return io.capman.protobuf.Internal.TestResponse.getDefaultInstance();
+            default:
+              throw new java.lang.AssertionError("Can't get here.");
+          }
+        }
+
+      };
+    }
+
+    /**
+     * <code>rpc sayHello(.capman.TestRequest) returns (.capman.TestResponse);</code>
+     */
+    public abstract void sayHello(
+        com.google.protobuf.RpcController controller,
+        io.capman.protobuf.Internal.TestRequest request,
+        com.google.protobuf.RpcCallback<io.capman.protobuf.Internal.TestResponse> done);
+
+    public static final
+        com.google.protobuf.Descriptors.ServiceDescriptor
+        getDescriptor() {
+      return io.capman.protobuf.Internal.getDescriptor().getServices().get(0);
+    }
+    public final com.google.protobuf.Descriptors.ServiceDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+
+    public final void callMethod(
+        com.google.protobuf.Descriptors.MethodDescriptor method,
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Message request,
+        com.google.protobuf.RpcCallback<
+          com.google.protobuf.Message> done) {
+      if (method.getService() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "Service.callMethod() given method descriptor for wrong " +
+          "service type.");
+      }
+      switch(method.getIndex()) {
+        case 0:
+          this.sayHello(controller, (io.capman.protobuf.Internal.TestRequest)request,
+            com.google.protobuf.RpcUtil.<io.capman.protobuf.Internal.TestResponse>specializeCallback(
+              done));
+          return;
+        default:
+          throw new java.lang.AssertionError("Can't get here.");
+      }
+    }
+
+    public final com.google.protobuf.Message
+        getRequestPrototype(
+        com.google.protobuf.Descriptors.MethodDescriptor method) {
+      if (method.getService() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "Service.getRequestPrototype() given method " +
+          "descriptor for wrong service type.");
+      }
+      switch(method.getIndex()) {
+        case 0:
+          return io.capman.protobuf.Internal.TestRequest.getDefaultInstance();
+        default:
+          throw new java.lang.AssertionError("Can't get here.");
+      }
+    }
+
+    public final com.google.protobuf.Message
+        getResponsePrototype(
+        com.google.protobuf.Descriptors.MethodDescriptor method) {
+      if (method.getService() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "Service.getResponsePrototype() given method " +
+          "descriptor for wrong service type.");
+      }
+      switch(method.getIndex()) {
+        case 0:
+          return io.capman.protobuf.Internal.TestResponse.getDefaultInstance();
+        default:
+          throw new java.lang.AssertionError("Can't get here.");
+      }
+    }
+
+    public static Stub newStub(
+        com.google.protobuf.RpcChannel channel) {
+      return new Stub(channel);
+    }
+
+    public static final class Stub extends io.capman.protobuf.Internal.TestService implements Interface {
+      private Stub(com.google.protobuf.RpcChannel channel) {
+        this.channel = channel;
+      }
+
+      private final com.google.protobuf.RpcChannel channel;
+
+      public com.google.protobuf.RpcChannel getChannel() {
+        return channel;
+      }
+
+      public  void sayHello(
+          com.google.protobuf.RpcController controller,
+          io.capman.protobuf.Internal.TestRequest request,
+          com.google.protobuf.RpcCallback<io.capman.protobuf.Internal.TestResponse> done) {
+        channel.callMethod(
+          getDescriptor().getMethods().get(0),
+          controller,
+          request,
+          io.capman.protobuf.Internal.TestResponse.getDefaultInstance(),
+          com.google.protobuf.RpcUtil.generalizeCallback(
+            done,
+            io.capman.protobuf.Internal.TestResponse.class,
+            io.capman.protobuf.Internal.TestResponse.getDefaultInstance()));
+      }
+    }
+
+    public static BlockingInterface newBlockingStub(
+        com.google.protobuf.BlockingRpcChannel channel) {
+      return new BlockingStub(channel);
+    }
+
+    public interface BlockingInterface {
+      public io.capman.protobuf.Internal.TestResponse sayHello(
+          com.google.protobuf.RpcController controller,
+          io.capman.protobuf.Internal.TestRequest request)
+          throws com.google.protobuf.ServiceException;
+    }
+
+    private static final class BlockingStub implements BlockingInterface {
+      private BlockingStub(com.google.protobuf.BlockingRpcChannel channel) {
+        this.channel = channel;
+      }
+
+      private final com.google.protobuf.BlockingRpcChannel channel;
+
+      public io.capman.protobuf.Internal.TestResponse sayHello(
+          com.google.protobuf.RpcController controller,
+          io.capman.protobuf.Internal.TestRequest request)
+          throws com.google.protobuf.ServiceException {
+        return (io.capman.protobuf.Internal.TestResponse) channel.callBlockingMethod(
+          getDescriptor().getMethods().get(0),
+          controller,
+          request,
+          io.capman.protobuf.Internal.TestResponse.getDefaultInstance());
+      }
+
+    }
+
+    // @@protoc_insertion_point(class_scope:capman.TestService)
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_capman_InternalRequest_descriptor;
   private static
@@ -2030,6 +3583,16 @@ public final class Internal {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_capman_TestMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_capman_TestRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_capman_TestRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_capman_TestResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_capman_TestResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2039,20 +3602,27 @@ public final class Internal {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025capman/internal.proto\022\006capman\"?\n\017Inter" +
-      "nalRequest\022\013\n\003uin\030\001 \002(\005\022\016\n\006method\030\002 \002(\t\022" +
-      "\017\n\007reqData\030\003 \002(\014\">\n\020InternalResponse\022\013\n\003" +
-      "ret\030\001 \002(\005\022\020\n\010respData\030\002 \002(\014\022\013\n\003msg\030\003 \001(\t" +
-      "\"%\n\013TestMessage\022\n\n\002f1\030\001 \002(\005\022\n\n\002f2\030\002 \002(\t*" +
-      "\277\002\n\017EnumInternalRet\022+\n\036EnumInternalRet_I" +
-      "NTERNAL_ERROR\020\372\377\377\377\377\377\377\377\377\001\022-\n EnumInternal" +
-      "Ret_METHOD_NOT_FOUND\020\373\377\377\377\377\377\377\377\377\001\0220\n#EnumI" +
-      "nternalRet_PARAMETER_EXCEPTION\020\374\377\377\377\377\377\377\377\377" +
-      "\001\022.\n!EnumInternalRet_TIMEOUT_EXCEPTION\020\375",
-      "\377\377\377\377\377\377\377\377\001\022.\n!EnumInternalRet_NETWORK_EXC" +
-      "EPTION\020\376\377\377\377\377\377\377\377\377\001\022&\n\031EnumInternalRet_BIZ" +
-      "_ERROR\020\377\377\377\377\377\377\377\377\377\001\022\026\n\022EnumInternalRet_OK\020" +
-      "\000B\026\n\022io.capman.protobufH\001"
+      "\n\025capman/internal.proto\022\006capman\032\023capman/" +
+      "common.proto\"L\n\017InternalRequest\022\013\n\003uin\030\001" +
+      " \002(\005\022\013\n\003seq\030\002 \002(\005\022\016\n\006method\030\003 \002(\t\022\017\n\007req" +
+      "Data\030\004 \002(\014\"K\n\020InternalResponse\022\013\n\003ret\030\001 " +
+      "\002(\005\022\013\n\003seq\030\002 \002(\005\022\020\n\010respData\030\003 \001(\014\022\013\n\003ms" +
+      "g\030\004 \001(\t\"%\n\013TestMessage\022\n\n\002f1\030\001 \002(\005\022\n\n\002f2" +
+      "\030\002 \002(\t\"%\n\013TestRequest\022\n\n\002f1\030\001 \002(\005\022\n\n\002f2\030" +
+      "\002 \002(\t\"&\n\014TestResponse\022\n\n\002f1\030\001 \002(\005\022\n\n\002f2\030" +
+      "\002 \002(\t*\373\002\n\017EnumInternalRet\0221\n$EnumInterna" +
+      "lRet_INTERNAL_OVER_LOADED\020\367\377\377\377\377\377\377\377\377\001\0222\n%",
+      "EnumInternalRet_INTERNAL_TASK_TIMEOUT\020\370\377" +
+      "\377\377\377\377\377\377\377\001\0223\n&EnumInternalRet_INTERNAL_QUE" +
+      "UE_TIMEOUT\020\371\377\377\377\377\377\377\377\377\001\022+\n\036EnumInternalRet" +
+      "_INTERNAL_ERROR\020\372\377\377\377\377\377\377\377\377\001\022-\n EnumIntern" +
+      "alRet_METHOD_NOT_FOUND\020\373\377\377\377\377\377\377\377\377\001\0220\n#Enu" +
+      "mInternalRet_PARAMETER_EXCEPTION\020\374\377\377\377\377\377\377" +
+      "\377\377\001\022&\n\031EnumInternalRet_BIZ_ERROR\020\377\377\377\377\377\377\377" +
+      "\377\377\001\022\026\n\022EnumInternalRet_OK\020\0002[\n\013TestServi" +
+      "ce\022;\n\010sayHello\022\023.capman.TestRequest\032\024.ca" +
+      "pman.TestResponse\"\004\200\361\004\001\032\017\202\361\004\013TestService",
+      "B\027\n\022io.capman.protobuf\210\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2065,25 +3635,45 @@ public final class Internal {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          io.capman.protobuf.Common.getDescriptor(),
         }, assigner);
     internal_static_capman_InternalRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_capman_InternalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_capman_InternalRequest_descriptor,
-        new java.lang.String[] { "Uin", "Method", "ReqData", });
+        new java.lang.String[] { "Uin", "Seq", "Method", "ReqData", });
     internal_static_capman_InternalResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_capman_InternalResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_capman_InternalResponse_descriptor,
-        new java.lang.String[] { "Ret", "RespData", "Msg", });
+        new java.lang.String[] { "Ret", "Seq", "RespData", "Msg", });
     internal_static_capman_TestMessage_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_capman_TestMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_capman_TestMessage_descriptor,
         new java.lang.String[] { "F1", "F2", });
+    internal_static_capman_TestRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_capman_TestRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_capman_TestRequest_descriptor,
+        new java.lang.String[] { "F1", "F2", });
+    internal_static_capman_TestResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_capman_TestResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_capman_TestResponse_descriptor,
+        new java.lang.String[] { "F1", "F2", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(io.capman.protobuf.Common.clusterStrategy);
+    registry.add(io.capman.protobuf.Common.serviceName);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
+    io.capman.protobuf.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -6,12 +6,8 @@ import com.google.common.util.concurrent.ListenableFuture;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import io.capman.protobuf.Internal;
-import io.capman.service.RequestContext;
-import io.capman.service.RequestContexts;
-import io.capman.service.RpcMethod;
-import io.capman.service.ServiceRpcHandler;
+import io.capman.service.*;
 import io.capman.util.StringUtils;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.Timeout;
@@ -33,9 +29,9 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class InternalDispatcher extends  ChannelInboundHandlerAdapter{
 
-    Map<String, Method> rpcMethods = new HashMap<String, Method>();
-    Map<String, MessageLite> rpcRequestDefaultMsg = new HashMap<String, MessageLite>();
-    ServiceRpcHandler bizHandler;
+//    Map<String, Method> rpcMethods = new HashMap<String, Method>();
+//    Map<String, MessageLite> rpcRequestDefaultMsg = new HashMap<String, MessageLite>();
+    RpcProcessorFactory processorFactory;
     private final Executor executor;
     private final Timer taskTimeoutTimer;
     private final long taskTimeoutMillis;
@@ -43,50 +39,44 @@ public class InternalDispatcher extends  ChannelInboundHandlerAdapter{
 
 
     public InternalDispatcher(
-            ServiceRpcHandler bizHandler,
+            RpcProcessorFactory processorFactory,
             Executor executor,
             Timer taskTimeoutTimer,
             long taskTimeoutMillis,
-            long queueTimeoutMillis,
-            int queuedResponseLimit
+            long queueTimeoutMillis
             ){
-        this.bizHandler = bizHandler;
+        this.processorFactory = processorFactory;
         this.executor = executor;
         this.taskTimeoutTimer = taskTimeoutTimer;
         this.taskTimeoutMillis = taskTimeoutMillis;
         this.queueTimeoutMillis = queueTimeoutMillis;
 
-        Method[] methods = bizHandler.getClass().getMethods();
-        for (Method method : methods) {
-            RpcMethod rpcAnno = method.getAnnotation(RpcMethod.class);
-            if(rpcAnno != null){
-                String rpcName = rpcAnno.rpcName();
-                if(StringUtils.isEmpty(rpcAnno.rpcName())){
-                    rpcName = method.getName();
-                }
-                if(!MessageLite.class.isAssignableFrom( method.getReturnType())){
-                    throw new RuntimeException("RpcMethod Must Return A Protobuf Message");
-                }
-                Class[] parameterTypes = method.getParameterTypes();
-                if(parameterTypes.length != 2){
-                    throw new RuntimeException("RpcMethod Must Have 2 Parameters: (RequestContext, [Protobuf Message])");
-                }
-                if(! (RequestContext.class == (parameterTypes[0]))){
-                    throw new RuntimeException("RpcMethod Must Have 2 Parameters: (RequestContext, [Protobuf Message])");
-                }
-                if(!MessageLite.class.isAssignableFrom(parameterTypes[1])){
-                    throw new RuntimeException("RpcMethod Must Have 2 Parameters: (RequestContext, [Protobuf Message])");
-                }
 
-                rpcMethods.put(rpcName, method);
-                try {
-                    Method getDefaultInstance = parameterTypes[1].getDeclaredMethod("getDefaultInstance");
-                    rpcRequestDefaultMsg.put(rpcName, (MessageLite) getDefaultInstance.invoke(null));
-                } catch (Exception e) {
-                    throw new RuntimeException("RpcMethod Must Have 2 Parameters: (RequestContext, [Protobuf Message])");
-                }
-            }
-        }
+
+//        Method[] methods = processorFactory.getClass().getMethods();
+//        for (Method method : methods) {
+//            RpcMethod rpcAnno = method.getAnnotation(RpcMethod.class);
+//            if(rpcAnno != null){
+//                String rpcName = rpcAnno.rpcName();
+//                if(StringUtils.isEmpty(rpcAnno.rpcName())){
+//                    rpcName = method.getName();
+//                }
+//                if(!MessageLite.class.isAssignableFrom( method.getReturnType())){
+//                    throw new RuntimeException("RpcMethod Must Return A Protobuf Message");
+//                }
+//                Class[] parameterTypes = method.getParameterTypes();
+//                if(parameterTypes.length != 1){
+//                    throw new RuntimeException("RpcMethod Must Have 1 Parameters: ([Protobuf Message])");
+//                }
+//                rpcMethods.put(rpcName, method);
+//                try {//put a default message there.
+//                    Method getDefaultInstance = parameterTypes[0].getDeclaredMethod("getDefaultInstance");
+//                    rpcRequestDefaultMsg.put(rpcName, (MessageLite) getDefaultInstance.invoke(null));
+//                } catch (Exception e) {
+//                    throw new RuntimeException("RpcMethod Must Have 1 Parameters: ([Protobuf Message])");
+//                }
+//            }
+//        }
     }
 
 
@@ -101,35 +91,31 @@ public class InternalDispatcher extends  ChannelInboundHandlerAdapter{
         }
     }
 
-
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        cause.printStackTrace();
+        ctx.channel().close();
         super.exceptionCaught(ctx, cause);
     }
 
     private Internal.InternalResponse process(Internal.InternalRequest req){
         Internal.InternalResponse.Builder response = Internal.InternalResponse.newBuilder();
         response.setSeq(req.getSeq());
-        Method method = rpcMethods.get(req.getMethod());
+
+        RpcProcessor<MessageLite, MessageLite> processor = processorFactory.getProcessor(req.getMethod());
+
         int ret = 0;
-        if (method == null) {
+        if (processor == null) {
             ret = Internal.EnumInternalRet.EnumInternalRet_METHOD_NOT_FOUND_VALUE;
-            response.setMsg("RPC Method Not Found: " + req.getMethod());
+            response.setMsg("Processor for RPC Method Not Found: " + req.getMethod());
         } else {
             try {
                 //business
-                MessageLite bizRet = (MessageLite) method.invoke(
-                        bizHandler,
-                        rpcRequestDefaultMsg.get(req.getMethod()).getParserForType()
-                                .parseFrom(req.getReqData()));
+                MessageLite bizRet = processor.process(
+                        processor.getRequestDefaultInstance().getParserForType().parseFrom(req.getReqData()));
                 response.setRespData(bizRet.toByteString());
-            } catch (InvocationTargetException e) {
-                Throwable cause = e.getCause();
+            } catch (BizException e) {
                 ret = Internal.EnumInternalRet.EnumInternalRet_BIZ_ERROR_VALUE;
-                if(cause != null && cause.getMessage() != null){
-                    response.setMsg(cause.getMessage());
-                }
+                response.setMsg(e.getMessage());
             } catch (InvalidProtocolBufferException e) {
                 ret = Internal.EnumInternalRet.EnumInternalRet_PARAMETER_EXCEPTION_VALUE;
                 response.setMsg( "InvalidProtocolBufferException: " + e.getMessage());
