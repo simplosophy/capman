@@ -5,7 +5,7 @@ import java.net.SocketAddress;
 /**
  * Created by flying on 7/5/16.
  */
-public class RpcRequestContext {
+public class RequestContext {
     private int uin;
     private String method;
     private SocketAddress remoteAddress;
@@ -36,7 +36,7 @@ public class RpcRequestContext {
 
     @Override
     public String toString() {
-        return "RpcRequestContext{" +
+        return "RequestContext{" +
                 "uin=" + uin +
                 ", method='" + method + '\'' +
                 ", remoteAddress=" + remoteAddress +

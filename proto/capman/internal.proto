@@ -1,34 +1,57 @@
 package capman;
+import "capman/common.proto";
 
 option java_package="io.capman.protobuf";
+option java_generic_services = true;
 
-option optimize_for = SPEED;
+//option optimize_for = SPEED;
 //option java_outer_classname = "InternalProto";
 
 message InternalRequest{
     required int32 uin = 1;
-    required string method = 2;
-    required bytes reqData = 3;
+    required int32 seq = 2;
+    required string method = 3;
+    required bytes reqData = 4;
 }
 
 enum EnumInternalRet{
+    EnumInternalRet_INTERNAL_OVER_LOADED = -9;//load is too high
+    EnumInternalRet_INTERNAL_TASK_TIMEOUT = -8;
+    EnumInternalRet_INTERNAL_QUEUE_TIMEOUT = -7;
     EnumInternalRet_INTERNAL_ERROR = -6;
     EnumInternalRet_METHOD_NOT_FOUND = -5;
     EnumInternalRet_PARAMETER_EXCEPTION = -4;
-    EnumInternalRet_TIMEOUT_EXCEPTION = -3;
-    EnumInternalRet_NETWORK_EXCEPTION = -2;
+
     EnumInternalRet_BIZ_ERROR = -1;
     EnumInternalRet_OK = 0;
 }
 
 message InternalResponse{
     required int32 ret = 1;
-    required bytes respData = 2;
-    optional string msg = 3;
+    required int32 seq = 2;
+    optional bytes respData = 3;
+    optional string msg = 4;
 }
 
 
 message TestMessage{
     required int32 f1 = 1;
     required string f2 = 2;
+}
+message TestRequest{
+    required int32 f1 = 1;
+    required string f2 = 2;
+}
+message TestResponse{
+    required int32 f1 = 1;
+    required string f2 = 2;
+}
+
+service TestService{
+
+    option (capman.service_name) = "TestService";
+
+    rpc sayHello(TestRequest) returns (TestResponse){
+        option (capman.cluster_strategy) = EClusterStrategy_FailOver;
+    }
 }
