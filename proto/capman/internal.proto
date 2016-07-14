@@ -26,6 +26,10 @@ enum EnumInternalRet{
     EnumInternalRet_OK = 0;
 }
 
+enum EnumClientSideErrorCode{
+    EnumClientSideErrorCode_IOEXCEPTION = 1;
+}
+
 message InternalResponse{
     required int32 ret = 1;
     required int32 seq = 2;

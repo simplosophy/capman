@@ -1,7 +1,6 @@
 package io.capman.conf;
 
-import io.capman.protobuf.Common;
-import io.capman.util.CommonUtils;
+import io.capman.common.util.CommonUtils;
 import org.junit.Test;
 
 /**

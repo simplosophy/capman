@@ -152,6 +152,79 @@ public final class Internal {
     // @@protoc_insertion_point(enum_scope:capman.EnumInternalRet)
   }
 
+  /**
+   * Protobuf enum {@code capman.EnumClientSideErrorCode}
+   */
+  public enum EnumClientSideErrorCode
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>EnumClientSideErrorCode_IOEXCEPTION = 1;</code>
+     */
+    EnumClientSideErrorCode_IOEXCEPTION(0, 1),
+    ;
+
+    /**
+     * <code>EnumClientSideErrorCode_IOEXCEPTION = 1;</code>
+     */
+    public static final int EnumClientSideErrorCode_IOEXCEPTION_VALUE = 1;
+
+
+    public final int getNumber() { return value; }
+
+    public static EnumClientSideErrorCode valueOf(int value) {
+      switch (value) {
+        case 1: return EnumClientSideErrorCode_IOEXCEPTION;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<EnumClientSideErrorCode>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<EnumClientSideErrorCode>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<EnumClientSideErrorCode>() {
+            public EnumClientSideErrorCode findValueByNumber(int number) {
+              return EnumClientSideErrorCode.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.capman.protobuf.Internal.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final EnumClientSideErrorCode[] VALUES = values();
+
+    public static EnumClientSideErrorCode valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private EnumClientSideErrorCode(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:capman.EnumClientSideErrorCode)
+  }
+
   public interface InternalRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:capman.InternalRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -3619,10 +3692,12 @@ public final class Internal {
       "alRet_METHOD_NOT_FOUND\020\373\377\377\377\377\377\377\377\377\001\0220\n#Enu" +
       "mInternalRet_PARAMETER_EXCEPTION\020\374\377\377\377\377\377\377" +
       "\377\377\001\022&\n\031EnumInternalRet_BIZ_ERROR\020\377\377\377\377\377\377\377" +
-      "\377\377\001\022\026\n\022EnumInternalRet_OK\020\0002[\n\013TestServi" +
-      "ce\022;\n\010sayHello\022\023.capman.TestRequest\032\024.ca" +
-      "pman.TestResponse\"\004\200\361\004\001\032\017\202\361\004\013TestService",
-      "B\027\n\022io.capman.protobuf\210\001\001"
+      "\377\377\001\022\026\n\022EnumInternalRet_OK\020\000*B\n\027EnumClien" +
+      "tSideErrorCode\022\'\n#EnumClientSideErrorCod" +
+      "e_IOEXCEPTION\020\0012[\n\013TestService\022;\n\010sayHel",
+      "lo\022\023.capman.TestRequest\032\024.capman.TestRes" +
+      "ponse\"\004\200\361\004\001\032\017\202\361\004\013TestServiceB\027\n\022io.capma" +
+      "n.protobuf\210\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
